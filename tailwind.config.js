@@ -1,3 +1,5 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -9,6 +11,9 @@ export default {
       colors: {
         "rb-green": "#52B05E",
         "rb-dark-blue": "#1B365E",
+      },
+      fontFamily: {
+        mulish: ["Mulish", ...defaultTheme.fontFamily.sans],
       }
     },
   },

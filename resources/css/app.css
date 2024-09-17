@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.linkEffects a {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .5s;
+    padding: 2px 4px;
+    margin: 2px 0;
+}
+
+.linkEffects a:hover {
+    color: #fff;
+}
+
+.linkEffects a:hover:before {
+    bottom: 0;
+    height: 100%;
+}
+
+.linkEffects a:before {
+    content: "";
+    background-color: #52b05ebf;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0px;
+    width: 100%;
+    z-index: -1;
+    transition: all .25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
