@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/nieuws', [NewsController::class, 'index']);
+
+Route::get('/contact', fn () => view('contact'));
