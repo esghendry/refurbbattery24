@@ -1,9 +1,10 @@
 <?php
 
-use App\Livewire\Home;
-use App\Livewire\News;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', Home::class);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/nieuws', News::class);
+Route::get('/nieuws', [NewsController::class, 'index']);

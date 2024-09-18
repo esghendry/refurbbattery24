@@ -1,4 +1,4 @@
-<div>
+<x-app-layout>
     <x-page-header>
         @section("title", "Nieuws")
         @section("subtitle", "De laatste ontwikkelingen")
@@ -12,4 +12,4 @@
             @endforeach
         </div>
     </div>
-</div>
+</x-app-layout>
