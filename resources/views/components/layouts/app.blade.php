@@ -33,15 +33,15 @@
                             <a href="/">Home</a>
                         </li>
                         <li>
+                            <a href="/productieproces">Ons productieproces</a>
+                        </li>
+                        <li>
                             <a href="/batterijoplossingen">
                                 Onze batterijoplossingen
                             </a>
                         </li>
                         <li>
-                            <a href="/impact">Onze impact op e-waste</a>
-                        </li>
-                        <li>
-                            <a href="/contact">Contact</a>
+                            <a href="/over-ons">Over ons</a>
                         </li>
                     </ul>
                 </div>
@@ -52,20 +52,20 @@
                 >
                     <ul class="ml-auto grid grid-flow-col gap-12">
                         <li>
-                            <a href="/over-ons">
+                            <a href="/nieuws">
                                 <img
                                     src="{{ asset("assets/lightning_hollow.svg") }}"
                                     alt=""
                                     class="mr-2 inline"
                                 />
-                                Over ons
+                                Nieuws
                             </a>
                         </li>
                         <li>
-                            <a href="/nieuws">Nieuws</a>
+                            <a href="/werken-bij">Werken bij</a>
                         </li>
                         <li>
-                            <a href="/werken-bij">Werken bij</a>
+                            <a href="/contact">Contact</a>
                         </li>
                     </ul>
                 </div>
