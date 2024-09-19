@@ -20,7 +20,7 @@
                     </div>
                     <br />
                     <div>
-                        <span class="text-xs">PRODUCTION FACILITY</span>
+                        <span class="text-xs uppercase">Productiefaciliteit</span>
                         <br />
                         <br />
                         <strong>BCT Treeport</strong>
@@ -34,7 +34,7 @@
                             href="/route"
                             class="text-xs font-bold underline hover:no-underline"
                         >
-                            directions
+                            routebeschrijving
                         </a>
                     </div>
                 </div>
