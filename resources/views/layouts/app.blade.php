@@ -23,25 +23,26 @@
                 >
                     <a href="/">
                         <img
-                            src="{{ asset("assets/RB_Logo.svg") }}"
+                            src="{{ asset("assets/icons/RB_Logo.svg") }}"
                             alt="Refurb Battery logo"
                             class="h-7"
                         />
                     </a>
                     <ul class="linkEffects ml-auto grid grid-flow-col gap-12">
                         <li>
-                            <a href="/">Home</a>
+                            <a href="{{route('home')}}">Home</a>
                         </li>
                         <li>
-                            <a href="/productieproces">Ons productieproces</a>
+                            <a href="{{route('productieproces')}}">Ons productieproces</a>
                         </li>
                         <li>
-                            <a href="/batterijoplossingen">
-                                Onze batterijoplossingen
-                            </a>
+                            <a href="{{route('toepassingen')}}">Toepassingen</a>
                         </li>
                         <li>
-                            <a href="/over-ons">Over ons</a>
+                            <a href="{{route('slimme-data')}}">Slimme data</a>
+                        </li>
+                        <li>
+                            <a href="{{route('over-ons')}}">Over ons</a>
                         </li>
                     </ul>
                 </div>
@@ -52,9 +53,9 @@
                 >
                     <ul class="ml-auto grid grid-flow-col gap-12">
                         <li>
-                            <a href="/nieuws">
+                            <a href="{{route('nieuws')}}">
                                 <img
-                                    src="{{ asset("assets/lightning_hollow.svg") }}"
+                                    src="{{ asset("assets/icons/lightning.svg") }}"
                                     alt=""
                                     class="mr-2 inline"
                                 />
@@ -62,10 +63,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/werken-bij">Werken bij</a>
+                            <a href="{{route('werken-bij')}}">Werken bij</a>
                         </li>
                         <li>
-                            <a href="/contact">Contact</a>
+                            <a href="{{route('contact')}}">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -80,7 +81,7 @@
             <div class="font-mulish">
                 <div class="hidden">
                     <a
-                        href="/contact"
+                        href="{{route('contact')}}"
                         class="group flex bg-rb-green text-white hover:bg-[#0c2850]"
                     >
                         <div
@@ -126,9 +127,9 @@
                     >
                         <div class="grid w-full gap-6 md:grid-cols-12">
                             <div class="md:col-span-4">
-                                <a href="/">
+                                <a href="{{route('home')}}">
                                     <img
-                                        src="{{ asset("assets/RB_Logo.svg") }}"
+                                        src="{{ asset("assets/icons/RB_Logo.svg") }}"
                                         alt="Refurb Battery logo"
                                         class="h-7"
                                     />

@@ -8,12 +8,14 @@ use Illuminate\View\Component;
 
 class PageHeader extends Component
 {
+    public $height;
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($height = 'md:h-[150px]')
     {
-        //
+        $this->height = $height;
     }
 
     /**
