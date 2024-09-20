@@ -43,7 +43,7 @@
                 <div
                     class="container py-2 mx-auto grid grid-cols-12 items-center px-5 md:px-0"
                 >
-                    <a href="/" class="col-span-6 md:col-span-3">
+                    <a href="/" class="col-span-6 md:col-span-3 z-50">
                         <img
                             src="{{ asset("assets/icons/RB_Logo.svg") }}"
                             alt="Refurb Battery logo"
