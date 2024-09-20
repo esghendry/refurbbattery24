@@ -192,7 +192,7 @@
             <div class="my-6 mb-16">
                 <h3 class="text-4xl font-bold">Nieuws</h3>
 
-                <div class="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                <div class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     @foreach ($articles as $article)
                         <x-news-item :article="$article" />
                     @endforeach
