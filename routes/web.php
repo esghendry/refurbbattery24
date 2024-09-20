@@ -4,7 +4,25 @@ use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'articles' => [
+            [
+                'title' => 'Title 1 very long title to test article title in a news item component',
+                'url' => 'title-1',
+                'img' => 'assets/images/articles/article-title-1.png',
+            ],
+            [
+                'title' => 'Title 1 very long title to test article title in a news item component',
+                'url' => 'title-1',
+                'img' => 'assets/images/articles/article-title-1.png',
+            ],
+            [
+                'title' => 'Title 1 very long title to test article title in a news item component',
+                'url' => 'title-1',
+                'img' => 'assets/images/articles/article-title-1.png',
+            ],
+        ],
+    ]);
 })->name('home');
 
 Route::get('/nieuws', [NewsController::class, 'index'])->name('nieuws');
