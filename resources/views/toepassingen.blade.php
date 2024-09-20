@@ -40,8 +40,8 @@
     </div>
 
     <div class="bg-[#D5DBE6] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="my-6 grid gap-6 lg:grid-cols-2">
+        <div class="container mx-auto px-5 md:px-0">
+            <div class="py-6 grid gap-6 lg:grid-cols-2">
                 <div>
                     <h3 class="text-xl font-bold">De toepassingen</h3>
                     <p class="text-lg font-medium leading-6">
@@ -90,10 +90,7 @@
                     />
                 </div>
             </div>
-        </div>
-
-        <div class="container mx-auto flex px-5 md:px-0">
-            <h3 class="mb-16 text-4xl font-bold">Onze partnerships</h3>
+            <h3 class="pb-16 text-4xl font-bold">Onze partnerships</h3>
         </div>
     </div>
 
