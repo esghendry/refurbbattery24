@@ -119,7 +119,7 @@
             <div
                 class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"
             ></div>
-            <div class="relative z-30">
+            <div class="relative z-30 h-full flex flex-wrap">
                 <h3 class="text-2xl font-bold">CESS op maat</h3>
                 <p class="text-lg font-normal leading-6">
                     Flexibiliteit die past bij deze turbulente fase van de
@@ -142,9 +142,10 @@
                     <br />
                     •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
                 </p>
+                <div class="my-6"> </div>
                 <a
                     href="{{ route("contact") }}"
-                    class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
+                    class="mt-auto h-fit bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
                 >
                     Neem contact op
                 </a>
@@ -160,7 +161,7 @@
             <div
                 class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"
             ></div>
-            <div class="relative z-30">
+            <div class="relative z-30 h-full flex flex-wrap">
                 <h3 class="text-2xl font-bold">Zhero CESS</h3>
                 <p class="text-lg font-normal leading-6">
                     Een CESS geeft inzicht en controle in je energiemanagement.
@@ -184,9 +185,10 @@
                     <br />
                     •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
                 </p>
+                <div class="my-6"> </div>
                 <a
                     href="{{ route("contact") }}"
-                    class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
+                    class="mt-auto h-fit bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
                 >
                     Neem contact op
                 </a>
