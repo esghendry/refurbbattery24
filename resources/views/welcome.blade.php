@@ -189,7 +189,7 @@
 
     <div class="bg-[#D5DBE6]">
         <div class="container mx-auto flex px-5 text-rb-dark-blue md:px-0">
-            <div class="my-6">
+            <div class="my-6 mb-16">
                 <h3 class="text-4xl font-bold">Nieuws</h3>
 
                 <div class="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">

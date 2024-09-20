@@ -7,6 +7,28 @@
 
         <title>{{ $title ?? "Refurb Battery" }}</title>
 
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -30,19 +52,25 @@
                     </a>
                     <ul class="linkEffects ml-auto grid grid-flow-col gap-12">
                         <li>
-                            <a href="{{route('home')}}">Home</a>
+                            <a href="{{ route("home") }}">Home</a>
                         </li>
                         <li>
-                            <a href="{{route('productieproces')}}">Ons productieproces</a>
+                            <a href="{{ route("productieproces") }}">
+                                Ons productieproces
+                            </a>
                         </li>
                         <li>
-                            <a href="{{route('toepassingen')}}">Toepassingen</a>
+                            <a href="{{ route("toepassingen") }}">
+                                Toepassingen
+                            </a>
                         </li>
                         <li>
-                            <a href="{{route('slimme-data')}}">Slimme data</a>
+                            <a href="{{ route("slimme-data") }}">
+                                Slimme data
+                            </a>
                         </li>
                         <li>
-                            <a href="{{route('over-ons')}}">Over ons</a>
+                            <a href="{{ route("over-ons") }}">Over ons</a>
                         </li>
                     </ul>
                 </div>
@@ -53,7 +81,7 @@
                 >
                     <ul class="ml-auto grid grid-flow-col gap-12">
                         <li>
-                            <a href="{{route('nieuws')}}">
+                            <a href="{{ route("nieuws") }}">
                                 <img
                                     src="{{ asset("assets/icons/lightning.svg") }}"
                                     alt=""
@@ -63,10 +91,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('werken-bij')}}">Werken bij</a>
+                            <a href="{{ route("werken-bij") }}">Werken bij</a>
                         </li>
                         <li>
-                            <a href="{{route('contact')}}">Contact</a>
+                            <a href="{{ route("contact") }}">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +109,7 @@
             <div class="font-mulish">
                 <div class="hidden">
                     <a
-                        href="{{route('contact')}}"
+                        href="{{ route("contact") }}"
                         class="group flex bg-rb-green text-white hover:bg-[#0c2850]"
                     >
                         <div
@@ -127,7 +155,7 @@
                     >
                         <div class="grid w-full gap-6 md:grid-cols-12">
                             <div class="md:col-span-4">
-                                <a href="{{route('home')}}">
+                                <a href="{{ route("home") }}">
                                     <img
                                         src="{{ asset("assets/icons/RB_Logo.svg") }}"
                                         alt="Refurb Battery logo"
