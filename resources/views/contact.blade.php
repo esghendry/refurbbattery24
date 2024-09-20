@@ -14,7 +14,7 @@
                 <div class="w-fit min-w-[300px] mx-auto text-center">
                     <div
                         class="mx-auto mb-4 inline-flex aspect-square w-10/12 items-center rounded-full bg-cover"
-                        style="max-width: 15rem;background-image:url('{{ asset("assets/images/production_facility.webp") }}"
+                        style="max-width: 15rem;background-image:url('{{ asset("assets/images/rb_production_facility.webp") }}"
                     >
                         <div class="w-full">&nbsp;</div>
                     </div>

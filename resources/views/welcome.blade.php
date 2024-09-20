@@ -6,7 +6,7 @@
 
         <a
             href="{{ route("toepassingen") }}"
-            class="mt-12 inline-block bg-rb-green px-5 py-1 drop-shadow-xl hover:bg-rb-dark-blue hover:underline"
+            class="mt-12 inline-block bg-rb-green px-5 py-1 drop-shadow-xl duration-100 hover:bg-rb-dark-blue hover:underline"
         >
             Over onze toepassingen
         </a>
@@ -55,7 +55,7 @@
 
                 <a
                     href="/toepassingen"
-                    class="mt-6 font-bold underline hover:text-rb-dark-blue/70"
+                    class="mt-6 font-bold underline duration-100 hover:text-rb-green"
                 >
                     Meer over onze toepassingen
                 </a>
@@ -160,7 +160,7 @@
                 <div class="mx-auto mt-8 w-fit">
                     <a
                         href="{{ route("productieproces") }}"
-                        class="font-bold underline hover:no-underline"
+                        class="font-bold underline duration-100 hover:text-rb-green"
                     >
                         Meer over ons circulaire proces
                     </a>
@@ -179,7 +179,7 @@
                 @section("banner_subtitle", "Werken bij Refurb Battery betekent elke dag pionieren. We worden gedreven door samenwerking, innovatie en duurzaamheid. Is onze energie een match? Bekijk de vacatures.")
                 <a
                     href="{{ route("werken-bij") }}"
-                    class="mt-6 inline-block bg-rb-green px-3 py-1 hover:underline"
+                    class="mt-6 inline-block bg-rb-green px-3 py-1 duration-100 hover:bg-rb-dark-blue hover:underline"
                 >
                     Bekijk onze vacatures
                 </a>

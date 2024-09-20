@@ -33,7 +33,7 @@ Route::get('/route', function () {
     return response()->file('assets/documents/RefurbBattery_Routebeschrijving.pdf');
 });
 
-Route::get('/productieproces', fn () => null)->name('productieproces');
+Route::get('/productieproces', fn () => view('productieproces'))->name('productieproces');
 Route::get('/toepassingen', fn () => null)->name('toepassingen');
 Route::get('/slimme-data', fn () => null)->name('slimme-data');
 Route::get('/over-ons', fn () => null)->name('over-ons');
