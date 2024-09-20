@@ -33,6 +33,6 @@ Route::get('/route', function () {
 
 Route::get('/productieproces', fn () => view('productieproces'))->name('productieproces');
 Route::get('/toepassingen', fn () => view('toepassingen', ['articles' => $testArticles]))->name('toepassingen');
-Route::get('/slimme-data', fn () => null)->name('slimme-data');
+Route::get('/slimme-data', fn () => view('slimme-data'))->name('slimme-data');
 Route::get('/over-ons', fn () => null)->name('over-ons');
 Route::get('/werken-bij', fn () => null)->name('werken-bij');
