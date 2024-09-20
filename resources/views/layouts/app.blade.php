@@ -41,16 +41,16 @@
         <header class="overflow-hidden">
             <div class="bg-rb-dark-blue text-white">
                 <div
-                    class="container mx-auto flex h-12 items-center px-5 md:px-0"
+                    class="container py-2 mx-auto grid grid-cols-12 items-center px-5 md:px-0"
                 >
-                    <a href="/">
+                    <a href="/" class="col-span-6 md:col-span-3">
                         <img
                             src="{{ asset("assets/icons/RB_Logo.svg") }}"
                             alt="Refurb Battery logo"
                             class="h-7"
                         />
                     </a>
-                    <ul class="linkEffects ml-auto grid grid-flow-col gap-12">
+                    <ul class="linkEffects ml-auto grid lg:grid-flow-col lg:gap-12 col-span-6 md:col-span-9">
                         <li>
                             <a href="{{ route("home") }}">Home</a>
                         </li>

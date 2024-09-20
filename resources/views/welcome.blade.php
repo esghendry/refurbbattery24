@@ -12,15 +12,15 @@
         </a>
     </x-page-header>
 
-    <div class="relative w-full">
-        <div
-            class="absolute -right-40 -top-[200px] left-0 me-auto ms-auto w-fit md:-top-[270px]"
-        >
+    <div class="absolute inset-0 size-full h-screen overflow-x-hidden">
+        <div class="absolute -right-40 top-[240px] lg:top-[100px] left-0 me-auto ms-auto w-fit">
             <img
                 src="{{ asset("assets/icons/circular_arrows.svg") }}"
-                class="mix-blend-overlay"
+                class="w-full mix-blend-overlay"
             />
         </div>
+    </div>
+    <div class="relative w-full">
         <div
             class="absolute -right-20 -top-10 left-0 z-10 me-auto ms-auto w-9/12 max-w-4xl sm:-top-16 lg:-top-[140px]"
         >
