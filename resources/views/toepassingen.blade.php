@@ -142,7 +142,7 @@
                     <br />
                     •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
                 </p>
-                <div class="my-6"> </div>
+                <div class="my-6 w-full"> </div>
                 <a
                     href="{{ route("contact") }}"
                     class="mt-auto h-fit bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
@@ -185,7 +185,7 @@
                     <br />
                     •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
                 </p>
-                <div class="my-6"> </div>
+                <div class="my-6 w-full"> </div>
                 <a
                     href="{{ route("contact") }}"
                     class="mt-auto h-fit bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
