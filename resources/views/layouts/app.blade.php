@@ -127,7 +127,7 @@
                                     <img
                                         src="{{ asset("assets/icons/RB_Logo.svg") }}"
                                         alt="Refurb Battery logo"
-                                        class="h-7 mx-auto"
+                                        class="h-7 mx-auto md:mx-0"
                                     />
                                 </a>
                                 <div class="my-6">
