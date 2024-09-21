@@ -38,15 +38,16 @@
     </head>
 
     <body class="flex min-h-screen w-full flex-col font-mulish">
-        <header class="sticky top-0 overflow-hidden z-[99]">
-
+        <header class="sticky top-0 z-[99] overflow-hidden">
             <x-nav-bar />
 
             <div class="linkEffects bg-[#E5E7EB] text-rb-dark-blue">
                 <div
                     class="container mx-auto flex h-12 items-center px-5 md:px-0"
                 >
-                    <ul class="mx-auto sm:mx-0 sm:ml-auto grid grid-flow-col gap-2 md:gap-12">
+                    <ul
+                        class="mx-auto grid grid-flow-col gap-2 sm:mx-0 sm:ml-auto md:gap-12"
+                    >
                         <li>
                             <a href="{{ route("nieuws") }}">
                                 <img
@@ -74,7 +75,7 @@
 
         <footer>
             <div class="font-mulish">
-                <div class="hidden">
+                {{-- <div class="">
                     <a
                         href="{{ route("contact") }}"
                         class="group flex bg-rb-green text-white hover:bg-[#0c2850]"
@@ -114,14 +115,14 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> --}}
 
-                <div class="flex bg-rb-dark-blue text-white">
+                <div class=" bg-rb-dark-blue text-white">
                     <div
-                        class="container mx-auto my-6 flex h-full items-center px-5 md:px-0"
+                        class="container mx-auto py-12 flex h-full items-center px-5 md:px-0"
                     >
                         <div class="grid w-full gap-6 md:grid-cols-12">
-                            <div class="md:col-span-4">
+                            <div class="text-center md:col-span-4 md:text-left">
                                 <a href="{{ route("home") }}">
                                     <img
                                         src="{{ asset("assets/icons/RB_Logo.svg") }}"
@@ -133,7 +134,7 @@
                                     <p>Let's talk</p>
                                     <a
                                         href="tel:+31852464999"
-                                        class="flex w-fit items-center underline hover:no-underline"
+                                        class="mx-auto md:mx-0 flex w-fit items-center underline hover:no-underline"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +150,7 @@
                                     </a>
                                     <a
                                         href="mailto:hello@refurbbattery.eu"
-                                        class="flex w-fit items-center underline hover:no-underline"
+                                        class="mx-auto md:mx-0 flex w-fit items-center underline hover:no-underline"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -163,11 +164,58 @@
                                         </svg>
                                         hello@refurbbattery.eu
                                     </a>
+                                    <br />
+
+                                    <p>Let's get social</p>
+                                    <div class="py-2 ">
+                                        <a
+                                            href="https://nl.linkedin.com/company/refurb-battery"
+                                            target="_blank"
+                                            class="text-grey-blue inline-block px-1 text-xl hover:text-white"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="w-6 fill-white"
+                                                viewBox="0 0 512 512"
+                                            >
+                                                <title>Logo Linkedin</title>
+                                                <path
+                                                    d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"
+                                                ></path>
+                                            </svg>
+                                        </a>
+                                        <a
+                                            href="https://www.instagram.com/refurb.battery"
+                                            target="_blank"
+                                            class="text-grey-blue inline-block px-1 text-xl hover:text-white"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="w-6 fill-white"
+                                                viewBox="0 0 512 512"
+                                            >
+                                                <title>Logo Instagram</title>
+                                                <path
+                                                    d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z"
+                                                ></path>
+                                                <path
+                                                    d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z"
+                                                ></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="linkEffects">
+                                        <a
+                                            href="{{ route("privacy-and-cookies") }}"
+                                            class="font-mulish text-xs lg:text-sm"
+                                        >
+                                            Privacy and Cookies
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="md:col-span-8">
-                                {{-- <livewire:footer.subscribe /> --}}
-                                <livewire:footer.links />
+                            <div class="md:col-span-8 items-center flex">
+                                <x-footer-links />
                             </div>
                         </div>
                     </div>

@@ -36,3 +36,5 @@ Route::get('/toepassingen', fn () => view('toepassingen', ['articles' => $testAr
 Route::get('/slimme-data', fn () => view('slimme-data'))->name('slimme-data');
 Route::get('/over-ons', fn () => view('over-ons', ['articles' => $testArticles]))->name('over-ons');
 Route::get('/werken-bij', fn () => null)->name('werken-bij');
+
+Route::get('/privacy-and-cookies', fn () => null)->name('privacy-and-cookies');
