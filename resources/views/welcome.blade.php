@@ -13,7 +13,7 @@
     </x-page-header>
 
     <div class="absolute inset-0 size-full h-[1000px] overflow-x-hidden">
-        <div class="absolute -right-40 top-[240px] lg:top-[100px] left-0 me-auto ms-auto w-fit">
+        <div class="absolute -right-40 top-[150px] lg:top-[130px] left-0 me-auto ms-auto w-fit">
             <img
                 src="{{ asset("assets/icons/circular_arrows.svg") }}"
                 class="w-full mix-blend-overlay"
