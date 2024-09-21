@@ -49,7 +49,7 @@
                         <img
                             src="{{ $img }}"
                             alt=""
-                            class="-mt-6 self-center md:absolute md:mt-auto"
+                            class="-mt-6 self-center md:absolute md:mt-0"
                         />
                     </div>
 

@@ -38,7 +38,7 @@
     </head>
 
     <body class="flex min-h-screen w-full flex-col font-mulish">
-        <header class="overflow-hidden">
+        <header class="overflow-hidden z-50">
             <div class="bg-rb-dark-blue text-white">
                 <div
                     class="container py-2 mx-auto grid grid-cols-12 items-center px-5 md:px-0"

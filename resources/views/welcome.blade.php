@@ -12,11 +12,12 @@
         </a>
     </x-page-header>
 
-    <div class="absolute inset-0 size-full h-screen overflow-x-hidden">
+    <div class="absolute inset-0 size-full h-[1000px] overflow-x-hidden">
         <div class="absolute -right-40 top-[240px] lg:top-[100px] left-0 me-auto ms-auto w-fit">
             <img
                 src="{{ asset("assets/icons/circular_arrows.svg") }}"
                 class="w-full mix-blend-overlay"
+                style="transform: translate3d(0,0,0);"
             />
         </div>
     </div>
@@ -35,7 +36,7 @@
         <div
             class="container z-20 mx-auto my-16 px-5 text-rb-dark-blue md:px-0"
         >
-            <div class="flex w-8/12 flex-col">
+            <div class="flex md:w-8/12 flex-col">
                 <h2 class="text-2xl font-bold">
                     De meeste impact met de minste uitstoot
                 </h2>
