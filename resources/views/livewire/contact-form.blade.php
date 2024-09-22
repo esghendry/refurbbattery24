@@ -91,23 +91,23 @@
                     <button
                         class="group inline-flex h-8 w-full items-center justify-center rounded-sm bg-rb-green px-4 text-center text-base leading-none text-white !no-underline transition-all focus:outline-none disabled:opacity-50"
                     >
-                        Submit
+                        Verstuur
                         <span
-                        class="w-0 overflow-hidden transition-all group-hover:w-5 group-hover:pl-1 group-focus:w-5 group-focus:scale-100"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 fill-none stroke-white"
-                            viewBox="0 0 512 512"
+                            class="w-0 overflow-hidden transition-all group-hover:w-5 group-hover:pl-1 group-focus:w-5 group-focus:scale-100"
                         >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="48"
-                                d="M184 112l144 144-144 144"
-                            ></path>
-                        </svg>
-                    </span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 fill-none stroke-white"
+                                viewBox="0 0 512 512"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="48"
+                                    d="M184 112l144 144-144 144"
+                                ></path>
+                            </svg>
+                        </span>
                     </button>
 
                     <p

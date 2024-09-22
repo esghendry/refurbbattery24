@@ -35,6 +35,6 @@ Route::get('/productieproces', fn () => view('productieproces'))->name('producti
 Route::get('/toepassingen', fn () => view('toepassingen', ['articles' => $testArticles]))->name('toepassingen');
 Route::get('/slimme-data', fn () => view('slimme-data'))->name('slimme-data');
 Route::get('/over-ons', fn () => view('over-ons', ['articles' => $testArticles]))->name('over-ons');
-Route::get('/werken-bij', fn () => null)->name('werken-bij');
+Route::get('/werken-bij', fn () => view('werken-bij'))->name('werken-bij');
 
 Route::get('/privacy-and-cookies', fn () => null)->name('privacy-and-cookies');
