@@ -18,7 +18,7 @@
                             <span
                                 class="block h-44 w-full bg-cover"
                                 style="
-                                    background-image: url('https://refurbbattery.eu/img/product-specialist-1280-17137891086.jpg');
+                                    background-image: url('{{asset("assets/images/vacancies/product-specialist-1280-17137891086.jpg")}}');
                                 "
                             ></span>
 
@@ -40,7 +40,7 @@
                             <span
                                 class="block h-44 w-full bg-cover"
                                 style="
-                                    background-image: url('https://refurbbattery.eu/img/quality-engineerjpeg.jpg');
+                                    background-image: url('{{asset("assets/images/vacancies/quality-engineerjpeg.jpg")}}');
                                 "
                             ></span>
 
@@ -62,7 +62,7 @@
                             <span
                                 class="block h-44 w-full bg-cover"
                                 style="
-                                    background-image: url('https://refurbbattery.eu/img/sales-engineer-1280-17137874556.png');
+                                    background-image: url('{{asset("assets/images/vacancies/sales-engineer-1280-17137874556.png")}}');
                                 "
                             ></span>
 
@@ -188,7 +188,7 @@
                         class="mx-auto mb-4 inline-flex aspect-square w-10/12 items-center rounded-full bg-cover"
                         style="
                             max-width: 15rem;
-                            background-image: url('https://refurbbattery.eu/build/assets/daan-384x384.653aebec.webp');
+                            background-image: url('{{ asset("assets/images/peoples/daan.webp") }}');
                         "
                     >
                         <div class="w-full">&nbsp;</div>

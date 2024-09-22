@@ -38,3 +38,10 @@ Route::get('/over-ons', fn () => view('over-ons', ['articles' => $testArticles])
 Route::get('/werken-bij', fn () => view('werken-bij'))->name('werken-bij');
 
 Route::get('/privacy-and-cookies', fn () => null)->name('privacy-and-cookies');
+
+/**
+ * TEMPORARY
+ */
+Route::get('/werken-bij/product-specialist-battery-pack-designer', fn () => view('werken-bij.product-specialist-battery-pack-designer'));
+Route::get('/werken-bij/quality-process-engineer-manufacturing', fn () => view('werken-bij.quality-process-engineer-manufacturing'));
+Route::get('/werken-bij/technical-sales-manager-energieopslagsystemen-eos', fn () => view('werken-bij.technical-sales-manager-energieopslagsystemen-eos'));
