@@ -2,11 +2,10 @@
     <div>
         <h2 class="text-4xl font-bold">Ecosysteem van partners</h2>
         <p class="mt-4 text-lg font-bold leading-6">
-            Dankzij onze samenwerkingen met producenten zoals Accell
-            en Van Moof hebben we tot nu toe al 1 miljoen
-            batterijcellen kunnen redden van de shredder. Maar wat
-            ons betreft is dit nog maar het begin. Werk jij mee aan
-            het succes?
+            Dankzij onze samenwerkingen met producenten zoals Accell en Van Moof
+            hebben we tot nu toe al 1 miljoen batterijcellen kunnen redden van
+            de shredder. Maar wat ons betreft is dit nog maar het begin. Werk
+            jij mee aan het succes?
         </p>
         <a
             href="{{ route("contact") }}"
@@ -18,9 +17,8 @@
 
     <div
         data-hs-carousel='{
-            "loadingClasses": "opacity-0"
-            {{-- ,
-            "isAutoPlay": true --}}
+            "loadingClasses": "opacity-0",
+            "isAutoPlay": true
         }'
         class="relative mt-6"
     >
@@ -31,41 +29,37 @@
                 class="hs-carousel-body absolute bottom-0 start-0 top-0 flex flex-nowrap opacity-0 transition-transform duration-700"
             >
                 <div class="hs-carousel-slide">
-                    <div
-                        class="flex h-full justify-center bg-gray-300 p-6"
-                    >
+                    <div class="flex h-full justify-center bg-gray-300 p-6">
                         <span
-                            class="grid grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
+                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
                         >
                             <img
                                 src="{{ asset("assets/logos/greenchoice.svg") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-w-[200px]"
                             />
                             <img
                                 src="{{ asset("assets/logos/stichting-open.png") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-h-[150px]"
                             />
                             <img
                                 src="{{ asset("assets/logos/accell-group.svg") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-w-[200px]"
                             />
                         </span>
                     </div>
                 </div>
                 <div class="hs-carousel-slide">
-                    <div
-                        class="flex h-full justify-center bg-gray-300 p-6"
-                    >
+                    <div class="flex h-full justify-center bg-gray-300 p-6">
                         <span
-                            class="grid grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
+                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
                         >
                             <img
                                 src="{{ asset("assets/logos/port-of-moerdijk.svg") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-w-[250px]"
                             />
                             <img
                                 src="{{ asset("assets/logos/brainport.svg") }}"
@@ -75,17 +69,15 @@
                             <img
                                 src="{{ asset("assets/logos/avans-hogeschool.svg") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-w-[250px]"
                             />
                         </span>
                     </div>
                 </div>
                 <div class="hs-carousel-slide">
-                    <div
-                        class="flex h-full justify-center bg-gray-300 p-6"
-                    >
+                    <div class="flex h-full justify-center bg-gray-300 p-6">
                         <span
-                            class="grid grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
+                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
                         >
                             <img
                                 src="{{ asset("assets/logos/esg-tech.webp") }}"
@@ -100,27 +92,25 @@
                             <img
                                 src="{{ asset("assets/logos/bam.svg") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-w-[250px]"
                             />
                         </span>
                     </div>
                 </div>
                 <div class="hs-carousel-slide">
-                    <div
-                        class="flex h-full justify-center bg-gray-300 p-6"
-                    >
+                    <div class="flex h-full justify-center bg-gray-300 p-6">
                         <span
-                            class="grid grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
+                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white"
                         >
                             <img
                                 src="{{ asset("assets/logos/arn.svg") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-w-[175px]"
                             />
                             <img
                                 src="{{ asset("assets/logos/tue.svg") }}"
                                 alt=""
-                                class="max-h-[250px]"
+                                class="max-w-[200px]"
                             />
                             <img
                                 src="{{ asset("assets/logos/rai.svg") }}"
