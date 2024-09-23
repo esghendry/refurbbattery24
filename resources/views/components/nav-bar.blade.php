@@ -10,7 +10,7 @@
                 aria-label="Brand"
             >
                 <img
-                    src="{{ asset("assets/icons/RB_Logo.svg") }}"
+                    src="{{ asset("assets/logos/RB_Logo.svg") }}"
                     alt="Refurb Battery logo"
                     class="h-7"
                 />

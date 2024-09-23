@@ -125,7 +125,7 @@
                             <div class="text-center md:col-span-4 md:text-left">
                                 <a href="{{ route("home") }}">
                                     <img
-                                        src="{{ asset("assets/icons/RB_Logo.svg") }}"
+                                        src="{{ asset("assets/logos/RB_Logo.svg") }}"
                                         alt="Refurb Battery logo"
                                         class="h-7 mx-auto md:mx-0"
                                     />
