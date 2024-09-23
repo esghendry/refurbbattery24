@@ -7,6 +7,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>{{ $title ?? 'Refurb Battery' }}</title>
+    <meta name="title" content="{{ $title ?? 'Refurb Battery' }}" />
+    <meta name="description"
+        content="Refurb Battery hergebruikt lithium-ion batterijen in circulaire energieopslagsystemen, vermindert e-waste en draagt bij aan de energietransitie." />
+    <meta name="keywords"
+        content="Refurb Battery, refurbished battery, circulaire batterijen, energieopslag, circulaire energieopslag, lithium-ion batterijen, hergebruik accu's, batterij recycling, batterij toepassingen, duurzame energieoplossingen, netcongestie, groene groei, CO2-reductie, tweede leven batterijen, CESS, circulair productieproces, e-waste vermindering, energietransitie" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.webp" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.webp" />
@@ -156,7 +164,8 @@
                                     </a>
                                 </div>
                                 <div class="linkEffects">
-                                    <a href="{{ route('privacy-and-cookies') }}" class="text-xs font-mulish lg:text-sm">
+                                    <a href="{{ route('privacy-and-cookies') }}"
+                                        class="text-xs font-mulish lg:text-sm">
                                         Privacy and Cookies
                                     </a>
                                 </div>
