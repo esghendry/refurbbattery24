@@ -5,7 +5,7 @@
         <p>in de shredder komen en maken we ze geschikt voor hergebruik.</p>
 
         <a href="{{ route('toepassingen') }}"
-            class="mt-12 inline-block bg-rb-green px-5 py-1 drop-shadow-xl duration-100 hover:bg-rb-dark-blue hover:underline">
+            class="inline-block px-5 py-1 mt-12 duration-100 bg-rb-green drop-shadow-xl hover:bg-rb-dark-blue hover:underline">
             Over onze toepassingen
         </a>
     </x-page-header>
@@ -13,18 +13,18 @@
     <div class="absolute inset-0 size-full h-[1000px] overflow-x-hidden">
         <div class="absolute -right-40 top-[150px] lg:top-[130px] left-0 me-auto ms-auto w-fit">
             <img src="{{ asset('assets/icons/circular_arrows.svg') }}" class="w-full mix-blend-overlay"
-                style="transform: translate3d(0,0,0);" />
+                alt="circular arrows" style="transform: translate3d(0,0,0);" />
         </div>
     </div>
     <div class="relative w-full">
         <div class="absolute -right-20 -top-10 left-0 z-10 me-auto ms-auto w-9/12 max-w-4xl sm:-top-16 lg:-top-[140px]">
-            <img src="{{ asset('assets/images/rb_tray_met_cell.webp') }}" class="w-full" />
+            <img src="{{ asset('assets/images/rb_tray_met_cell.webp') }}" class="w-full" alt="rb tray met cell" />
         </div>
     </div>
 
     <div class="flex flex-wrap bg-[#D5DBE6]">
-        <div class="container z-20 mx-auto my-16 px-5 text-rb-dark-blue md:px-0">
-            <div class="flex md:w-8/12 flex-col">
+        <div class="container z-20 px-5 mx-auto my-16 text-rb-dark-blue md:px-0">
+            <div class="flex flex-col md:w-8/12">
                 <h2 class="text-2xl font-bold">
                     De meeste impact met de minste uitstoot
                 </h2>
@@ -50,8 +50,8 @@
     </div>
 
     <div class="bg-[#E5E7EB]">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="-my-6 grid w-full grid-rows-2 gap-4 md:grid-cols-2">
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid w-full grid-rows-2 gap-4 -my-6 md:grid-cols-2">
                 <div class="md:row-span-2 lg:aspect-square">
                     <x-card-link title="Toepassingen" :url="route('toepassingen')" urlText="Meer over onze toepassingen"
                         :img="asset('assets/images/rb_cell.webp')"
@@ -76,17 +76,17 @@
     </div>
 
     <div class="bg-[#D5DBE6]">
-        <div class="container mx-auto flex px-5 text-rb-dark-blue md:px-0">
-            <div class="my-24 w-full">
-                <h3 class="text-center text-4xl font-bold">
+        <div class="container flex px-5 mx-auto text-rb-dark-blue md:px-0">
+            <div class="w-full my-24">
+                <h3 class="text-4xl font-bold text-center">
                     We doen meer met minder.
                 </h3>
 
-                <div class="mt-12 grid divide-y divide-rb-dark-blue md:grid-cols-3 md:divide-x md:divide-y-0">
+                <div class="grid mt-12 divide-y divide-rb-dark-blue md:grid-cols-3 md:divide-x md:divide-y-0">
                     <div class="my-6 text-center md:my-auto md:px-6">
-                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="mx-auto w-10" />
+                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="w-10 mx-auto" />
                         <h4 class="mt-4 text-5xl font-bold">179501 ton*</h4>
-                        <p class="mt-2 px-6 font-medium">
+                        <p class="px-6 mt-2 font-medium">
                             CO
                             <sub>2</sub>
                             -uitstoot voorkomen met ons circulaire proces (*en
@@ -95,18 +95,18 @@
                     </div>
 
                     <div class="my-6 text-center md:my-auto md:px-6">
-                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="mx-auto w-10" />
+                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="w-10 mx-auto" />
                         <h4 class="mt-4 text-5xl font-bold">11+</h4>
-                        <p class="mt-2 px-6 font-medium">
+                        <p class="px-6 mt-2 font-medium">
                             Samenwerkingen met organisaties en marktleiders
                             zoals Accell en Stichting OPEN.
                         </p>
                     </div>
 
                     <div class="my-6 text-center md:my-auto md:px-6">
-                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="mx-auto w-10" />
+                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="w-10 mx-auto" />
                         <h4 class="mt-4 text-5xl font-bold">1.196.673+</h4>
-                        <p class="mt-2 px-6 font-medium">
+                        <p class="px-6 mt-2 font-medium">
                             Al meer dan één miljoen cellen kregen bij ons een
                             tweede leven.
                         </p>
@@ -127,10 +127,11 @@
         <div class="py-12">
             <x-page-gradient-banner :height="'lg:min-h-[250px] sm:min-h-[520px] min-h-[500px] text-white'" :img="asset('assets/images/rb_productie.webp')">
                 @section('banner_title', 'Werken bij Refurb Battery')
-                @section('banner_subtitle', 'Werken bij Refurb Battery betekent elke dag pionieren. We worden gedreven
+                @section('banner_subtitle',
+                    'Werken bij Refurb Battery betekent elke dag pionieren. We worden gedreven
                     door samenwerking, innovatie en duurzaamheid. Is onze energie een match? Bekijk de vacatures.')
                     <a href="{{ route('werken-bij') }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 duration-100 hover:bg-rb-dark-blue hover:underline">
+                        class="inline-block px-3 py-1 mt-6 duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
                         Bekijk onze vacatures
                     </a>
                 </x-page-gradient-banner>
@@ -138,11 +139,11 @@
         </div>
 
         <div class="bg-[#D5DBE6]">
-            <div class="container mx-auto flex px-5 text-rb-dark-blue md:px-0">
+            <div class="container flex px-5 mx-auto text-rb-dark-blue md:px-0">
                 <div class="my-6 mb-16">
                     <h3 class="text-4xl font-bold">Nieuws</h3>
 
-                    <div class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="grid gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
                         @foreach ($articles as $article)
                             <x-news-item :article="$article" />
                         @endforeach
