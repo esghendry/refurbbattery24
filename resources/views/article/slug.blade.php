@@ -2,7 +2,7 @@
     <div class="bg-[#E5E7EB]">
         <div
             class="grid h-72 w-full grid-cols-1 place-content-center bg-cover bg-center sm:h-96"
-            style="background-image: url('{{ $article->image }}')"
+            style="background-image: url('{{ asset($article->image) }}')"
         >
             <div>
                 <div class="relative grid w-full grid-cols-12 px-4 md:px-0">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="container linkEffects mx-auto px-5 md:px-0 py-12">
+        <div class="container mx-auto px-5 md:px-0 py-12">
 
             <div class="prose mx-auto">
                 {!! $article->body !!}

@@ -36,8 +36,17 @@
     transition: all .25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
- .linkEffects .prose a {
+.prose a {
     text-decoration: underline !important;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+    padding: 2px 4px;
+    margin: -2px -4px;
+}
+.prose a:hover {
+    background-color: #52b05ebf;
+    color: #fff;
 }
 
 .external-link {
