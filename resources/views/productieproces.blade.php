@@ -9,7 +9,7 @@
         <div class="container flex px-5 mx-auto md:px-0">
             <div class="grid gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_productie.png') }}" alt="Productie" class="z-50 -mt-12" />
+                    <img src="{{ asset('assets/images/rb_productie.webp') }}" alt="Productie" class="z-50 -mt-12" />
                 </div>
 
                 <div>
@@ -70,7 +70,8 @@
                 </div>
 
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_dumpster.png') }}" alt="Batterijen container" class="" />
+                    <img src="{{ asset('assets/images/rb_dumpster.webp') }}" alt="Batterijen container"
+                        class="" />
                 </div>
             </div>
         </div>
@@ -78,9 +79,9 @@
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
         <div class="container flex px-5 mx-auto md:px-0">
-            <img src="{{ asset('assets/images/rb_proces_desktop.png') }}" alt="Proces Desktop"
+            <img src="{{ asset('assets/images/rb_proces_desktop.webp') }}" alt="Proces Desktop"
                 class="hidden my-12 md:block" />
-            <img src="{{ asset('assets/images/rb_proces_mobile.png') }}" alt="Proces Mobile"
+            <img src="{{ asset('assets/images/rb_proces_mobile.webp') }}" alt="Proces Mobile"
                 class="block my-12 md:hidden" />
         </div>
     </div>
@@ -119,7 +120,7 @@
                 </div>
 
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_dashboardmockup.png') }}" alt="Batterijen container"
+                    <img src="{{ asset('assets/images/rb_dashboardmockup.webp') }}" alt="Batterijen container"
                         class="md:-mt-24" />
                 </div>
             </div>
@@ -130,7 +131,7 @@
         <div class="container flex px-5 mx-auto md:px-0">
             <div class="grid gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_zhero.png') }}" alt="Productie" class="" />
+                    <img src="{{ asset('assets/images/rb_zhero.webp') }}" alt="Productie" class="" />
                 </div>
 
                 <div>

@@ -1,18 +1,14 @@
 <x-app-layout>
     <x-page-header>
-        @section("title", "Over ons")
-        @section("subtitle", "Met veel energie maken we het verschil")
+        @section('title', 'Over ons')
+        @section('subtitle', 'Met veel energie maken we het verschil')
     </x-page-header>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
         <div class="container mx-auto px-5 md:px-0">
             <div class="grid gap-6 py-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/dromen.png") }}"
-                        alt="Productie"
-                        class="z-50 -mt-12"
-                    />
+                    <img src="{{ asset('assets/images/dromen.webp') }}" alt="Productie" class="z-50 -mt-12" />
                 </div>
 
                 <div>
@@ -29,26 +25,16 @@
                         die win-win-gedachte werd Refurb Battery in 2021
                         gestart.
                     </p>
-                    <a
-                        href="https://www.linkedin.com/in/marty-smits-203394/"
-                        target="_blank"
-                        class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green"
-                    >
+                    <a href="https://www.linkedin.com/in/marty-smits-203394/" target="_blank"
+                        class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green">
                         Linkedinprofiel van oprichter Marty Smits
                     </a>
-                    <a
-                        href="https://www.linkedin.com/in/msvanbeek/"
-                        target="_blank"
-                        class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green"
-                    >
+                    <a href="https://www.linkedin.com/in/msvanbeek/" target="_blank"
+                        class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green">
                         Linkedinprofiel van Martijn van Beek
                     </a>
                 </div>
-                <img
-                    src="{{ asset("assets/images/sdg.svg") }}"
-                    alt="SDG"
-                    class="col-span-full"
-                />
+                <img src="{{ asset('assets/images/sdg.svg') }}" alt="SDG" class="col-span-full" />
             </div>
         </div>
     </div>
@@ -76,11 +62,7 @@
                 </div>
 
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_groen.png") }}"
-                        alt="Batterijen container"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_groen.webp') }}" alt="Batterijen container" class="" />
                 </div>
             </div>
 
@@ -89,9 +71,7 @@
     </div>
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
         <div class="container mx-auto px-5 md:px-0">
-            <div
-                class="-mt-8 grid items-center gap-6 py-6 md:grid-cols-2 lg:grid-cols-3"
-            >
+            <div class="-mt-8 grid items-center gap-6 py-6 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($articles as $article)
                     <x-news-item :article="$article" />
                 @endforeach
@@ -99,10 +79,7 @@
 
             <div class="grid gap-6 py-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/sky.png") }}"
-                        alt="Refurb Battery"
-                    />
+                    <img src="{{ asset('assets/images/sky.webp') }}" alt="Refurb Battery" />
                 </div>
 
                 <div>
@@ -123,10 +100,8 @@
                         scholen of netwerkbijeenkomsten als spreker of om een
                         presentatie te geven.
                     </p>
-                    <a
-                        href="{{ route("contact") }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                    >
+                    <a href="{{ route('contact') }}"
+                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline">
                         Kom in contact
                     </a>
                 </div>

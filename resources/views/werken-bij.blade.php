@@ -14,7 +14,7 @@
                             class="block h-full mb-2 text-base font-bold no-underline uppercase font-mulish hover:underline sm:text-lg md:text-xl">
                             <span class="block w-full bg-cover h-44"
                                 style="
-                                    background-image: url('{{ asset('assets/images/vacancies/product-specialist-1280-17137891086.jpg') }}');
+                                    background-image: url('{{ asset('assets/images/vacancies/product-specialist-1280-17137891086.webp') }}');
                                 "></span>
 
                             <span class="block p-2">
@@ -31,7 +31,7 @@
                             class="block h-full mb-2 text-base font-bold no-underline uppercase font-mulish hover:underline sm:text-lg md:text-xl">
                             <span class="block w-full bg-cover h-44"
                                 style="
-                                    background-image: url('{{ asset('assets/images/vacancies/quality-engineerjpeg.jpg') }}');
+                                    background-image: url('{{ asset('assets/images/vacancies/quality-engineerjpeg.webp') }}');
                                 "></span>
 
                             <span class="block p-2">
@@ -48,7 +48,7 @@
                             class="block h-full mb-2 text-base font-bold no-underline uppercase font-mulish hover:underline sm:text-lg md:text-xl">
                             <span class="block w-full bg-cover h-44"
                                 style="
-                                    background-image: url('{{ asset('assets/images/vacancies/sales-engineer-1280-17137874556.png') }}');
+                                    background-image: url('{{ asset('assets/images/vacancies/sales-engineer-1280-17137874556.webp') }}');
                                 "></span>
 
                             <span class="block p-2">

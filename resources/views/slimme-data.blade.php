@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-page-header>
-        @section("title", "Slimme data")
-        @section("subtitle", "Realtime status van CESS")
+        @section('title', 'Slimme data')
+        @section('subtitle', 'Realtime status van CESS')
     </x-page-header>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
@@ -25,21 +25,14 @@
                         zijn.
                     </p>
 
-                    <a
-                        href="https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32023R1542"
-                        target="_blank"
-                        class="external-link mt-4 inline-block font-bold underline duration-100 hover:text-rb-green"
-                    >
+                    <a href="https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32023R1542" target="_blank"
+                        class="external-link mt-4 inline-block font-bold underline duration-100 hover:text-rb-green">
                         EU Verordening 2023/1542 inzake batterijen
                     </a>
                 </div>
 
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_dashboardmockup.png") }}"
-                        alt="Dashboard"
-                        class="md:-mt-24"
-                    />
+                    <img src="{{ asset('assets/images/rb_dashboardmockup.webp') }}" alt="Dashboard" class="md:-mt-24" />
                 </div>
             </div>
         </div>
@@ -49,11 +42,8 @@
         <div class="container mx-auto px-5 md:px-0">
             <div class="grid gap-6 py-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_batterijpaspoort.png") }}"
-                        alt="Batterijpaspoort"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_batterijpaspoort.webp') }}" alt="Batterijpaspoort"
+                        class="" />
                 </div>
                 <div>
                     <h3 class="text-xl font-bold">Batterijpaspoort</h3>
@@ -80,10 +70,8 @@
                         momenteel al meer dan 70% van de binnengekomen cellen
                         worden hergebruikt.
                     </p>
-                    <a
-                        href="{{ route("productieproces") }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                    >
+                    <a href="{{ route('productieproces') }}"
+                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline">
                         Lees meer over ons circulaire productieproces
                     </a>
                 </div>
@@ -114,21 +102,15 @@
                         batterijen te verbeteren
                     </p>
 
-                    <a
-                        href="https://www.iea.org/news/rapid-expansion-of-batteries-will-be-crucial-to-meet-climate-and-energy-security-goals-set-at-cop28"
+                    <a href="https://www.iea.org/news/rapid-expansion-of-batteries-will-be-crucial-to-meet-climate-and-energy-security-goals-set-at-cop28"
                         target="_blank"
-                        class="external-link mt-4 inline-block font-bold underline duration-100 hover:text-rb-green"
-                    >
+                        class="external-link mt-4 inline-block font-bold underline duration-100 hover:text-rb-green">
                         Lees het rapport van de IEA
                     </a>
                 </div>
 
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_slim_bms.png") }}"
-                        alt="Slim BMS"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_slim_bms.webp') }}" alt="Slim BMS" class="" />
                 </div>
             </div>
         </div>
@@ -138,11 +120,8 @@
         <div class="container mx-auto px-5 md:px-0">
             <div class="grid gap-6 py-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_zhero.png") }}"
-                        alt="Zhero batterijen container"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_zhero.webp') }}" alt="Zhero batterijen container"
+                        class="" />
                 </div>
                 <div>
                     <h3 class="text-xl font-bold">Energieopslagsystemen</h3>
@@ -156,10 +135,8 @@
                         goed te managen. Al onze systemen zijn gebouwd volgens
                         de leidende normen en hoogste veiligheidseisen.
                     </p>
-                    <a
-                        href="{{ route("toepassingen") }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                    >
+                    <a href="{{ route('toepassingen') }}"
+                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline">
                         Lees meer over onze toepassingen
                     </a>
                 </div>

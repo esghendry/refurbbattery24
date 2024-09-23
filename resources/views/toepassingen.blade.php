@@ -8,7 +8,7 @@
         <div class="container flex px-5 mx-auto md:px-0">
             <div class="grid items-center gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_tray_met_cell.png') }}" alt="Productie" class="" />
+                    <img src="{{ asset('assets/images/rb_tray_met_cell.webp') }}" alt="Productie" class="" />
                 </div>
 
                 <div>
@@ -64,13 +64,13 @@
                 </div>
 
                 <div class="grid items-center w-2/3 grid-cols-2 grid-rows-2 gap-6 mx-auto h-fit xl:w-1/2">
-                    <img src="{{ asset('assets/images/rb_toepassing_1.png') }}"
+                    <img src="{{ asset('assets/images/rb_toepassing_1.webp') }}"
                         alt="Zwaar materiaal laden met groene energie" />
-                    <img src="{{ asset('assets/images/rb_toepassing_2.png') }}"
+                    <img src="{{ asset('assets/images/rb_toepassing_2.webp') }}"
                         alt="Buitenevenementen en festivals vergroenen" />
-                    <img src="{{ asset('assets/images/rb_toepassing_3.png') }}"
+                    <img src="{{ asset('assets/images/rb_toepassing_3.webp') }}"
                         alt="Peak shaving en vraag & aanbod afstemmen" />
-                    <img src="{{ asset('assets/images/rb_toepassing_4.png') }}"
+                    <img src="{{ asset('assets/images/rb_toepassing_4.webp') }}"
                         alt="Laadpleinen en e-mobillity flexibel laden" />
                 </div>
             </div>
@@ -92,7 +92,7 @@
         <div class="grid text-white lg:grid-cols-2">
             <div class="relative px-12 py-6 bg-cover"
                 style="
-                background-image: url({{ asset('assets/images/rb_flexibiliteit.png') }});
+                background-image: url({{ asset('assets/images/rb_flexibiliteit.webp') }});
             ">
                 <div class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"></div>
                 <div class="relative z-30 flex flex-wrap h-full">
@@ -128,7 +128,7 @@
 
             <div class="relative px-12 py-6 bg-cover"
                 style="
-                background-image: url({{ asset('assets/images/rb_zhero.png') }});
+                background-image: url({{ asset('assets/images/rb_zhero.webp') }});
             ">
                 <div class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"></div>
                 <div class="relative z-30 flex flex-wrap h-full">
@@ -169,7 +169,7 @@
         <div class="container flex px-5 mx-auto md:px-0">
             <div class="grid items-center gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_productie.png') }}" alt="Productie" class="" />
+                    <img src="{{ asset('assets/images/rb_productie.webp') }}" alt="Productie" class="" />
                 </div>
 
                 <div>
