@@ -2,58 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+
 class NewsController extends Controller
 {
     public function index()
     {
-        return view('news.index', [
-            'articles' => [
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-                [
-                    'title' => 'Title 1 very long title to test article title in a news item component',
-                    'url' => 'title-1',
-                    'img' => 'assets/images/articles/article-title-1.png',
-                ],
-            ],
+        $articles = Article::query()
+            ->where('published_at', '<=', now())
+            ->orderBy('published_at', 'desc')->get();
+
+        return view('article.index', [
+            'articles' => $articles,
+        ]);
+    }
+
+    public function slug(Article $article)
+    {
+        return view('article.slug', [
+            'article' => $article,
         ]);
     }
 }

@@ -13,7 +13,7 @@ class NewsItem extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(array $article)
+    public function __construct($article)
     {
         $this->article = (object) $article;
     }
