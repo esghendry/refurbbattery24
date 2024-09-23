@@ -4,24 +4,6 @@ use App\Http\Controllers\NewsController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
-$testArticles = [
-    [
-        'title' => 'Title 1 very long title to test article title in a news item component',
-        'slug' => 'title-1',
-        'image' => 'assets/images/articles/article-title-1.png',
-    ],
-    [
-        'title' => 'Title 1 very long title to test article title in a news item component',
-        'slug' => 'title-1',
-        'image' => 'assets/images/articles/article-title-1.png',
-    ],
-    [
-        'title' => 'Title 1 very long title to test article title in a news item component',
-        'slug' => 'title-1',
-        'image' => 'assets/images/articles/article-title-1.png',
-    ],
-];
-
 Route::get('/', fn () => view('welcome', [
     'articles' => Article::query()->where('published_at', '<=', now())->orderBy('published_at', 'desc')->limit(3)->get(),
 ]))->name('home');
