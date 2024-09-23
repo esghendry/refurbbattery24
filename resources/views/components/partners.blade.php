@@ -8,7 +8,7 @@
             jij mee aan het succes?
         </p>
         <a href="{{ route('contact') }}"
-            class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline">
+            class="inline-block px-3 py-1 mt-6 text-white duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
             Neem contact op
         </a>
     </div>
@@ -18,51 +18,58 @@
             "isAutoPlay": true
         }'
         class="relative mt-6">
-        <div class="hs-carousel relative min-h-52 w-full overflow-hidden rounded-lg bg-white lg:min-h-64 xl:min-h-72">
+        <div class="relative w-full overflow-hidden bg-white rounded-lg hs-carousel min-h-52 lg:min-h-64 xl:min-h-72">
             <div
-                class="hs-carousel-body absolute bottom-0 start-0 top-0 flex flex-nowrap opacity-0 transition-transform duration-700">
+                class="absolute top-0 bottom-0 flex transition-transform duration-700 opacity-0 hs-carousel-body start-0 flex-nowrap">
                 <div class="hs-carousel-slide">
-                    <div class="flex h-full justify-center bg-gray-300 p-6">
+                    <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
-                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white">
+                            class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
                             <img src="{{ asset('assets/logos/greenchoice.svg') }}" alt=""
-                                class="max-w-[200px]" />
+                                class="max-w-[200px] w-full" />
                             <img src="{{ asset('assets/logos/stichting-open.webp') }}" alt=""
-                                class="max-h-[150px]" />
+                                class="max-h-[150px] w-full" />
                             <img src="{{ asset('assets/logos/accell-group.svg') }}" alt=""
-                                class="max-w-[200px]" />
+                                class="max-w-[200px] w-full" />
                         </span>
                     </div>
                 </div>
                 <div class="hs-carousel-slide">
-                    <div class="flex h-full justify-center bg-gray-300 p-6">
+                    <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
-                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white">
+                            class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
                             <img src="{{ asset('assets/logos/port-of-moerdijk.svg') }}" alt=""
-                                class="max-w-[250px]" />
-                            <img src="{{ asset('assets/logos/brainport.svg') }}" alt="" class="max-h-[250px]" />
+                                class="max-w-[250px] w-full" />
+                            <img src="{{ asset('assets/logos/brainport.svg') }}" alt=""
+                                class="max-h-[250px] w-full" />
                             <img src="{{ asset('assets/logos/avans-hogeschool.svg') }}" alt=""
-                                class="max-w-[250px]" />
+                                class="max-w-[250px] w-full" />
                         </span>
                     </div>
                 </div>
                 <div class="hs-carousel-slide">
-                    <div class="flex h-full justify-center bg-gray-300 p-6">
+                    <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
-                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white">
-                            <img src="{{ asset('assets/logos/esg-tech.webp') }}" alt="" class="max-h-[250px]" />
-                            <img src="{{ asset('assets/logos/hyvolt.svg') }}" alt="" class="max-h-[250px]" />
-                            <img src="{{ asset('assets/logos/bam.svg') }}" alt="" class="max-w-[250px]" />
+                            class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
+                            <img src="{{ asset('assets/logos/esg-tech.webp') }}" alt=""
+                                class="max-h-[250px] w-full" />
+                            <img src="{{ asset('assets/logos/hyvolt.svg') }}" alt=""
+                                class="max-h-[250px] w-full" />
+                            <img src="{{ asset('assets/logos/bam.svg') }}" alt=""
+                                class="max-w-[250px] w-full" />
                         </span>
                     </div>
                 </div>
                 <div class="hs-carousel-slide">
-                    <div class="flex h-full justify-center bg-gray-300 p-6">
+                    <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
-                            class="grid w-full grid-cols-3 items-center justify-items-center gap-6 self-center text-4xl text-gray-800 transition duration-700 dark:text-white">
-                            <img src="{{ asset('assets/logos/arn.svg') }}" alt="" class="max-w-[175px]" />
-                            <img src="{{ asset('assets/logos/tue.svg') }}" alt="" class="max-w-[200px]" />
-                            <img src="{{ asset('assets/logos/rai.svg') }}" alt="" class="max-h-[250px]" />
+                            class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
+                            <img src="{{ asset('assets/logos/arn.svg') }}" alt=""
+                                class="max-w-[175px] w-full" />
+                            <img src="{{ asset('assets/logos/tue.svg') }}" alt=""
+                                class="max-w-[200px] w-full" />
+                            <img src="{{ asset('assets/logos/rai.svg') }}" alt=""
+                                class="max-h-[250px] w-full" />
                         </span>
                     </div>
                 </div>
@@ -92,15 +99,15 @@
             </span>
         </button>
 
-        <div class="hs-carousel-pagination absolute bottom-3 end-0 start-0 flex justify-center space-x-2">
+        <div class="absolute flex justify-center space-x-2 hs-carousel-pagination bottom-3 end-0 start-0">
             <span
-                class="size-3 cursor-pointer rounded-full border border-gray-400 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
+                class="border border-gray-400 rounded-full cursor-pointer size-3 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
             <span
-                class="size-3 cursor-pointer rounded-full border border-gray-400 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
+                class="border border-gray-400 rounded-full cursor-pointer size-3 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
             <span
-                class="size-3 cursor-pointer rounded-full border border-gray-400 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
+                class="border border-gray-400 rounded-full cursor-pointer size-3 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
             <span
-                class="size-3 cursor-pointer rounded-full border border-gray-400 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
+                class="border border-gray-400 rounded-full cursor-pointer size-3 hs-carousel-active:border-blue-700 hs-carousel-active:bg-blue-700 dark:border-neutral-600 dark:hs-carousel-active:border-blue-500 dark:hs-carousel-active:bg-blue-500"></span>
         </div>
     </div>
 
