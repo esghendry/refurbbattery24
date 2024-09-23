@@ -78,9 +78,10 @@
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
         <div class="container flex px-5 mx-auto md:px-0">
-            <img src="{{ asset('assets/images/rb_proces_desktop.png') }}"
-                srcset="{{ asset('assets/images/rb_proces_mobile.png') }} 320w, {{ asset('assets/images/rb_proces_mobile.png') }} 800w, {{ asset('assets/images/rb_proces_desktop.png') }} 1200w"
-                sizes="(max-width: 768px) 100vw, 1200px" alt="Proces" class="my-12" />
+            <img src="{{ asset('assets/images/rb_proces_desktop.png') }}" alt="Proces Desktop"
+                class="hidden my-12 md:block" />
+            <img src="{{ asset('assets/images/rb_proces_mobile.png') }}" alt="Proces Mobile"
+                class="block my-12 md:hidden" />
         </div>
     </div>
 
