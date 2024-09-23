@@ -1,19 +1,15 @@
 <x-app-layout>
     <x-page-header>
-        @section("title", "Ons productieproces")
-        @section("subtitle", "Samenwerken voor meer grip op e-waste")
+        @section('title', 'Ons productieproces')
+        @section('subtitle', 'Samenwerken voor meer grip op e-waste')
         <br />
     </x-page-header>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="my-6 grid gap-6 lg:grid-cols-2">
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_productie.png") }}"
-                        alt="Productie"
-                        class="z-50 -mt-12"
-                    />
+                    <img src="{{ asset('assets/images/rb_productie.png') }}" alt="Productie" class="z-50 -mt-12" />
                 </div>
 
                 <div>
@@ -32,11 +28,9 @@
                         OPEN (voorheen Stibat en EPAC) zijn opgericht om als
                         collectief die verantwoordelijkheid te dragen.
                     </p>
-                    <a
-                        href="https://www.stichting-open.org/2024/05/01/accell-group-en-refurb-battery-verduurzamen-fietsbranche/"
+                    <a href="https://www.stichting-open.org/2024/05/01/accell-group-en-refurb-battery-verduurzamen-fietsbranche/"
                         target="_blank"
-                        class="external-link mt-2 inline-block font-bold underline duration-100 hover:text-rb-green"
-                    >
+                        class="inline-block mt-2 font-bold underline duration-100 external-link hover:text-rb-green">
                         Over onze samenwerking met Stichting Open
                     </a>
                 </div>
@@ -45,8 +39,8 @@
     </div>
 
     <div class="bg-[#D5DBE6] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="my-6 grid gap-6 lg:grid-cols-2">
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid gap-6 my-6 lg:grid-cols-2">
                 <div>
                     <h3 class="text-xl font-bold">
                         Refurb Battery: ReUse in plaats van ReCycling
@@ -68,39 +62,31 @@
                         Elke nieuw-geproduceerde cel heeft een geschatte
                         CO2-uitstoot van 150 kg/kWh.
                     </p>
-                    <a
-                        href="https://www.accell-group.com/en/news/news-2/accell-group-reduces-co2-emissions-by-giving-second-life-to-e-bike-batteries"
+                    <a href="https://www.accell-group.com/en/news/news-2/accell-group-reduces-co2-emissions-by-giving-second-life-to-e-bike-batteries"
                         target="_blank"
-                        class="external-link mt-2 inline-block font-bold underline duration-100 hover:text-rb-green"
-                    >
+                        class="inline-block mt-2 font-bold underline duration-100 external-link hover:text-rb-green">
                         Over onze samenwerking met ACCELL
                     </a>
                 </div>
 
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_dumpster.png") }}"
-                        alt="Batterijen container"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_dumpster.png') }}" alt="Batterijen container" class="" />
                 </div>
             </div>
         </div>
     </div>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <img
-                src="{{ asset("assets/images/rb_proces.png") }}"
-                alt=""
-                class="my-12"
-            />
+        <div class="container flex px-5 mx-auto md:px-0">
+            <img src="{{ asset('assets/images/rb_proces_desktop.png') }}"
+                srcset="{{ asset('assets/images/rb_proces_mobile.png') }} 320w, {{ asset('assets/images/rb_proces_mobile.png') }} 800w, {{ asset('assets/images/rb_proces_desktop.png') }} 1200w"
+                alt="Proces" class="my-12" />
         </div>
     </div>
 
     <div class="bg-[#D5DBE6] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="my-6 grid gap-6 lg:grid-cols-2">
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid gap-6 my-6 lg:grid-cols-2">
                 <div>
                     <h3 class="text-xl font-bold">
                         Slimme dataverzameling op celniveau
@@ -125,34 +111,25 @@
                         productie van batterijen te verbeteren.
                     </p>
 
-                    <a
-                        href="{{ route("slimme-data") }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                    >
+                    <a href="{{ route('slimme-data') }}"
+                        class="inline-block px-3 py-1 mt-6 text-white duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
                         Lees meer over slimme data
                     </a>
                 </div>
 
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_dashboardmockup.png") }}"
-                        alt="Batterijen container"
-                        class="md:-mt-24"
-                    />
+                    <img src="{{ asset('assets/images/rb_dashboardmockup.png') }}" alt="Batterijen container"
+                        class="md:-mt-24" />
                 </div>
             </div>
         </div>
     </div>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="my-6 grid gap-6 lg:grid-cols-2">
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_zhero.png") }}"
-                        alt="Productie"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_zhero.png') }}" alt="Productie" class="" />
                 </div>
 
                 <div>
@@ -167,10 +144,8 @@
                         goed te managen. Al onze systemen zijn gebouwd volgens
                         de leidende normen en hoogste veiligheidseisen.
                     </p>
-                    <a
-                        href="{{ route("toepassingen") }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                    >
+                    <a href="{{ route('toepassingen') }}"
+                        class="inline-block px-3 py-1 mt-6 text-white duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
                         Lees meer over onze toepassingen
                     </a>
                 </div>
@@ -179,7 +154,7 @@
     </div>
 
     <div class="bg-[#D5DBE6] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
+        <div class="container flex px-5 mx-auto md:px-0">
             <x-partners />
         </div>
     </div>
