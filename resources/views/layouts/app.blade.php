@@ -35,7 +35,6 @@
             href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
             rel="stylesheet"
         />
-        @livewireScripts
     </head>
 
     <body class="flex min-h-screen w-full flex-col font-mulish">
@@ -226,5 +225,6 @@
 
         <!-- Scripts -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        @livewireScripts
     </body>
 </html>
