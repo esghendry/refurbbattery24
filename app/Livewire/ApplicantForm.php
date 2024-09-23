@@ -2,11 +2,11 @@
 
 namespace App\Livewire;
 
-use App\Models\Vacancy;
+use App\Models\Applicant;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class VacancyForm extends Component
+class ApplicantForm extends Component
 {
     use WithFileUploads;
 
@@ -39,7 +39,7 @@ class VacancyForm extends Component
 
     public function submit()
     {
-        $vacancy = Vacancy::create([
+        $applicant = Applicant::create([
             'first_name' => $this->firstName,
             'last_name' => $this->lastName,
             'email' => $this->email,
@@ -52,11 +52,11 @@ class VacancyForm extends Component
 
         if (is_array($this->cvDocuments)) {
             foreach ($this->cvDocuments as $cvDocument) {
-                $vacancy->addMedia($cvDocument)->toMediaCollection();
+                $applicant->addMedia($cvDocument)->toMediaCollection();
             }
         }
 
-        if ($vacancy->wasRecentlyCreated) {
+        if ($applicant->wasRecentlyCreated) {
             $this->isSent = true;
         }
 
@@ -64,6 +64,6 @@ class VacancyForm extends Component
 
     public function render()
     {
-        return view('livewire.vacancy-form');
+        return view('livewire.applicant-form');
     }
 }

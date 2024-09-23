@@ -179,7 +179,7 @@
                     <h1 class="block mb-2 text-base font-bold font-mulish sm:text-lg md:text-xl">
                         Nu solliciteren, snel en eenvoudig
                     </h1>
-                    <livewire:vacancy-form :source="'werken-bij'" />
+                    <livewire:applicant-form :source="'werken-bij'" />
                 </div>
             </div>
         </div>
