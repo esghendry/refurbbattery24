@@ -80,7 +80,7 @@
         <div class="container flex px-5 mx-auto md:px-0">
             <img src="{{ asset('assets/images/rb_proces_desktop.png') }}"
                 srcset="{{ asset('assets/images/rb_proces_mobile.png') }} 320w, {{ asset('assets/images/rb_proces_mobile.png') }} 800w, {{ asset('assets/images/rb_proces_desktop.png') }} 1200w"
-                alt="Proces" class="my-12" />
+                sizes="(max-width: 768px) 100vw, 1200px" alt="Proces" class="my-12" />
         </div>
     </div>
 
