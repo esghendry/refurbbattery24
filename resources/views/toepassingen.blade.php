@@ -1,18 +1,14 @@
 <x-app-layout>
     <x-page-header>
-        @section("title", "Onze batterijtoepassingen")
-        @section("subtitle", "Grip op je energieverbruik")
+        @section('title', 'Onze batterijtoepassingen')
+        @section('subtitle', 'Grip op je energieverbruik')
     </x-page-header>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="my-6 grid items-center gap-6 lg:grid-cols-2">
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid items-center gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_tray_met_cell.png") }}"
-                        alt="Productie"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_tray_met_cell.png') }}" alt="Productie" class="" />
                 </div>
 
                 <div>
@@ -28,10 +24,8 @@
                         schakelbare batterijen maken extra stroom direct
                         mogelijk.
                     </p>
-                    <a
-                        href="{{ route("contact") }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                    >
+                    <a href="{{ route('contact') }}"
+                        class="inline-block px-3 py-1 mt-6 text-white duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
                         Neem contact op
                     </a>
                 </div>
@@ -40,8 +34,8 @@
     </div>
 
     <div class="bg-[#D5DBE6] text-rb-dark-blue">
-        <div class="container mx-auto px-5 md:px-0">
-            <div class="py-6 grid gap-6 lg:grid-cols-2">
+        <div class="container px-5 mx-auto md:px-0">
+            <div class="grid gap-6 py-6 lg:grid-cols-2">
                 <div>
                     <h3 class="text-xl font-bold">De toepassingen</h3>
                     <p class="text-lg font-medium leading-6">
@@ -69,25 +63,15 @@
                     </p>
                 </div>
 
-                <div
-                    class="mx-auto grid h-fit w-2/3 grid-cols-2 grid-rows-2 items-center gap-6 xl:w-1/2"
-                >
-                    <img
-                        src="{{ asset("assets/images/rb_toepassing_1.png") }}"
-                        alt="Zwaar materiaal laden met groene energie"
-                    />
-                    <img
-                        src="{{ asset("assets/images/rb_toepassing_2.png") }}"
-                        alt="Buitenevenementen en festivals vergroenen"
-                    />
-                    <img
-                        src="{{ asset("assets/images/rb_toepassing_3.png") }}"
-                        alt="Peak shaving en vraag & aanbod afstemmen"
-                    />
-                    <img
-                        src="{{ asset("assets/images/rb_toepassing_4.png") }}"
-                        alt="Laadpleinen en e-mobillity flexibel laden"
-                    />
+                <div class="grid items-center w-2/3 grid-cols-2 grid-rows-2 gap-6 mx-auto h-fit xl:w-1/2">
+                    <img src="{{ asset('assets/images/rb_toepassing_1.png') }}"
+                        alt="Zwaar materiaal laden met groene energie" />
+                    <img src="{{ asset('assets/images/rb_toepassing_2.png') }}"
+                        alt="Buitenevenementen en festivals vergroenen" />
+                    <img src="{{ asset('assets/images/rb_toepassing_3.png') }}"
+                        alt="Peak shaving en vraag & aanbod afstemmen" />
+                    <img src="{{ asset('assets/images/rb_toepassing_4.png') }}"
+                        alt="Laadpleinen en e-mobillity flexibel laden" />
                 </div>
             </div>
             <h3 class="pb-16 text-4xl font-bold">Onze partnerships</h3>
@@ -95,10 +79,8 @@
     </div>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div
-                class="my-6 -mt-8 grid items-center gap-6 md:grid-cols-2 lg:grid-cols-3"
-            >
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid items-center gap-6 my-6 -mt-8 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($articles as $article)
                     <x-news-item :article="$article" />
                 @endforeach
@@ -106,102 +88,88 @@
         </div>
     </div>
 
-    <div class="grid text-white lg:grid-cols-2">
-        <div
-            class="relative bg-cover px-12 py-6"
-            style="
-                background-image: url({{ asset("assets/images/rb_flexibiliteit.png") }});
-            "
-        >
-            <div
-                class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"
-            ></div>
-            <div class="relative z-30 h-full flex flex-wrap">
-                <h3 class="text-2xl font-bold">CESS op maat</h3>
-                <p class="text-lg font-normal leading-6">
-                    Flexibiliteit die past bij deze turbulente fase van de
-                    energietransitie. Refurb Battery en partners adviseren voor
-                    de juiste fit en integratie in het energiesysteem. Wij
-                    monitoren de batterij, maximeren levensduur en zorgen voor
-                    uiteindelijk hergebruik of recycling. We adviseren niet
-                    alleen op techniek maar ook op financieel gebied.
-                </p>
-                <br />
-                <p class="text-lg font-normal leading-6">
-                    •&emsp;&emsp; Eenvoudig capaciteit bijplaatsen of reduceren
+    <div class="container px-5 mx-auto md:px-0">
+        <div class="grid text-white lg:grid-cols-2">
+            <div class="relative px-12 py-6 bg-cover"
+                style="
+                background-image: url({{ asset('assets/images/rb_flexibiliteit.png') }});
+            ">
+                <div class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"></div>
+                <div class="relative z-30 flex flex-wrap h-full">
+                    <h3 class="text-2xl font-bold">CESS op maat</h3>
+                    <p class="text-lg font-normal leading-6">
+                        Flexibiliteit die past bij deze turbulente fase van de
+                        energietransitie. Refurb Battery en partners adviseren voor
+                        de juiste fit en integratie in het energiesysteem. Wij
+                        monitoren de batterij, maximeren levensduur en zorgen voor
+                        uiteindelijk hergebruik of recycling. We adviseren niet
+                        alleen op techniek maar ook op financieel gebied.
+                    </p>
                     <br />
-                    •&emsp;&emsp; Direct aan de slag, al lerend optimaliseren
-                    <br />
-                    •&emsp;&emsp; Nauwkeurige dataverzameling en overzichtelijk
-                    dashboard.
-                    <br />
-                    •&emsp;&emsp; Elke batterij heeft een eigen paspoort.
-                    <br />
-                    •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
-                </p>
-                <div class="my-6 w-full"> </div>
-                <a
-                    href="{{ route("contact") }}"
-                    class="mt-auto h-fit bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                >
-                    Neem contact op
-                </a>
+                    <p class="text-lg font-normal leading-6">
+                        •&emsp;&emsp; Eenvoudig capaciteit bijplaatsen of reduceren
+                        <br />
+                        •&emsp;&emsp; Direct aan de slag, al lerend optimaliseren
+                        <br />
+                        •&emsp;&emsp; Nauwkeurige dataverzameling en overzichtelijk
+                        dashboard.
+                        <br />
+                        •&emsp;&emsp; Elke batterij heeft een eigen paspoort.
+                        <br />
+                        •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
+                    </p>
+                    <div class="w-full my-6"> </div>
+                    <a href="{{ route('contact') }}"
+                        class="px-3 py-1 mt-auto text-white duration-100 h-fit bg-rb-green hover:bg-rb-dark-blue hover:underline">
+                        Neem contact op
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div
-            class="relative bg-cover px-12 py-6"
-            style="
-                background-image: url({{ asset("assets/images/rb_zhero.png") }});
-            "
-        >
-            <div
-                class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"
-            ></div>
-            <div class="relative z-30 h-full flex flex-wrap">
-                <h3 class="text-2xl font-bold">Zhero CESS</h3>
-                <p class="text-lg font-normal leading-6">
-                    Een CESS geeft inzicht en controle in je energiemanagement.
-                    Onder de naam Zhero levert Refurb Battery plug & play
-                    opslagsystemen zoals 10-voetscontainers en oplossingen voor
-                    laadpalen. We bieden de groenste oplossing: circulair,
-                    schakelbaar en meetbaar. On demand groene energie, voor peak
-                    shaving, als stroombuffer of als tijdelijke oplossing. Zero
-                    waste, hero impact.
-                </p>
-                <br />
-                <p class="text-lg font-normal leading-6">
-                    •&emsp;&emsp; Output van 300kWh tot 1MWh
+            <div class="relative px-12 py-6 bg-cover"
+                style="
+                background-image: url({{ asset('assets/images/rb_zhero.png') }});
+            ">
+                <div class="absolute inset-0 z-10 size-full bg-rb-dark-blue/80"></div>
+                <div class="relative z-30 flex flex-wrap h-full">
+                    <h3 class="text-2xl font-bold">Zhero CESS</h3>
+                    <p class="text-lg font-normal leading-6">
+                        Een CESS geeft inzicht en controle in je energiemanagement.
+                        Onder de naam Zhero levert Refurb Battery plug & play
+                        opslagsystemen zoals 10-voetscontainers en oplossingen voor
+                        laadpalen. We bieden de groenste oplossing: circulair,
+                        schakelbaar en meetbaar. On demand groene energie, voor peak
+                        shaving, als stroombuffer of als tijdelijke oplossing. Zero
+                        waste, hero impact.
+                    </p>
                     <br />
-                    •&emsp;&emsp; Het enige circulaire energieopslagsysteem
-                    <br />
-                    •&emsp;&emsp; Nauwkeurige dataverzameling en overzichtelijk
-                    dashboard.
-                    <br />
-                    •&emsp;&emsp; Elke batterij heeft een eigen paspoort.
-                    <br />
-                    •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
-                </p>
-                <div class="my-6 w-full"> </div>
-                <a
-                    href="{{ route("contact") }}"
-                    class="mt-auto h-fit bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                >
-                    Neem contact op
-                </a>
+                    <p class="text-lg font-normal leading-6">
+                        •&emsp;&emsp; Output van 300kWh tot 1MWh
+                        <br />
+                        •&emsp;&emsp; Het enige circulaire energieopslagsysteem
+                        <br />
+                        •&emsp;&emsp; Nauwkeurige dataverzameling en overzichtelijk
+                        dashboard.
+                        <br />
+                        •&emsp;&emsp; Elke batterij heeft een eigen paspoort.
+                        <br />
+                        •&emsp;&emsp; Schakelbaar en ontworpen voor hergebruik.
+                    </p>
+                    <div class="w-full my-6"> </div>
+                    <a href="{{ route('contact') }}"
+                        class="px-3 py-1 mt-auto text-white duration-100 h-fit bg-rb-green hover:bg-rb-dark-blue hover:underline">
+                        Neem contact op
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
-            <div class="my-6 grid items-center gap-6 lg:grid-cols-2">
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="grid items-center gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img
-                        src="{{ asset("assets/images/rb_productie.png") }}"
-                        alt="Productie"
-                        class=""
-                    />
+                    <img src="{{ asset('assets/images/rb_productie.png') }}" alt="Productie" class="" />
                 </div>
 
                 <div>
@@ -216,10 +184,8 @@
                         (CESS) is ontworpen voor circulariteit en gebouwd
                         volgens de geldende duurzaamheids- en veiligheidseisen.
                     </p>
-                    <a
-                        href="{{ route("productieproces") }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline"
-                    >
+                    <a href="{{ route('productieproces') }}"
+                        class="inline-block px-3 py-1 mt-6 text-white duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
                         Lees meer over ons circulaire productieproces
                     </a>
                 </div>
@@ -228,7 +194,7 @@
     </div>
 
     <div class="bg-[#D5DBE6] text-rb-dark-blue">
-        <div class="container mx-auto flex px-5 md:px-0">
+        <div class="container flex px-5 mx-auto md:px-0">
             <x-partners />
         </div>
     </div>
