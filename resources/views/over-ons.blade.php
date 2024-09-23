@@ -30,14 +30,14 @@
                         gestart.
                     </p>
                     <a
-                        href="#"
+                        href="https://www.linkedin.com/in/marty-smits-203394/"
                         target="_blank"
                         class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green"
                     >
                         Linkedinprofiel van oprichter Marty Smits
                     </a>
                     <a
-                        href="#"
+                        href="https://www.linkedin.com/in/msvanbeek/"
                         target="_blank"
                         class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green"
                     >
