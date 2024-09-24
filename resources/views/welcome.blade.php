@@ -35,7 +35,7 @@
                     <b>circulaire energieopslagsystemen</b>
                     (CESS) voor allerlei toepassingen. Zo geven we batterijen
                     een tweede leven of zelfs derde leven. We verminderen
-                    daarmee batterijafval nu én CO2-uitstoot in de toekomst.
+                    daarmee batterijafval nu én CO&#8322;-uitstoot in de toekomst.
                     Onze circulaire oplossingen ondersteunen de verschillende
                     vraagstukken in de energietransitie, zoals het oplossen van
                     netcongesties, pieken in het netwerk maar ook laden van
@@ -87,9 +87,7 @@
                         <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="w-10 mx-auto" />
                         <h4 class="mt-4 text-5xl font-bold">179501 ton*</h4>
                         <p class="px-6 mt-2 font-medium">
-                            CO
-                            <sub>2</sub>
-                            -uitstoot voorkomen met ons circulaire proces (*en
+                            CO&#8322;-uitstoot voorkomen met ons circulaire proces (*en
                             de teller loopt nog!)
                         </p>
                     </div>

@@ -175,7 +175,7 @@
                 <div>
                     <h3 class="text-xl font-bold">De groenste keuze</h3>
                     <p class="text-lg font-medium leading-6">
-                        Bij Refurb Battery maakt energieopslag circulair door de
+                        Refurb Battery maakt energieopslag circulair door de
                         levensduur van batterijcellen te verlengen. Door te
                         laden met elektriciteit uit duurzame bronnen maken we zo
                         het aanbod van groene stroom stabieler. Elk Refurb

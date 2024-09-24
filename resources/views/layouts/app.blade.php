@@ -11,8 +11,10 @@
     <meta name="description"
         content="Refurb Battery hergebruikt lithium-ion batterijen in circulaire energieopslagsystemen, vermindert e-waste en draagt bij aan de energietransitie." />
     <meta name="keywords"
-        content="Refurb Battery, refurbished battery, circulaire batterijen, energieopslag, circulaire energieopslag, lithium-ion batterijen, hergebruik accu's, batterij recycling, batterij toepassingen, duurzame energieoplossingen, netcongestie, groene groei, CO2-reductie, tweede leven batterijen, CESS, circulair productieproces, e-waste vermindering, energietransitie" />
-
+        content="Refurb Battery, refurbished battery, circulaire batterijen, energieopslag, 
+        circulaire energieopslag, lithium-ion batterijen, hergebruik accu's, batterij recycling, 
+        batterij toepassingen, duurzame energieoplossingen, netcongestie, groene groei, CO&#8322;-reductie, 
+        tweede leven batterijen, CESS, circulair productieproces, e-waste vermindering, energietransitie" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

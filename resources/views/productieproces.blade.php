@@ -60,7 +60,7 @@
                         leven geven, voorkomen we de productie van een nieuwe
                         cel. Zo besparen we energie, grondstoffen en uitstoot.
                         Elke nieuw-geproduceerde cel heeft een geschatte
-                        CO2-uitstoot van 150 kg/kWh.
+                        CO&#8322;-uitstoot van 150 kg/kWh.
                     </p>
                     <a href="https://www.accell-group.com/en/news/news-2/accell-group-reduces-co2-emissions-by-giving-second-life-to-e-bike-batteries"
                         target="_blank"

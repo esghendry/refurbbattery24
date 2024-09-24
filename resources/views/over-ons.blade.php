@@ -5,7 +5,7 @@
     </x-page-header>
 
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto px-5 md:px-0">
+        <div class="container px-5 mx-auto md:px-0">
             <div class="grid gap-6 py-6 lg:grid-cols-2">
                 <div class="relative">
                     <img src="{{ asset('assets/images/dromen.webp') }}" alt="Productie" class="z-50 -mt-12" />
@@ -15,7 +15,7 @@
                     <h3 class="text-xl font-bold">Van dromen naar doen</h3>
                     <p class="text-lg font-medium leading-6">
                         Refurb Battery is opgericht door ondernemers die actief
-                        zijn de energie en infrastructuur. Verduurzaming staat
+                        zijn in de energie en infrastructuur. Verduurzaming staat
                         hoog op de agenda, en energieopslag was hierin een
                         belangrijke factor. Toch lijkt energieopslag nog in de
                         kinderschoenen te staan: vragen over capaciteit,
@@ -26,11 +26,11 @@
                         gestart.
                     </p>
                     <a href="https://www.linkedin.com/in/marty-smits-203394/" target="_blank"
-                        class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green">
+                        class="block mt-2 font-bold underline duration-100 external-link hover:text-rb-green">
                         Linkedinprofiel van oprichter Marty Smits
                     </a>
                     <a href="https://www.linkedin.com/in/msvanbeek/" target="_blank"
-                        class="external-link mt-2 block font-bold underline duration-100 hover:text-rb-green">
+                        class="block mt-2 font-bold underline duration-100 external-link hover:text-rb-green">
                         Linkedinprofiel van Martijn van Beek
                     </a>
                 </div>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="bg-[#D5DBE6] text-rb-dark-blue">
-        <div class="container mx-auto px-5 md:px-0">
+        <div class="container px-5 mx-auto md:px-0">
             <div class="grid gap-6 py-6 lg:grid-cols-2">
                 <div>
                     <h3 class="text-xl font-bold">
@@ -70,8 +70,8 @@
         </div>
     </div>
     <div class="bg-[#E5E7EB] text-rb-dark-blue">
-        <div class="container mx-auto px-5 md:px-0">
-            <div class="-mt-8 grid items-center gap-6 py-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="container px-5 mx-auto md:px-0">
+            <div class="grid items-center gap-6 py-6 -mt-8 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($articles as $article)
                     <x-news-item :article="$article" />
                 @endforeach
@@ -86,7 +86,7 @@
                     <h3 class="text-xl font-bold">The sky is the limit</h3>
                     <p class="text-lg font-medium leading-6">
                         Refurb Battery als dé recyclinghub van Noordwest-Europa
-                        voor Lithium-ion batterijen: dat is ons ambitie. Met ons
+                        voor Lithium-ion batterijen: dat is onze ambitie. Met ons
                         unieke proces redden we cellen en genereren daarmee data
                         en doen kennis op. Die kennis van batterijtechnologie
                         delen we met Technische Universiteiten,
@@ -101,7 +101,7 @@
                         presentatie te geven.
                     </p>
                     <a href="{{ route('contact') }}"
-                        class="mt-6 inline-block bg-rb-green px-3 py-1 text-white duration-100 hover:bg-rb-dark-blue hover:underline">
+                        class="inline-block px-3 py-1 mt-6 text-white duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
                         Kom in contact
                     </a>
                 </div>
