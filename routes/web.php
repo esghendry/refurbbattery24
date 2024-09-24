@@ -46,3 +46,32 @@ Route::get('/privacy-and-cookies', fn() => null)->name('privacy-and-cookies');
 Route::get('/werken-bij/product-specialist-battery-pack-designer', fn() => view('werken-bij.product-specialist-battery-pack-designer'));
 Route::get('/werken-bij/quality-process-engineer-manufacturing', fn() => view('werken-bij.quality-process-engineer-manufacturing'));
 Route::get('/werken-bij/technical-sales-manager-energieopslagsystemen-eos', fn() => view('werken-bij.technical-sales-manager-energieopslagsystemen-eos'));
+
+// Redirect old routes to new ones
+Route::redirect('/nl/contact', '/contact', 301);
+Route::redirect('/nl', '/', 301);
+Route::redirect('/nl/batterij-oplossingen', '/toepassingen', 301);
+Route::redirect('/nl/impact-maken', '/over-ons', 301);
+Route::redirect('/nl/ewaste-oplossingen', '/productieproces', 301);
+Route::redirect('/nl/over-ons', '/over-ons', 301);
+Route::redirect('/nl/offerte', '/contact', 301);
+Route::redirect('/nl/privacy-en-cookies', '/privacy-and-cookies', 301);
+Route::redirect('/nl/nieuws', '/nieuws', 301);
+Route::redirect('/battery-solutions', '/toepassingen', 301);
+Route::redirect('/making-impact', '/over-ons', 301);
+Route::redirect('/ewaste-solutions', '/productieproces', 301);
+Route::redirect('/about-us', '/over-ons', 301);
+Route::redirect('/quote', '/contact', 301);
+Route::redirect('/privacy-and-cookies', '/privacy-and-cookies', 301);
+Route::redirect('/newsroom', '/nieuws', 301);
+
+Route::get('/nl/nieuws/{slug}', function ($slug) {
+    return redirect()->route('nieuws', [], 301);
+});
+Route::get('/news/{slug}', function ($slug) {
+    return redirect()->route('nieuws', [], 301);
+});
+
+Route::get('/nl/join-us/{slug}', function ($slug) {
+    return redirect()->route('werken-bij', [], 301);
+});
