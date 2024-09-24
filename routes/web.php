@@ -63,6 +63,7 @@ Route::redirect('/ewaste-solutions', '/productieproces', 301);
 Route::redirect('/about-us', '/over-ons', 301);
 Route::redirect('/quote', '/contact', 301);
 Route::redirect('/privacy-and-cookies', '/privacy-and-cookies', 301);
+Route::redirect('/join-us', '/werken-bij', 301);
 Route::redirect('/newsroom', '/nieuws', 301);
 
 Route::get('/nl/nieuws/{slug}', function ($slug) {
