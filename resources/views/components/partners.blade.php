@@ -2,7 +2,7 @@
     <div>
         <h2 class="text-4xl font-bold">Ecosysteem van partners</h2>
         <p class="mt-4 text-lg font-bold leading-6">
-            Dankzij onze samenwerkingen met producenten zoals Accell en Van Moof
+            Dankzij onze samenwerkingen met organisaties zoals ARN en Stichting OPEN
             hebben we tot nu toe al 1 miljoen batterijcellen kunnen redden van
             de shredder. Maar wat ons betreft is dit nog maar het begin. Werk
             jij mee aan het succes?
