@@ -15,6 +15,19 @@ namespace App\Models{
 /**
  * 
  *
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property-read int|null $media_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Applicant newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Applicant newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Applicant query()
+ */
+	class Applicant extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property string $slug
  * @property string $title
@@ -108,7 +121,7 @@ namespace App\Models{
  * @property string|null $phone
  * @property string|null $location
  * @property string|null $languages
- * @property string|null $links
+ * @property string|null $link
  * @property string|null $how_did_you_find_us
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -124,7 +137,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLanguages($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLastName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLinks($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLink($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLocation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereUpdatedAt($value)
