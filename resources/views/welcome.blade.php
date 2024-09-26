@@ -20,7 +20,7 @@
         <div class="absolute -right-20 -top-10 left-0 z-10 me-auto ms-auto w-9/12 max-w-4xl sm:-top-16 lg:-top-[140px]">
             <picture>
                 <source media="(min-width: 768px)" srcset="{{ asset('assets/images/rb_tray_met_cell_desktop.webp') }}">
-                <img src="{{ asset('assets/images/rb_tray_met_cell_mobile.webp') }}" class="w-full">
+                <img src="{{ asset('assets/images/rb_tray_met_cell_mobile.webp') }}" class="w-full" alt="RB tray met cell">
               </picture>
         </div>
     </div>
