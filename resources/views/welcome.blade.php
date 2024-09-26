@@ -18,7 +18,8 @@
     </div>
     <div class="relative w-full">
         <div class="absolute -right-20 -top-10 left-0 z-10 me-auto ms-auto w-9/12 max-w-4xl sm:-top-16 lg:-top-[140px]">
-            <img src="{{ asset('assets/images/rb_tray_met_cell.webp') }}" class="w-full" alt="rb tray met cell" />
+            <img src="{{ asset('assets/images/rb_tray_met_cell_desktop.webp') }}" class="w-full hidden md:block" alt="rb tray met cell" />
+            <img src="{{ asset('assets/images/rb_tray_met_cell_mobile.webp') }}" class="w-full md:hidden" alt="rb tray met cell" />
         </div>
     </div>
 

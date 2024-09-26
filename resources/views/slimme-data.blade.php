@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_dashboardmockup.webp') }}" alt="Dashboard" class="md:-mt-24" />
+                    <img src="{{ asset('assets/images/rb_dashboardmockup.webp') }}" alt="Dashboard" class="lg:-mt-24" />
                 </div>
             </div>
         </div>

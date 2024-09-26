@@ -8,7 +8,7 @@
         <div class="container flex px-5 mx-auto md:px-0">
             <div class="grid items-center gap-6 my-6 lg:grid-cols-2">
                 <div class="relative">
-                    <img src="{{ asset('assets/images/rb_tray_met_cell.webp') }}" alt="Productie" class="" />
+                    <img src="{{ asset('assets/images/rb_tray_met_cell_mobile.webp') }}" alt="Productie" class="" />
                 </div>
 
                 <div>
