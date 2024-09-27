@@ -32,7 +32,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="preload" as="style" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NPT3BRMLB"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-2NPT3BRMLB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -42,18 +42,6 @@
         gtag('js', new Date());
 
         gtag('config', 'G-2NPT3BRMLB');
-    </script>
-    <script type="text/javascript">
-        (function(c, l, a, r, i, t, y) {
-            c[a] = c[a] || function() {
-                (c[a].q = c[a].q || []).push(arguments)
-            };
-            t = l.createElement(r);
-            t.async = 1;
-            t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0];
-            y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "iqax7ajeg7");
     </script>
 </head>
 
@@ -208,6 +196,18 @@
 
     <!-- Scripts -->
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script type="text/javascript">
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "iqax7ajeg7");
+    </script>
 </body>
 
 </html>
