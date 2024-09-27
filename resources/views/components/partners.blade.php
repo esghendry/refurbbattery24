@@ -25,11 +25,11 @@
                     <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
                             class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
-                            <img src="{{ asset('assets/logos/greenchoice.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/greenchoice.svg') }}" alt="greenchoice"
                                 class="max-w-[200px] w-full" />
-                            <img src="{{ asset('assets/logos/stichting-open.webp') }}" alt=""
+                            <img src="{{ asset('assets/logos/stichting-open.webp') }}" alt="stichting-open"
                                 class="max-h-[150px] w-full" />
-                            <img src="{{ asset('assets/logos/accell-group.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/accell-group.svg') }}" alt="accell-group"
                                 class="max-w-[200px] w-full" />
                         </span>
                     </div>
@@ -38,24 +38,11 @@
                     <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
                             class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
-                            <img src="{{ asset('assets/logos/port-of-moerdijk.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/port-of-moerdijk.svg') }}" alt="port-of-moerdijk"
                                 class="max-w-[250px] w-full" />
-                            <img src="{{ asset('assets/logos/brainport.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/brainport.svg') }}" alt="brainport"
                                 class="max-h-[250px] w-full" />
-                            <img src="{{ asset('assets/logos/avans-hogeschool.svg') }}" alt=""
-                                class="max-w-[250px] w-full" />
-                        </span>
-                    </div>
-                </div>
-                <div class="hs-carousel-slide">
-                    <div class="flex justify-center h-full p-6 bg-gray-300">
-                        <span
-                            class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
-                            <img src="{{ asset('assets/logos/esg-tech.webp') }}" alt=""
-                                class="max-h-[250px] w-full" />
-                            <img src="{{ asset('assets/logos/hyvolt.svg') }}" alt=""
-                                class="max-h-[250px] w-full" />
-                            <img src="{{ asset('assets/logos/bam.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/avans-hogeschool.svg') }}" alt="avans-hogeschool"
                                 class="max-w-[250px] w-full" />
                         </span>
                     </div>
@@ -64,11 +51,24 @@
                     <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
                             class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
-                            <img src="{{ asset('assets/logos/arn.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/esg-tech.webp') }}" alt="esg-tech"
+                                class="max-h-[250px] w-full" />
+                            <img src="{{ asset('assets/logos/hyvolt.svg') }}" alt="hyvolt"
+                                class="max-h-[250px] w-full" />
+                            <img src="{{ asset('assets/logos/bam.svg') }}" alt="bam"
+                                class="max-w-[250px] w-full" />
+                        </span>
+                    </div>
+                </div>
+                <div class="hs-carousel-slide">
+                    <div class="flex justify-center h-full p-6 bg-gray-300">
+                        <span
+                            class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
+                            <img src="{{ asset('assets/logos/arn.svg') }}" alt="arn"
                                 class="max-w-[175px] w-full" />
-                            <img src="{{ asset('assets/logos/tue.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/tue.svg') }}" alt="tue"
                                 class="max-w-[200px] w-full" />
-                            <img src="{{ asset('assets/logos/rai.svg') }}" alt=""
+                            <img src="{{ asset('assets/logos/rai.svg') }}" alt="rai"
                                 class="max-h-[250px] w-full" />
                         </span>
                     </div>

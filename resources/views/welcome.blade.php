@@ -20,8 +20,9 @@
         <div class="absolute -right-20 -top-10 left-0 z-10 me-auto ms-auto w-9/12 max-w-4xl sm:-top-16 lg:-top-[140px]">
             <picture>
                 <source media="(min-width: 768px)" srcset="{{ asset('assets/images/rb_tray_met_cell_desktop.webp') }}">
-                <img src="{{ asset('assets/images/rb_tray_met_cell_mobile.webp') }}" class="w-full" alt="RB tray met cell">
-              </picture>
+                <img src="{{ asset('assets/images/rb_tray_met_cell_mobile.webp') }}" class="w-full"
+                    alt="RB tray met cell">
+            </picture>
         </div>
     </div>
 
@@ -87,7 +88,7 @@
 
                 <div class="grid mt-12 divide-y divide-rb-dark-blue md:grid-cols-3 md:divide-x md:divide-y-0">
                     <div class="my-6 text-center md:my-auto md:px-6">
-                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="w-10 mx-auto" />
+                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="w-10 mx-auto" />
                         <h4 class="mt-4 text-5xl font-bold">179501 ton*</h4>
                         <p class="px-6 mt-2 font-medium">
                             CO&#8322;-uitstoot voorkomen met ons circulaire proces (*en
@@ -96,7 +97,7 @@
                     </div>
 
                     <div class="my-6 text-center md:my-auto md:px-6">
-                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="w-10 mx-auto" />
+                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="w-10 mx-auto" />
                         <h4 class="mt-4 text-5xl font-bold">11+</h4>
                         <p class="px-6 mt-2 font-medium">
                             Samenwerkingen met organisaties en marktleiders
@@ -105,7 +106,7 @@
                     </div>
 
                     <div class="my-6 text-center md:my-auto md:px-6">
-                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="w-10 mx-auto" />
+                        <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="w-10 mx-auto" />
                         <h4 class="mt-4 text-5xl font-bold">1.196.673+</h4>
                         <p class="px-6 mt-2 font-medium">
                             Al meer dan één miljoen cellen kregen bij ons een

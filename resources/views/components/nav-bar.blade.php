@@ -71,7 +71,7 @@
                             </div>
 
                             <a class="p-2 rounded-lg md:hidden" href="{{ route('nieuws') }}">
-                                <img src="{{ asset('assets/icons/lightning.svg') }}" alt=""
+                                <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning"
                                     class="inline mr-2" /> Nieuws
                             </a>
                             <a class="p-2 rounded-lg md:hidden" href="{{ route('werken-bij') }}">

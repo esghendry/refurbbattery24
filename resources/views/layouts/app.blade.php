@@ -54,7 +54,7 @@
                 <ul class="grid grid-flow-col gap-2 mx-auto sm:mx-0 sm:ml-auto md:gap-12">
                     <li>
                         <a href="{{ route('nieuws') }}">
-                            <img src="{{ asset('assets/icons/lightning.svg') }}" alt="" class="inline mr-2" />
+                            <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="inline mr-2" />
                             Nieuws
                         </a>
                     </li>
