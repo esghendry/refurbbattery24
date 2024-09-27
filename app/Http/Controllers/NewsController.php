@@ -20,7 +20,7 @@ class NewsController extends Controller
 
     public function show(Article $article)
     {
-        return view('article.show', [
+        return view('article.slug', [
             'article' => $article,
         ]);
     }
