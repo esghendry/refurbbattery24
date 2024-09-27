@@ -8,9 +8,12 @@
         "php": "^8.2",
         "amidesfahani/filament-tinyeditor": "^2.0",
         "filament/filament": "^3.2",
+        "filament/spatie-laravel-media-library-plugin": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "league/flysystem-aws-s3-v3": "^3.28",
         "livewire/livewire": "^3.5",
+        "spatie/image": "^3.7",
         "spatie/laravel-medialibrary": "^11.9"
     },
     "require-dev": {

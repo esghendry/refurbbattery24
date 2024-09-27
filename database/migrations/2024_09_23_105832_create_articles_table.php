@@ -17,14 +17,16 @@ return new class extends Migration
             $table->string('slug')->unique();
 
             $table->string('title');
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->string('image')->nullable();
 
             $table->string('author')->nullable();
+            $table->string('status')->default('draft');
             $table->timestamp('published_at')->nullable();
             $table->boolean('is_listed')->default(true);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
