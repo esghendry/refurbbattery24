@@ -22,6 +22,7 @@ return new class extends Migration
 
             $table->string('author')->nullable();
             $table->timestamp('published_at')->nullable();
+            $table->boolean('is_listed')->default(true);
 
             $table->timestamps();
         });
