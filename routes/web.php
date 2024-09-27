@@ -20,7 +20,7 @@ Route::get('/hendry', function () {
 });
 
 Route::get('/nieuws', [NewsController::class, 'index'])->name('nieuws');
-Route::get('/nieuws/{article:slug}', [NewsController::class, 'slug'])->name('nieuws.show');
+Route::get('/nieuws/{article:slug}', [NewsController::class, 'show'])->name('nieuws.show');
 
 Route::get('/contact', fn() => view('contact'))->name('contact');
 

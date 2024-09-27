@@ -18,9 +18,9 @@ class NewsController extends Controller
         ]);
     }
 
-    public function slug(Article $article)
+    public function show(Article $article)
     {
-        return view('article.slug', [
+        return view('article.show', [
             'article' => $article,
         ]);
     }
