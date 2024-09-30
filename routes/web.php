@@ -76,3 +76,9 @@ Route::get('/news/{slug}', function ($slug) {
 Route::get('/nl/join-us/{slug}', function ($slug) {
     return redirect()->route('werken-bij', [], 301);
 });
+
+Route::get('/join-us/{slug}', function ($slug) {
+    return redirect()->route('werken-bij', [], 301);
+});
+
+Route::redirect('/join-us/data-analist', '/werken-bij', 301);
