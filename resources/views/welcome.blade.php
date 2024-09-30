@@ -89,7 +89,7 @@
                 <div class="grid mt-12 divide-y divide-rb-dark-blue md:grid-cols-3 md:divide-x md:divide-y-0">
                     <div class="my-6 text-center md:my-auto md:px-6">
                         <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="w-10 mx-auto" />
-                        <h4 class="mt-4 text-5xl font-bold">179501 ton*</h4>
+                        <h4 class="mt-4 text-5xl font-bold">1795 ton*</h4>
                         <p class="px-6 mt-2 font-medium">
                             CO&#8322;-uitstoot voorkomen met ons circulaire proces (*en
                             de teller loopt nog!)
