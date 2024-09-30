@@ -10,7 +10,6 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
@@ -55,16 +54,26 @@ class ArticleResource extends Resource
                     ->imageEditor()
                     ->helperText('This will be the image used at the top of the article')
                     ->columnSpanFull()
-                    ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                        //
-                    }),
+                    ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Article $record) {
+                        $extension = $file->getClientOriginalExtension();
 
-                // SpatieMediaLibraryFileUpload::make('image')
-                //     ->disk('do')
-                //     ->image()
-                //     ->imageEditor()
-                //     ->helperText('This will be the image used at the top of the article')
-                //     ->columnSpanFull(),
+                        if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                            return $file->store('articles/'.$record->id, 'do');
+                        }
+
+                        $imagePath = 'articles/'.$record->id.'/'.$file->getFilename().'.webp';
+
+                        // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
+                        $image = Image::useImageDriver(ImageDriver::Gd)
+                            ->loadFile($file->getRealPath())
+                            ->optimize()
+                            ->base64('webp', false);
+
+                        // save the image to the cloud disk
+                        Storage::disk('do')->put($imagePath, base64_decode($image));
+
+                        return $imagePath;
+                    }),
 
                 TinyEditor::make('body')
                     ->columnSpanFull()
