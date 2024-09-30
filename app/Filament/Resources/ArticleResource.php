@@ -18,8 +18,11 @@ use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Spatie\Image\Enums\Fit;
+use Spatie\Image\Enums\ImageDriver;
 use Spatie\Image\Image;
 
 class ArticleResource extends Resource
@@ -70,20 +73,27 @@ class ArticleResource extends Resource
                         return 'articles/'.$record->id;
                     })
                     ->saveUploadedFileAttachmentsUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                        dump($file);
                         $extension = $file->getClientOriginalExtension();
 
                         // if image
-                        if (! in_array($extension, ['jpg', 'jpeg', 'png'])) {
-                            return false;
+                        if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                            return $file->store('articles/'.$record->id, 'do');
                         }
-                        // dd($file->getRealPath());
-                        $image = Image::load($file->getPath());
 
-                        dd($image);
+                        $imagePath = 'articles/'.$record->id.'/'.$file->getFilename().'.webp';
 
-                        // return $file->store('articles/'.$record->id, 'do');
-                        // return $image->sav
+                        // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
+                        $image = Image::useImageDriver(ImageDriver::Gd)
+                            ->loadFile($file->getRealPath())
+                            ->optimize()
+                            ->fit(Fit::Max, 1000, 600)
+                            // set $prefixWithFormat to false to not prefix the image with the format
+                            ->base64('webp', false);
+
+                        // store the image in in 'do' storage disk
+                        Storage::disk('do')->put($imagePath, base64_decode($image));
+
+                        return $imagePath;
                     }),
 
                 TextInput::make('author')
