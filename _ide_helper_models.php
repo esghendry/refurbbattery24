@@ -56,23 +56,31 @@ namespace App\Models{
  * @property string $body
  * @property string|null $image
  * @property string|null $author
+ * @property string $status
  * @property string|null $published_at
+ * @property int $is_listed
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property-read int|null $media_count
  * @method static \Illuminate\Database\Eloquent\Builder|Article newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Article newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Article query()
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereAuthor($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereBody($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereIsListed($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article wherePublishedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedAt($value)
  */
-	class Article extends \Eloquent {}
+	class Article extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
 
 namespace App\Models{
