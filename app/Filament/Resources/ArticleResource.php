@@ -11,11 +11,15 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -34,15 +38,16 @@ class ArticleResource extends Resource
     {
         return $form
             ->schema([
+                TextInput::make('title')
+                    ->required()
+                    ->maxLength(255)
+                    ->unique(ignoreRecord: true),
+
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255)
                     ->lazy()
                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
-
-                TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
 
                 FileUpload::make('image')
                     ->disk('do')
@@ -52,7 +57,7 @@ class ArticleResource extends Resource
                     ->visibility('public')
                     ->image()
                     ->imageEditor()
-                    ->helperText('This will be the image used at the top of the article')
+                    ->helperText('This will be the image used at the top of the article and the thumbnail of the article.')
                     ->columnSpanFull()
                     ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Article $record) {
                         $extension = $file->getClientOriginalExtension();
@@ -61,7 +66,8 @@ class ArticleResource extends Resource
                             return $file->store('articles/'.$record->id, 'do');
                         }
 
-                        $imagePath = 'articles/'.$record->id.'/'.$file->getFilename().'.webp';
+                        $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getFilename())['filename'].'.webp';
+                        // $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getClientOriginalName())['filename'].'.webp';
 
                         // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
                         $image = Image::useImageDriver(ImageDriver::Gd)
@@ -123,6 +129,8 @@ class ArticleResource extends Resource
                             ->schema([
                                 DateTimePicker::make('published_at'),
                             ]),
+
+                        Toggle::make('is_listed'),
                     ])
                     ->columnSpan(1),
             ]);
@@ -132,25 +140,42 @@ class ArticleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('slug')
+                TextColumn::make('id')
                     ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('status')
+                    ->sortable()
+                    ->searchable()
+                    ->badge(),
+                TextColumn::make('slug')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable()
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('author')
+                TextColumn::make('title')
+                    ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('published_at')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
+                ImageColumn::make('image')
+                    ->disk('do'),
+                TextColumn::make('author')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('published_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                    ->searchable(),
+                IconColumn::make('is_listed')
+                    ->boolean(),
+                TextColumn::make('created_at')
                     ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->searchable(),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable()
+                    ->searchable(),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([

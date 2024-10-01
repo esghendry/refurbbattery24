@@ -10,6 +10,7 @@ class NewsController extends Controller
     {
         $articles = Article::query()
             ->where('published_at', '<=', now())
+            ->where('status', 'published')
             ->where('is_listed', true)
             ->orderBy('published_at', 'desc')->get();
 

@@ -7,7 +7,7 @@
     >
         <span
             class="block h-44 w-full bg-cover"
-            style="background-image: url('{{ asset($article->image) }}')"
+            style="background-image: url('{{ Storage::disk('do')->url($article->image) }}')"
         ></span>
         <span class="block p-2">
             {{ $article->title }}

@@ -53,12 +53,12 @@ namespace App\Models{
  * @property int $id
  * @property string $slug
  * @property string $title
- * @property string $body
+ * @property string|null $body
  * @property string|null $image
  * @property string|null $author
- * @property string $status
- * @property string|null $published_at
- * @property int $is_listed
+ * @property \App\Enums\ArticleStatus $status
+ * @property \Illuminate\Support\Carbon|null $published_at
+ * @property bool $is_listed
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at

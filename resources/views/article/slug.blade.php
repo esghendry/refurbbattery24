@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="bg-[#E5E7EB]">
         <div class="grid w-full grid-cols-1 bg-center bg-cover h-72 place-content-center sm:h-96"
-            style="background-image: url('{{ asset($article->image) }}')">
+            style="background-image: url('{{ Storage::disk('do')->url($article->image) }}')">
             <div>
-                <div class="relative grid w-full grid-cols-12 px-4 md:px-0">
+                <div class="relative grid w-full grid-cols-12 px-5 md:px-0">
                     <div class="col-span-12 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-3">
                         <div class="animate__animated animate__delay-4s animate__fadeInUp"
                             style="
@@ -32,9 +32,9 @@
             </div>
         </div>
 
-        <div class="container px-0 mx-auto">
+        <div class="container px-5 md:px-12 2xl:px-0 py-3 mx-auto">
 
-            <div class="prose mx-auto sm:!max-w-4xl lg:!max-w-7xl px-4 md:px-12 2xl:px-0">
+            <div class="prose sm:!max-w-4xl mx-auto lg:!max-w-7xl">
                 {!! $article->body !!}
             </div>
 
