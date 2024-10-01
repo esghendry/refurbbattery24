@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="bg-[#E5E7EB]">
         <div class="grid w-full grid-cols-1 bg-center bg-cover h-72 place-content-center sm:h-96"
-            style="background-image: url('{{ Storage::disk('do')->url($article->image) }}')">
+            style="background-image: url('{{ $article->image ? Storage::disk('do')->url($article->image) : '' }}')">
             <div>
                 <div class="relative grid w-full grid-cols-12 px-5 md:px-0">
                     <div class="col-span-12 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-3">

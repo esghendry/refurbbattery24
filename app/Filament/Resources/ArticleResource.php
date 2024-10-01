@@ -177,7 +177,8 @@ class ArticleResource extends Resource
                     ->sortable()
                     ->searchable(),
             ])
-            ->defaultSort('created_at', 'desc')
+            ->defaultSort(fn ($query) => $query
+                ->orderByRaw('FIELD(status, "draft", "preview", "rejected", "published"), published_at DESC, created_at DESC'))
             ->filters([
                 //
             ])
