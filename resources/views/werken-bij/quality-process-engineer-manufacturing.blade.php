@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-page-header>
-        @section("title", "Product Specialist | Battery Pack Designer")
-        @section("subtitle", "Wil jij onze hoofdverantwoordelijke zijn voor het ontwerpen van onze toekomstige circulaire batterijproducten? Ben jij graag de 'linking pin' tussen productstrategie, -ontwikkeling en -innovatie?  Lees dan zeker verder!")
+        @section("title", "Quality Process Engineer | Manufacturing")
+        @section("subtitle", "Zorg jij voor verbinding, samenwerking en continue verbetering en ontwikkelingen op het gebied van kwaliteitsmanagement: kwaliteitscontrole (QC) en kwaliteitswaarborging (QA)? Dan zoeken wij jou!")
     </x-page-header>
 
     <div class="bg-[#E5E7EB]">

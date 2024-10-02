@@ -1,9 +1,7 @@
 <x-app-layout>
     <x-page-header>
-        @section('title', 'Product Specialist | Battery Pack Designer')
-        @section('subtitle', "Wil jij onze hoofdverantwoordelijke zijn voor het ontwerpen van onze toekomstige
-            circulaire batterijproducten? Ben jij graag de 'linking pin' tussen productstrategie, -ontwikkeling en
-            -innovatie? Lees dan zeker verder!")
+        @section('title', 'Technical Sales Manager | Energieopslagsystemen (EOS)')
+        @section('subtitle', "Breng jij een positieve lading energie mee voor de toekomst van duurzame energieopslag? Heb jij een technische achtergrond in de energiesector met een focus op duurzaamheid maar ben je ook commercieel sterk en graag bezig? Lees dan vooral verder!")
         </x-page-header>
 
         <div class="bg-[#E5E7EB]">
