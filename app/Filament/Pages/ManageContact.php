@@ -40,7 +40,8 @@ class ManageContact extends SettingsPage
 
                 TextInput::make('email'),
                 Section::make([
-                    TextInput::make('phone'),
+                    TextInput::make('phone')
+                        ->prefix('tel:'),
                     TextInput::make('phone_display'),
                 ]),
 

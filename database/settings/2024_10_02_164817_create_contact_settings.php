@@ -9,7 +9,7 @@ return new class extends SettingsMigration
         $this->migrator->add('contact.bcc', []);
         $this->migrator->add('contact.cc', []);
         $this->migrator->add('contact.email', 'hello@refurbbattery.eu');
-        $this->migrator->add('contact.phone', 'tel:+31852464999');
+        $this->migrator->add('contact.phone', '+31852464999');
         $this->migrator->add('contact.phone_display', '085 246 4999');
 
         $this->migrator->add('contact.location_name', 'Productiefaciliteit');
