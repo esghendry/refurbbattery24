@@ -28,7 +28,7 @@
                             <img src="{{ asset('assets/logos/greenchoice.svg') }}" alt="greenchoice"
                                 class="max-w-[200px] w-full" />
                             <img src="{{ asset('assets/logos/stichting-open.webp') }}" alt="stichting-open"
-                                class="max-h-[150px] w-full" />
+                                class="max-h-[150px]" />
                             <img src="{{ asset('assets/logos/accell-group.svg') }}" alt="accell-group"
                                 class="max-w-[200px] w-full" />
                         </span>
@@ -41,7 +41,7 @@
                             <img src="{{ asset('assets/logos/port-of-moerdijk.svg') }}" alt="port-of-moerdijk"
                                 class="max-w-[250px] w-full" />
                             <img src="{{ asset('assets/logos/brainport.svg') }}" alt="brainport"
-                                class="max-h-[250px] w-full" />
+                                class="max-h-[250px]" />
                             <img src="{{ asset('assets/logos/avans-hogeschool.svg') }}" alt="avans-hogeschool"
                                 class="max-w-[250px] w-full" />
                         </span>

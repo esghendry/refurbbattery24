@@ -3,7 +3,9 @@
 namespace App\Filament\Pages;
 
 use App\Settings\ContactSettings;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
@@ -37,8 +39,28 @@ class ManageContact extends SettingsPage
                     ),
 
                 TextInput::make('email'),
-                TextInput::make('phone'),
-                TextInput::make('phone_display'),
+                Section::make([
+                    TextInput::make('phone'),
+                    TextInput::make('phone_display'),
+                ]),
+
+                TextInput::make('location_name'),
+
+                FileUpload::make('location_image')
+                    ->image()
+                    ->disk('do')
+                    ->directory('location')
+                    ->visibility('public')
+                    ->preserveFilenames(),
+
+                TextInput::make('building_name'),
+
+                TextInput::make('address'),
+                TextInput::make('number'),
+
+                TextInput::make('postal_code'),
+
+                TextInput::make('city'),
             ]);
     }
 }
