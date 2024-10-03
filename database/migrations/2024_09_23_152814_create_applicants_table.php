@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Vacancy;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,6 +15,8 @@ return new class extends Migration
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignIdFor(Vacancy::class)->nullable();
+
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('email')->nullable();
@@ -22,6 +25,7 @@ return new class extends Migration
             $table->text('languages')->nullable();
             $table->text('link')->nullable();
             $table->text('how_did_you_find_us')->nullable();
+            $table->text('source')->nullable();
 
             $table->timestamps();
         });
