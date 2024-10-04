@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between gap-x-1">
             <a class="flex-none text-xl font-semibold text-white focus:opacity-80 focus:outline-none" href="/"
                 aria-label="Brand">
-                <img src="{{ asset('assets/logos/RB_Logo.svg') }}" alt="Refurb Battery logo" class="h-7" />
+                <img src="{{ Storage::disk('do')->url(generalSettings()->logo) }}" alt="Refurb Battery logo" class="h-7" />
             </a>
 
             <!-- Collapse Button -->

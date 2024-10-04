@@ -45,10 +45,12 @@ class ManageGeneral extends SettingsPage
                     ->description('We doen meer met minder.')
                     ->schema([
                         TextInput::make('co2_prevented')
+                            ->suffix('ton')
                             ->helperText('CO₂-uitstoot voorkomen met ons circulaire proces (*en de teller loopt nog!)'),
                         TextInput::make('partner_count')
                             ->helperText('Samenwerkingen met organisaties en marktleiders zoals Accell en Stichting OPEN.'),
                         TextInput::make('cells_second_life')
+                            ->suffix('+')
                             ->helperText('Al meer dan één miljoen cellen kregen bij ons een tweede leven.'),
                     ])
                     ->columns(3),

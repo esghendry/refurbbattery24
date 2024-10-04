@@ -87,27 +87,27 @@
                 </h3>
 
                 <div class="grid mt-12 divide-y divide-rb-dark-blue md:grid-cols-3 md:divide-x md:divide-y-0">
-                    <div class="my-6 text-center md:my-auto md:px-6">
+                    <div class="py-6 text-center md:my-auto md:px-6">
                         <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="w-10 mx-auto" />
-                        <h3 class="mt-4 text-5xl font-bold">1795 ton*</h3>
+                        <h3 class="mt-4 text-5xl font-bold">{{ generalSettings()->co2_prevented }} ton*</h3>
                         <p class="px-6 mt-2 font-medium">
                             CO&#8322;-uitstoot voorkomen met ons circulaire proces (*en
                             de teller loopt nog!)
                         </p>
                     </div>
 
-                    <div class="my-6 text-center md:my-auto md:px-6">
+                    <div class="py-6 text-center md:my-auto md:px-6">
                         <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="w-10 mx-auto" />
-                        <h3 class="mt-4 text-5xl font-bold">11+</h3>
+                        <h3 class="mt-4 text-5xl font-bold">{{ generalSettings()->partner_count }}</h3>
                         <p class="px-6 mt-2 font-medium">
                             Samenwerkingen met organisaties en marktleiders
                             zoals Accell en Stichting OPEN.
                         </p>
                     </div>
 
-                    <div class="my-6 text-center md:my-auto md:px-6">
+                    <div class="py-6 text-center md:my-auto md:px-6">
                         <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="w-10 mx-auto" />
-                        <h3 class="mt-4 text-5xl font-bold">1.196.673+</h3>
+                        <h3 class="mt-4 text-5xl font-bold">{{ generalSettings()->cells_second_life }}+</h3>
                         <p class="px-6 mt-2 font-medium">
                             Al meer dan één miljoen cellen kregen bij ons een
                             tweede leven.
@@ -145,7 +145,7 @@
                 <div class="my-6 mb-16">
                     <h3 class="text-4xl font-bold">Nieuws</h3>
 
-                    <div class="grid gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="grid gap-6 mt-6  lg:grid-cols-3">
                         @foreach ($articles as $article)
                             <x-news-item :article="$article" />
                         @endforeach

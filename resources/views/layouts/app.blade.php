@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>{{ $title ?? 'Refurb Battery' }}</title>
-    <meta name="title" content="{{ $title ?? 'Refurb Battery' }}" />
+    <title>{{ $title ?? generalSettings()->site_name }}</title>
+    <meta name="title" content="{{ $title ?? generalSettings()->site_name }}" />
     <meta name="description"
         content="Refurb Battery hergebruikt lithium-ion batterijen in circulaire energieopslagsystemen, vermindert e-waste en draagt bij aan de energietransitie." />
     <meta name="keywords"
