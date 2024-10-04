@@ -24,9 +24,11 @@ class CreateArticle extends CreateRecord
                     ->maxLength(255)
                     ->lazy()
                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+
                 TextInput::make('slug')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->unique(ignoreRecord: true),
             ]);
     }
 }

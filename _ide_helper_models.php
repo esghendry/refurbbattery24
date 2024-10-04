@@ -16,6 +16,7 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int|null $vacancy_id
  * @property string|null $first_name
  * @property string|null $last_name
  * @property string|null $email
@@ -24,6 +25,7 @@ namespace App\Models{
  * @property string|null $languages
  * @property string|null $link
  * @property string|null $how_did_you_find_us
+ * @property string|null $source
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
@@ -41,7 +43,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereLink($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereLocation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Applicant wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereSource($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereVacancyId($value)
  */
 	class Applicant extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
@@ -115,6 +119,47 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string|null $name
+ * @property string|null $image
+ * @property string|null $building_name
+ * @property string|null $address
+ * @property string|null $number
+ * @property string|null $postal_code
+ * @property string|null $city
+ * @property string|null $province
+ * @property string|null $country
+ * @property string|null $latitude
+ * @property string|null $longitude
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereBuildingName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereLatitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereLongitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location wherePostalCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedAt($value)
+ */
+	class Location extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
@@ -145,32 +190,40 @@ namespace App\Models{
  * 
  *
  * @property int $id
- * @property string|null $first_name
- * @property string|null $last_name
- * @property string|null $email
- * @property string|null $phone
- * @property string|null $location
- * @property string|null $languages
- * @property string|null $link
- * @property string|null $how_did_you_find_us
+ * @property int $user_id
+ * @property int $location_id
+ * @property string $title
+ * @property string $slug
+ * @property string|null $subtitle
+ * @property string|null $info_heading
+ * @property string|null $quote
+ * @property string|null $blocks
+ * @property string $status
+ * @property string|null $published_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \App\Models\Location|null $location
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read int|null $media_count
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereBlocks($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereFirstName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereHowDidYouFindUs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLanguages($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLastName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLink($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLocation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Vacancy wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereInfoHeading($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLocationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereQuote($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereSubtitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereUserId($value)
  */
 	class Vacancy extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }

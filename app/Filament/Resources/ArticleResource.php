@@ -41,13 +41,13 @@ class ArticleResource extends Resource
                 TextInput::make('title')
                     ->required()
                     ->maxLength(255)
-                    ->unique(ignoreRecord: true),
+                    ->lazy()
+                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
 
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255)
-                    ->lazy()
-                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                    ->unique(ignoreRecord: true),
 
                 FileUpload::make('image')
                     ->disk('do')
