@@ -190,15 +190,16 @@ namespace App\Models{
  * 
  *
  * @property int $id
- * @property int $user_id
- * @property int $location_id
+ * @property int|null $user_id
+ * @property int|null $location_id
  * @property string $title
  * @property string $slug
+ * @property string|null $image
  * @property string|null $subtitle
  * @property string|null $info_heading
  * @property string|null $quote
- * @property string|null $blocks
- * @property string $status
+ * @property array|null $blocks
+ * @property \App\Enums\ArticleStatus $status
  * @property string|null $published_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -214,6 +215,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereInfoHeading($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereLocationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy wherePublishedAt($value)

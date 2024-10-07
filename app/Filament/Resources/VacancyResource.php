@@ -3,18 +3,25 @@
 namespace App\Filament\Resources;
 
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use App\Enums\ArticleStatus;
 use App\Filament\Resources\VacancyResource\Pages;
 use App\Models\Vacancy;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class VacancyResource extends Resource
 {
@@ -50,29 +57,58 @@ class VacancyResource extends Resource
                     ->maxLength(255)
                     ->unique(ignoreRecord: true),
 
+                FileUpload::make('image')
+                    ->disk('do')
+                    ->image()
+                    ->imageEditor()
+                    ->columnSpanFull()
+                    ->preserveFilenames()
+                    ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Vacancy $record) {
+                        return saveConvertUploadedImage(
+                            file: $file,
+                            dir: "vacancies/{$record->id}",
+                            preserveFilename: true,
+                            overWriteFile: true
+                        );
+                    }),
+
                 TextInput::make('subtitle')
                     ->maxLength(512),
 
                 TextInput::make('info_heading')
                     ->maxLength(255),
 
-                TinyEditor::make('quote')
-                    ->fileAttachmentsDisk('do')
-                    ->fileAttachmentsVisibility('public')
+                // TinyEditor::make('quote')
+                //     ->fileAttachmentsDisk('do')
+                //     ->fileAttachmentsVisibility('public')
+                //     ->columnSpanFull(),
+
+                Textarea::make('quote')
+                    ->rows(5)
                     ->columnSpanFull(),
 
                 Repeater::make('blocks')
                     ->columnSpanFull()
+                    ->collapsed()
+                    ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
                     ->schema([
-                        TextInput::make('title'),
+                        TextInput::make('title')
+                            ->lazy(),
                         TinyEditor::make('content')
                             ->fileAttachmentsDisk('do'),
                     ]),
-                TextInput::make('status')
-                    ->required()
-                    ->maxLength(255)
-                    ->default('draft'),
-                DateTimePicker::make('published_at'),
+
+                Section::make('Publish')
+                    ->description('Settings for publishing this vacancy')
+                    ->columnSpan(1)
+                    ->schema([
+                        Select::make('status')
+                            ->options(ArticleStatus::class)
+                            ->required()
+                            ->live(),
+                        DateTimePicker::make('published_at')
+                            ->hidden(fn (Get $get) => $get('status') !== 'published'),
+                    ]),
             ]);
     }
 
@@ -80,22 +116,26 @@ class VacancyResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id')
+                Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('location_id')
+                Tables\Columns\TextColumn::make('status')
+                    ->searchable()
+                    ->badge(),
+                Tables\Columns\TextColumn::make('location.name')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('subtitle')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('info_heading')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('published_at')
                     ->dateTime()
                     ->sortable(),
@@ -112,13 +152,14 @@ class VacancyResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort(fn ($query) => $query->orderByRaw('FIELD(status, "draft", "preview", "rejected", "published"), published_at DESC, created_at DESC'))
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-            ])
+            ], position: ActionsPosition::BeforeCells)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

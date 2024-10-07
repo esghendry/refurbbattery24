@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use DB;
+use Hash;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -25,5 +26,16 @@ class UserSeeder extends Seeder
                 'updated_at' => now(),
             ]);
         }
+
+        DB::table('users')->insert([
+            'name' => 'Daan de Win',
+            'email' => 'daan.dewin@refurbbattery.eu',
+            'email_verified_at' => null,
+            'password' => Hash::make('YxvnPPVu-KzXTizP3erc-RVlR4ZK:4lX'),
+            'remember_token' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
     }
 }

@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Location::class);
+            $table->foreignIdFor(User::class)->nullable();
+            $table->foreignIdFor(Location::class)->nullable();
 
             $table->string('title');
             $table->string('slug')->unique();
+
+            $table->text('image')->nullable();
 
             $table->string('subtitle', 512)->nullable();
             $table->string('info_heading')->nullable();

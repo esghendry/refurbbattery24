@@ -46,13 +46,13 @@
                 >
                     <div class="space-y-2 text-white">
                         @hasSection("title")
-                            <h1 class="text-4xl font-bold">
+                            <h1 class="text-2xl min-[430px]:text-4xl font-bold">
                                 @yield("title")
                             </h1>
                         @endif
 
                         @hasSection("subtitle")
-                            <h2 class="text-xl">
+                            <h2 class="text-base min-[430px]:text-xl">
                                 @yield("subtitle")
                             </h2>
                         @endif
