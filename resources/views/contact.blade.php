@@ -16,21 +16,21 @@
                 <div class="mt-6 col-span-full md:col-span-5">
                     <div class="mx-auto w-fit min-w-[300px] text-center">
                         <div class="inline-flex items-center w-10/12 mx-auto mb-4 bg-cover rounded-full aspect-square"
-                            style="max-width: 15rem;background-image:url('{{ Storage::disk('do')->url(contactSettings()->location_image) }}">
+                            style="max-width: 15rem;background-image:url('{{ Storage::disk('do')->url(contactSettings()->location()->image) }}">
                             <div class="w-full">&nbsp;</div>
                         </div>
                         <br />
                         <div>
                             <span class="text-xs uppercase">
-                                {{ contactSettings()->location_name }}
+                                {{ contactSettings()->location()->location_name }}
                             </span>
                             <br />
                             <br />
-                            <strong>{{ contactSettings()->building_name }}</strong>
+                            <strong>{{ contactSettings()->location()->building_name }}</strong>
                             <br />
-                            {{ contactSettings()->address }} {{ contactSettings()->number }}
+                            {{ contactSettings()->location()->address }} {{ contactSettings()->location()->number }}
                             <br />
-                            {{ contactSettings()->postal_code }} {{ contactSettings()->city }}
+                            {{ contactSettings()->location()->postal_code }} {{ contactSettings()->location()->city }}
                             <br />
                             <a target="_blank" href="/route" class="text-xs font-bold underline hover:no-underline">
                                 routebeschrijving

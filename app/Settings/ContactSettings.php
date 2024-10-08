@@ -2,6 +2,8 @@
 
 namespace App\Settings;
 
+use App\Models\Location;
+use App\Models\User;
 use Spatie\LaravelSettings\Settings;
 
 class ContactSettings extends Settings
@@ -16,22 +18,22 @@ class ContactSettings extends Settings
 
     public string $phone_display;
 
-    public string $location_name;
+    public int $location_id;
 
-    public string $location_image;
-
-    public string $building_name;
-
-    public string $address;
-
-    public string $number;
-
-    public string $postal_code;
-
-    public string $city;
+    public int $vacancy_user_id;
 
     public static function group(): string
     {
         return 'contact';
+    }
+
+    public function vacancyUser()
+    {
+        return User::find($this->vacancy_user_id);
+    }
+
+    public function location()
+    {
+        return Location::find($this->location_id);
     }
 }

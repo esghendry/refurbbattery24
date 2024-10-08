@@ -2,10 +2,12 @@
 
 namespace App\Filament\Pages;
 
+use App\Models\Location;
+use App\Models\User;
 use App\Settings\ContactSettings;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
@@ -45,23 +47,20 @@ class ManageContact extends SettingsPage
                     TextInput::make('phone_display'),
                 ]),
 
-                TextInput::make('location_name'),
+                Select::make('vacancy_user_id')
+                    ->label('Recruiter (contact person)')
+                    ->helperText('The contact person for /werken-bij and the default for new vacancies.')
+                    ->options(User::query()->pluck('name', 'id'))
+                    ->searchable(['name', 'email'])
+                    ->preload()
+                    ->nullable(),
 
-                FileUpload::make('location_image')
-                    ->image()
-                    ->disk('do')
-                    ->directory('location')
-                    ->visibility('public')
-                    ->preserveFilenames(),
+                Select::make('location_id')
+                    ->label('Location')
+                    ->options(Location::query()->pluck('name', 'id'))
+                    ->preload()
+                    ->nullable(),
 
-                TextInput::make('building_name'),
-
-                TextInput::make('address'),
-                TextInput::make('number'),
-
-                TextInput::make('postal_code'),
-
-                TextInput::make('city'),
             ]);
     }
 }

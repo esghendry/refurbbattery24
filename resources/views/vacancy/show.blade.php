@@ -141,8 +141,8 @@
             <div
                 class="text-dark-blue mx-auto mt-6 grid w-full grid-cols-3 place-items-center gap-4 md:place-items-start"
             >
-                @if ($vacancy->user)
-                    <x-contact-person :user="$vacancy->user">
+                @if ($vacancy->user ?? contactSettings()->vacancyUser())
+                    <x-contact-person :user="$vacancy->user ?? contactSettings()->vacancyUser()">
                         @section("contact_title", "Interesse of vragen over een vacature of (werken bij) Refurb Battery?")
                     </x-contact-person>
                 @endif
