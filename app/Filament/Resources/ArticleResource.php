@@ -20,6 +20,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -148,15 +149,17 @@ class ArticleResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->badge(),
+                TextColumn::make('title')
+                    ->sortable()
+                    ->searchable()
+                    ->limit(64),
                 TextColumn::make('slug')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('title')
-                    ->sortable()
-                    ->searchable(),
                 ImageColumn::make('image')
-                    ->disk('do'),
+                    ->disk('do')
+                    ->width(100),
                 TextColumn::make('author')
                     ->sortable()
                     ->searchable(),
@@ -184,7 +187,7 @@ class ArticleResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-            ])
+            ], position: ActionsPosition::BeforeCells)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

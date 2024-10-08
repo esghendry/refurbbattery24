@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Vacancy;
 
 class VacancyController extends Controller
@@ -14,6 +15,7 @@ class VacancyController extends Controller
             ->orderBy('published_at', 'desc')->get();
 
         return view('vacancy.index', [
+            'user' => User::find(2),
             'vacancies' => $vacancies,
         ]);
     }

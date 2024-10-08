@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\Pages\EditPassword;
 use App\Models\User;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -15,6 +16,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class UserResource extends Resource
 {
@@ -39,19 +41,39 @@ class UserResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+
                 TextInput::make('email')
                     ->email()
                     ->required()
                     ->maxLength(255),
+
                 TextInput::make('title')
                     ->maxLength(255),
+
+                FileUpload::make('image')
+                    ->disk('do')
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios(['1:1'])
+                    ->imageResizeMode('cover')
+                    ->imageCropAspectRatio('1:1')
+                    ->preserveFilenames()
+                    ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?User $record) {
+                        return saveConvertUploadedImage(
+                            file: $file,
+                            dir: "users/{$record->id}",
+                            preserveFilename: true,
+                            overWriteFile: true
+                        );
+                    }),
+
                 Repeater::make('socials')
                     ->itemLabel(fn (array $state): ?string => $state['platform'] ?? null)
                     ->collapsed()
                     ->schema([
                         Select::make('platform')
                             ->options([
-                                'linkedIn' => 'LinkedIn',
+                                'linkedin' => 'LinkedIn',
                                 'email' => 'Email',
                                 'whatsapp' => 'Whatsapp',
                                 'phone' => 'Phone number',

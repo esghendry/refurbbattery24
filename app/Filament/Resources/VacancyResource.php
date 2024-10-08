@@ -78,11 +78,6 @@ class VacancyResource extends Resource
                 TextInput::make('info_heading')
                     ->maxLength(255),
 
-                // TinyEditor::make('quote')
-                //     ->fileAttachmentsDisk('do')
-                //     ->fileAttachmentsVisibility('public')
-                //     ->columnSpanFull(),
-
                 Textarea::make('quote')
                     ->rows(5)
                     ->columnSpanFull(),

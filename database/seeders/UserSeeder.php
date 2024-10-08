@@ -30,6 +30,9 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Daan de Win',
             'email' => 'daan.dewin@refurbbattery.eu',
+            'image' => null,
+            'title' => 'Talent & Culture Manager',
+            'socials' => '[{"url":"https://www.linkedin.com/in/daandewin/","platform":"linkedIn"},{"url":"daan.dewin@refurbbattery.eu","platform":"email"},{"url":"https://wa.me/31627456484","platform":"whatsapp"},{"url":"0031627456484","platform":"phone"}]',
             'email_verified_at' => null,
             'password' => Hash::make('YxvnPPVu-KzXTizP3erc-RVlR4ZK:4lX'),
             'remember_token' => null,
