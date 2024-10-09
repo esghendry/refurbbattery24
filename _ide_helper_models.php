@@ -30,6 +30,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read int|null $media_count
+ * @property-read \App\Models\Vacancy|null $vacancy
  * @method static \Illuminate\Database\Eloquent\Builder|Applicant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Applicant newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Applicant query()

@@ -65,17 +65,14 @@ return [
             'bucket' => env('DO_BUCKET'),
             'endpoint' => env('DO_ENDPOINT'),
             'visibility' => 'public',
+            'directory_separator' => '/',
         ],
 
-        // do media storage for spatie media-library
         'do_media' => [
-            'driver' => 's3',
-            'key' => env('DO_ACCESS_KEY_ID'),
-            'secret' => env('DO_SECRET_ACCESS_KEY'),
-            'region' => env('DO_DEFAULT_REGION'),
-            'bucket' => env('DO_BUCKET'),
-            'endpoint' => env('DO_ENDPOINT'),
-            'root' => 'media',
+            'driver' => 'scoped',
+            'disk' => 'do',
+            'prefix' => 'media',
+            'directory_separator' => '/',
         ],
 
     ],

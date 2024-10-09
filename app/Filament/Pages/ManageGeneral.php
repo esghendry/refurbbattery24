@@ -12,8 +12,6 @@ use Filament\Pages\SettingsPage;
 
 class ManageGeneral extends SettingsPage
 {
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
-
     protected static string $settings = GeneralSettings::class;
 
     protected static ?string $navigationGroup = 'Settings';

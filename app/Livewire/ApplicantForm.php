@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Applicant;
+use App\Models\Vacancy;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -30,16 +31,23 @@ class ApplicantForm extends Component
 
     public $source;
 
+    public $slug = '';
+
     public $isSent = false;
 
-    public function __construct($source = '')
+    public function __construct($source = '', $slug = '')
     {
         $this->source = $source;
+        $this->slug = $slug;
     }
 
     public function submit()
     {
+
+        $vacancy = Vacancy::where('slug', $this->slug)->first();
+
         $applicant = Applicant::create([
+            'vacancy_id' => $vacancy?->id ?? null,
             'first_name' => $this->firstName,
             'last_name' => $this->lastName,
             'email' => $this->email,
@@ -53,7 +61,7 @@ class ApplicantForm extends Component
 
         if (is_array($this->cvDocuments)) {
             foreach ($this->cvDocuments as $cvDocument) {
-                $applicant->addMedia($cvDocument)->toMediaCollection();
+                $applicant->addMedia($cvDocument)->toMediaCollection('application_media');
             }
         }
 

@@ -14,8 +14,6 @@ use Filament\Pages\SettingsPage;
 
 class ManageContact extends SettingsPage
 {
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
-
     protected static string $settings = ContactSettings::class;
 
     protected static ?string $navigationGroup = 'Settings';

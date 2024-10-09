@@ -155,6 +155,7 @@
                     </h1>
                     <livewire:applicant-form
                         :source="'werken-bij/'.$vacancy->slug"
+                        :slug="$vacancy->slug"
                     />
                 </div>
             </div>

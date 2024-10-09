@@ -13,4 +13,9 @@ class Applicant extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $guarded = [];
+
+    public function vacancy()
+    {
+        return $this->belongsTo(Vacancy::class);
+    }
 }
