@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="relative col-span-2">
-                    <input type="file" id="cv-documents" wire:model="cvDocuments" multiple
+                    <input type="file" id="cv-documents" wire:model="cvDocuments" multiple accept=".jpg, .jpeg, .png, .webp, pdf, .doc, .docx, application/msword"
                         class="peer mb-2 block w-full border-0 border-b border-rb-green bg-transparent p-0 py-2.5 outline-none focus:border-white focus:ring-0" />
                     <label for="cv-documents"
                         class="pointer-events-none absolute top-3 origin-[0] -translate-y-6 scale-75 transform text-sm">

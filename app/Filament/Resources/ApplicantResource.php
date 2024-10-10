@@ -9,6 +9,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Enums\ActionsPosition;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class ApplicantResource extends Resource
@@ -76,7 +78,13 @@ class ApplicantResource extends Resource
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([
-                //
+                Filter::make('vacancy_id')
+                    ->label('/werken-bij vacancy form')
+                    ->query(fn ($query) => $query->whereNull('vacancy_id'))
+                    ->toggle(),
+
+                SelectFilter::make('vacancy')
+                    ->relationship('vacancy', 'title'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

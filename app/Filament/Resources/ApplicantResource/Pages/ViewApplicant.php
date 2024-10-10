@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Infolists;
 use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ViewEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\ViewRecord;
 
@@ -58,9 +59,13 @@ class ViewApplicant extends ViewRecord
                         TextEntry::make('how_did_you_find_us')
                             ->default('-'),
                     ]),
-                SpatieMediaLibraryImageEntry::make('application_media')
-                    ->collection('application_media')
-                    ->visibility('private'),
+                SpatieMediaLibraryImageEntry::make('application_images')
+                    ->collection('application_images')
+                    ->visibility('private')
+                    ->hidden(fn ($state) => count($state) < 1)
+                    ->columnSpanFull(),
+                ViewEntry::make('files')
+                    ->view('filament.infolists.entries.applicant-files'),
             ]);
     }
 

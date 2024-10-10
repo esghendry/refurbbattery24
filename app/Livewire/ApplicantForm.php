@@ -60,7 +60,25 @@ class ApplicantForm extends Component
 
         if (is_array($this->cvDocuments)) {
             foreach ($this->cvDocuments as $cvDocument) {
-                $applicant->addMedia($cvDocument)->toMediaCollection('application_media');
+                $extension = $cvDocument->getClientOriginalExtension();
+
+                switch ($extension) {
+                    case 'jpg':
+                    case 'jpeg':
+                    case 'png':
+                    case 'webp':
+                        $collection = 'application_images';
+                        break;
+                    case 'pdf':
+                        $collection = 'application_pdf';
+                        break;
+                    default:
+                        $collection = 'application_files';
+                        break;
+                }
+
+                $applicant->addMedia($cvDocument)->toMediaCollection($collection);
+
             }
         }
 
