@@ -13,10 +13,10 @@
     </a>
     <div></div>
     
-    <a href="{{route("nieuws")}}" class="font-extralight">
+    <a href="{{route("news.index")}}" class="font-extralight">
         Nieuws
     </a>   
-    <a href="{{route("werken-bij")}}" class="font-extralight">
+    <a href="{{route("vacancy.index")}}" class="font-extralight">
         Werken bij
     </a>   
     <a href="{{route("contact")}}" class="font-extralight">

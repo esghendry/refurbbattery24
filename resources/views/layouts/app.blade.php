@@ -53,13 +53,13 @@
             <div class="container flex items-center h-12 px-5 mx-auto md:px-0">
                 <ul class="grid grid-flow-col gap-2 mx-auto sm:mx-0 sm:ml-auto md:gap-12">
                     <li>
-                        <a href="{{ route('nieuws') }}">
+                        <a href="{{ route('news.index') }}">
                             <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning" class="inline mr-2" />
                             Nieuws
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('werken-bij') }}">Werken bij</a>
+                        <a href="{{ route('vacancy.index') }}">Werken bij</a>
                     </li>
                     <li>
                         <a href="{{ route('contact') }}">Contact</a>

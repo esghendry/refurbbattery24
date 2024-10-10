@@ -8,9 +8,11 @@ use App\Filament\Resources\VacancyResource\Pages;
 use App\Models\Vacancy;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Split;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -18,6 +20,7 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
@@ -35,77 +38,95 @@ class VacancyResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('user_id')
-                    ->label('Recruiter (contact person)')
-                    ->relationship('user', 'name')
-                    ->searchable(['name', 'email'])
-                    ->preload()
-                    ->nullable(),
 
-                Select::make('location_id')
-                    ->label('Location')
-                    ->relationship('location', 'name')
-                    ->preload()
-                    ->nullable(),
+                Split::make([
 
-                TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)
-                    ->lazy()
-                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                    Group::make([
 
-                TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255)
-                    ->unique(ignoreRecord: true),
+                        Section::make([
+                            TextInput::make('title')
+                                ->required()
+                                ->maxLength(255)
+                                ->lazy()
+                                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
 
-                FileUpload::make('image')
-                    ->disk('do')
-                    ->image()
-                    ->imageEditor()
-                    ->columnSpanFull()
-                    ->preserveFilenames()
-                    ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Vacancy $record) {
-                        return saveConvertUploadedImage(
-                            file: $file,
-                            dir: "vacancies/{$record->id}",
-                            preserveFilename: true,
-                            overWriteFile: true
-                        );
-                    }),
+                            TextInput::make('slug')
+                                ->required()
+                                ->maxLength(255)
+                                ->unique(ignoreRecord: true),
 
-                TextInput::make('subtitle')
-                    ->maxLength(512),
+                            FileUpload::make('image')
+                                ->disk('do')
+                                ->image()
+                                ->imageEditor()
+                                ->columnSpanFull()
+                                ->preserveFilenames()
+                                ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Vacancy $record) {
+                                    return saveConvertUploadedImage(
+                                        file: $file,
+                                        dir: "vacancies/{$record->id}",
+                                        preserveFilename: true,
+                                        overWriteFile: true
+                                    );
+                                }),
 
-                TextInput::make('info_heading')
-                    ->maxLength(255),
+                            TextInput::make('subtitle')
+                                ->maxLength(512),
 
-                Textarea::make('quote')
-                    ->rows(5)
-                    ->columnSpanFull(),
+                            TextInput::make('info_heading')
+                                ->maxLength(255),
 
-                Repeater::make('blocks')
-                    ->columnSpanFull()
-                    ->collapsed()
-                    ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
-                    ->schema([
-                        TextInput::make('title')
-                            ->lazy(),
-                        TinyEditor::make('content')
-                            ->fileAttachmentsDisk('do'),
+                            Textarea::make('quote')
+                                ->rows(5)
+                                ->columnSpanFull(),
+
+                            Repeater::make('blocks')
+                                ->columnSpanFull()
+                                ->collapsed()
+                                ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
+                                ->schema([
+                                    TextInput::make('title')
+                                        ->lazy(),
+                                    TinyEditor::make('content')
+                                        ->fileAttachmentsDisk('do'),
+                                ]),
+
+                        ]),
                     ]),
 
-                Section::make('Publish')
-                    ->description('Settings for publishing this vacancy')
-                    ->columnSpan(1)
-                    ->schema([
-                        Select::make('status')
-                            ->options(ArticleStatus::class)
-                            ->required()
-                            ->live(),
-                        DateTimePicker::make('published_at')
-                            ->hidden(fn (Get $get) => $get('status') !== 'published'),
-                    ]),
+                    Group::make([
+
+                        Section::make('Publish')
+                            ->description('Settings for publishing this vacancy')
+                            ->columnSpan(1)
+                            ->schema([
+                                Select::make('status')
+                                    ->options(ArticleStatus::class)
+                                    ->required()
+                                    ->live(),
+                                DateTimePicker::make('published_at')
+                                    ->hidden(fn (Get $get) => $get('status') !== 'published'),
+                            ]),
+
+                        Section::make([
+
+                            Select::make('user_id')
+                                ->label('Recruiter (contact person)')
+                                ->relationship('user', 'name')
+                                ->searchable(['name', 'email'])
+                                ->preload()
+                                ->nullable(),
+
+                            Select::make('location_id')
+                                ->label('Location')
+                                ->relationship('location', 'name')
+                                ->preload()
+                                ->nullable(),
+                        ]),
+
+                    ])->grow(false),
+
+                ])->columnSpanFull(),
             ]);
     }
 
@@ -150,11 +171,16 @@ class VacancyResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort(fn ($query) => $query->orderByRaw('FIELD(status, "draft", "preview", "rejected", "published"), published_at DESC, created_at DESC'))
+            ->recordUrl(fn (Vacancy $record) => route('filament.admin.resources.vacancies.edit', $record->id))
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                Action::make('view')
+                    ->url(fn (Vacancy $record) => route('vacancy.show', $record->slug))
+                    ->icon('heroicon-o-arrow-top-right-on-square')
+                    ->color('gray')
+                    ->openUrlInNewTab(),
                 Tables\Actions\EditAction::make(),
             ], position: ActionsPosition::BeforeCells)
             ->bulkActions([
@@ -176,7 +202,7 @@ class VacancyResource extends Resource
         return [
             'index' => Pages\ListVacancies::route('/'),
             'create' => Pages\CreateVacancy::route('/create'),
-            'view' => Pages\ViewVacancy::route('/{record}'),
+            // 'view' => Pages\ViewVacancy::route('/{record}'),
             'edit' => Pages\EditVacancy::route('/{record}/edit'),
         ];
     }

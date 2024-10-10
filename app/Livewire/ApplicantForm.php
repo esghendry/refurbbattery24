@@ -43,7 +43,6 @@ class ApplicantForm extends Component
 
     public function submit()
     {
-
         $vacancy = Vacancy::where('slug', $this->slug)->first();
 
         $applicant = Applicant::create([

@@ -70,11 +70,11 @@
 
                             </div>
 
-                            <a class="p-2 rounded-lg md:hidden" href="{{ route('nieuws') }}">
+                            <a class="p-2 rounded-lg md:hidden" href="{{ route('news.index') }}">
                                 <img src="{{ asset('assets/icons/lightning.svg') }}" alt="lightning"
                                     class="inline mr-2" /> Nieuws
                             </a>
-                            <a class="p-2 rounded-lg md:hidden" href="{{ route('werken-bij') }}">
+                            <a class="p-2 rounded-lg md:hidden" href="{{ route('vacancy.index') }}">
                                 Werken bij
                             </a>
                             <a class="p-2 rounded-lg md:hidden" href="{{ route('contact') }}">

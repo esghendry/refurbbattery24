@@ -21,8 +21,8 @@ Route::get('/hendry', function () {
 
 });
 
-Route::get('/nieuws', [NewsController::class, 'index'])->name('nieuws');
-Route::get('/nieuws/{article:slug}', [NewsController::class, 'show'])->name('nieuws.show');
+Route::get('/nieuws', [NewsController::class, 'index'])->name('news.index');
+Route::get('/nieuws/{article:slug}', [NewsController::class, 'show'])->name('news.show');
 
 Route::get('/contact', fn () => view('contact'))->name('contact');
 
@@ -31,15 +31,18 @@ Route::get('/route', function () {
 });
 
 Route::get('/productieproces', fn () => view('productieproces'))->name('productieproces');
+
 Route::get('/toepassingen', fn () => view('toepassingen', [
     'articles' => Article::query()->whereIn('slug', ['dutch-kiest-duurzaam-energieopslagsysteem-refurb-battery', 'bam-installeert-twee-energieopslagsystemen', 'accell-group-werkt-samen-met-refurb-battery'])->get(),
 ]))->name('toepassingen');
+
 Route::get('/slimme-data', fn () => view('slimme-data'))->name('slimme-data');
+
 Route::get('/over-ons', fn () => view('over-ons', [
     'articles' => Article::query()->whereIn('slug', ['refurb-battery-wint-rdi', 'refurb-battery-behaalt-de-eerste-plaats', 'hoe-we-samenwerken-met-stibat-services-om-batterijen-een-tweede-leven-te-geven'])->get(),
 ]))->name('over-ons');
 
-Route::get('/werken-bij', [VacancyController::class, 'index'])->name('werken-bij');
+Route::get('/werken-bij', [VacancyController::class, 'index'])->name('vacancy.index');
 Route::get('/werken-bij/{vacancy:slug}', [VacancyController::class, 'show'])->name('vacancy.show');
 
 Route::get('/privacy-and-cookies', fn () => null)->name('privacy-and-cookies');
@@ -71,16 +74,16 @@ Route::redirect('/join-us', '/werken-bij', 301);
 Route::redirect('/newsroom', '/nieuws', 301);
 
 Route::get('/nl/nieuws/{slug}', function ($slug) {
-    return redirect()->route('nieuws', [], 301);
+    return redirect()->route('news.index', [], 301);
 });
 Route::get('/news/{slug}', function ($slug) {
-    return redirect()->route('nieuws', [], 301);
+    return redirect()->route('news.index', [], 301);
 });
 
 Route::get('/nl/join-us/{slug}', function ($slug) {
-    return redirect()->route('werken-bij', [], 301);
+    return redirect()->route('vacancy.index', [], 301);
 });
 
 Route::get('/join-us/{slug}', function ($slug) {
-    return redirect()->route('werken-bij', [], 301);
+    return redirect()->route('vacancy.index', [], 301);
 });

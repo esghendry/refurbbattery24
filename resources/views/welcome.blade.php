@@ -132,7 +132,7 @@
                 @section('banner_subtitle',
                     'Werken bij Refurb Battery betekent elke dag pionieren. We worden gedreven
                     door samenwerking, innovatie en duurzaamheid. Is onze energie een match? Bekijk de vacatures.')
-                    <a href="{{ route('werken-bij') }}"
+                    <a href="{{ route('vacancy.index') }}"
                         class="inline-block px-3 py-1 mt-6 duration-100 bg-rb-green hover:bg-rb-dark-blue hover:underline">
                         Bekijk onze vacatures
                     </a>

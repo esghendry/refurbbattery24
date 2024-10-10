@@ -8,8 +8,10 @@ use App\Filament\Resources\ArticleResource\Pages;
 use App\Models\Article;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Split;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -17,6 +19,7 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -39,101 +42,112 @@ class ArticleResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)
-                    ->lazy()
-                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
 
-                TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255)
-                    ->unique(ignoreRecord: true),
+                Split::make([
 
-                FileUpload::make('image')
-                    ->disk('do')
-                    ->directory(function ($record) {
-                        return 'articles/'.$record->id;
-                    })
-                    ->visibility('public')
-                    ->image()
-                    ->imageEditor()
-                    ->helperText('This will be the image used at the top of the article and the thumbnail of the article.')
-                    ->columnSpanFull()
-                    ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                        $extension = $file->getClientOriginalExtension();
+                    Section::make([
 
-                        if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
-                            return $file->store('articles/'.$record->id, 'do');
-                        }
-
-                        $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getFilename())['filename'].'.webp';
-                        // $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getClientOriginalName())['filename'].'.webp';
-
-                        // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
-                        $image = Image::useImageDriver(ImageDriver::Gd)
-                            ->loadFile($file->getRealPath())
-                            ->optimize()
-                            ->base64('webp', false);
-
-                        // save the image to the cloud disk
-                        Storage::disk('do')->put($imagePath, base64_decode($image));
-
-                        return $imagePath;
-                    }),
-
-                TinyEditor::make('body')
-                    ->columnSpanFull()
-                    ->fileAttachmentsDisk('do')
-                    ->fileAttachmentsDirectory(function ($record) {
-                        return 'articles/'.$record->id;
-                    })
-                    ->saveUploadedFileAttachmentsUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                        $extension = $file->getClientOriginalExtension();
-
-                        // if image
-                        if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
-                            return $file->store('articles/'.$record->id, 'do');
-                        }
-
-                        $imagePath = 'articles/'.$record->id.'/'.$file->getFilename().'.webp';
-
-                        // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
-                        $image = Image::useImageDriver(ImageDriver::Gd)
-                            ->loadFile($file->getRealPath())
-                            ->optimize()
-                            ->fit(Fit::Max, 1000, 600)
-                            // set $prefixWithFormat to false to not prefix the image with the format
-                            ->base64('webp', false);
-
-                        // store the image in in 'do' storage disk
-                        Storage::disk('do')->put($imagePath, base64_decode($image));
-
-                        return $imagePath;
-                    }),
-
-                TextInput::make('author')
-                    ->maxLength(255),
-
-                Section::make(__('Publish'))
-                    ->description(__('Settings for publishing this article'))
-                    ->schema([
-                        Select::make('status')
-                            ->options(ArticleStatus::class)
-                            ->enum(ArticleStatus::class)
+                        TextInput::make('title')
                             ->required()
-                            ->live(),
+                            ->maxLength(255)
+                            ->lazy()
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
 
-                        Section::make()
-                            ->hidden(fn (Get $get) => $get('status') !== 'published')
-                            ->compact()
+                        TextInput::make('slug')
+                            ->required()
+                            ->maxLength(255)
+                            ->unique(ignoreRecord: true),
+
+                        FileUpload::make('image')
+                            ->disk('do')
+                            ->directory(function ($record) {
+                                return 'articles/'.$record->id;
+                            })
+                            ->visibility('public')
+                            ->image()
+                            ->imageEditor()
+                            ->helperText('This will be the image used at the top of the article and the thumbnail of the article.')
+                            ->columnSpanFull()
+                            ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Article $record) {
+                                $extension = $file->getClientOriginalExtension();
+
+                                if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                                    return $file->store('articles/'.$record->id, 'do');
+                                }
+
+                                $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getFilename())['filename'].'.webp';
+                                // $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getClientOriginalName())['filename'].'.webp';
+
+                                // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
+                                $image = Image::useImageDriver(ImageDriver::Gd)
+                                    ->loadFile($file->getRealPath())
+                                    ->optimize()
+                                    ->base64('webp', false);
+
+                                // save the image to the cloud disk
+                                Storage::disk('do')->put($imagePath, base64_decode($image));
+
+                                return $imagePath;
+                            }),
+
+                        TinyEditor::make('body')
+                            ->columnSpanFull()
+                            ->fileAttachmentsDisk('do')
+                            ->fileAttachmentsDirectory(function ($record) {
+                                return 'articles/'.$record->id;
+                            })
+                            ->saveUploadedFileAttachmentsUsing(function (TemporaryUploadedFile $file, ?Article $record) {
+                                $extension = $file->getClientOriginalExtension();
+
+                                // if image
+                                if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                                    return $file->store('articles/'.$record->id, 'do');
+                                }
+
+                                $imagePath = 'articles/'.$record->id.'/'.$file->getFilename().'.webp';
+
+                                // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
+                                $image = Image::useImageDriver(ImageDriver::Gd)
+                                    ->loadFile($file->getRealPath())
+                                    ->optimize()
+                                    ->fit(Fit::Max, 1000, 600)
+                                    // set $prefixWithFormat to false to not prefix the image with the format
+                                    ->base64('webp', false);
+
+                                // store the image in in 'do' storage disk
+                                Storage::disk('do')->put($imagePath, base64_decode($image));
+
+                                return $imagePath;
+                            }),
+
+                    ]),
+
+                    Group::make([
+                        Section::make(__('Publish'))
+                            ->description(__('Settings for publishing this article'))
                             ->schema([
-                                DateTimePicker::make('published_at'),
-                            ]),
+                                Select::make('status')
+                                    ->options(ArticleStatus::class)
+                                    ->enum(ArticleStatus::class)
+                                    ->required()
+                                    ->live(),
 
-                        Toggle::make('is_listed'),
-                    ])
-                    ->columnSpan(1),
+                                Section::make()
+                                    ->hidden(fn (Get $get) => $get('status') !== 'published')
+                                    ->compact()
+                                    ->schema([
+                                        DateTimePicker::make('published_at'),
+                                    ]),
+
+                                Toggle::make('is_listed'),
+                            ])
+                            ->columnSpan(1),
+
+                        TextInput::make('author')
+                            ->maxLength(255),
+                    ])->grow(false),
+
+                ])->columnSpanFull()->from('md'),
             ]);
     }
 
@@ -182,10 +196,16 @@ class ArticleResource extends Resource
             ])
             ->defaultSort(fn ($query) => $query
                 ->orderByRaw('FIELD(status, "draft", "preview", "rejected", "published"), published_at DESC, created_at DESC'))
+            ->recordUrl(fn (Article $record) => route('filament.admin.resources.articles.edit', $record->id))
             ->filters([
                 //
             ])
             ->actions([
+                Action::make('view')
+                    ->url(fn (Article $record) => route('news.show', $record->slug))
+                    ->icon('heroicon-o-arrow-top-right-on-square')
+                    ->color('gray')
+                    ->openUrlInNewTab(),
                 Tables\Actions\EditAction::make(),
             ], position: ActionsPosition::BeforeCells)
             ->bulkActions([
