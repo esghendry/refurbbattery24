@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Applicant;
 use App\Models\Vacancy;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -27,6 +28,7 @@ class ApplicantForm extends Component
 
     public $howDidYouFindUs;
 
+    #[Validate('mimes:jpg,jpeg,png,webp,pdf,doc,docx|max:10240')]
     public $cvDocuments;
 
     public $source;
@@ -62,8 +64,6 @@ class ApplicantForm extends Component
             foreach ($this->cvDocuments as $cvDocument) {
                 $extension = $cvDocument->getClientOriginalExtension();
 
-                // added comment for race condition
-
                 switch ($extension) {
                     case 'jpg':
                     case 'jpeg':
@@ -80,7 +80,6 @@ class ApplicantForm extends Component
                 }
 
                 $applicant->addMedia($cvDocument)->toMediaCollection($collection);
-
             }
         }
 
