@@ -62,6 +62,8 @@ class ApplicantForm extends Component
             foreach ($this->cvDocuments as $cvDocument) {
                 $extension = $cvDocument->getClientOriginalExtension();
 
+                // added comment for race condition
+
                 switch ($extension) {
                     case 'jpg':
                     case 'jpeg':
