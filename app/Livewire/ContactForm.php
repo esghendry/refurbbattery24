@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\Contact;
+use App\Models\ContactMessage;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -21,7 +21,7 @@ class ContactForm extends Component
 
     public function submit()
     {
-        $contact = Contact::create([
+        $contact = ContactMessage::create([
             'first_name' => $this->firstName,
             'last_name' => $this->lastName,
             'email' => $this->email,
