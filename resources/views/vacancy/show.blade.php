@@ -153,7 +153,7 @@
                     >
                         Nu solliciteren, snel en eenvoudig
                     </h1>
-                    <livewire:applicant-form
+                    <livewire:application-form
                         :source="'werken-bij/'.$vacancy->slug"
                         :slug="$vacancy->slug"
                     />

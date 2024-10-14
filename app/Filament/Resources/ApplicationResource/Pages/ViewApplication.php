@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\ApplicantResource\Pages;
+namespace App\Filament\Resources\ApplicationResource\Pages;
 
-use App\Filament\Resources\ApplicantResource;
+use App\Filament\Resources\ApplicationResource;
 use Filament\Actions;
 use Filament\Forms;
 use Filament\Forms\Components\Textarea;
@@ -15,9 +15,9 @@ use Filament\Infolists\Components\ViewEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\ViewRecord;
 
-class ViewApplicant extends ViewRecord
+class ViewApplication extends ViewRecord
 {
-    protected static string $resource = ApplicantResource::class;
+    protected static string $resource = ApplicationResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -65,7 +65,7 @@ class ViewApplicant extends ViewRecord
                     ->hidden(fn ($state) => count($state) < 1)
                     ->columnSpanFull(),
                 ViewEntry::make('files')
-                    ->view('filament.infolists.entries.applicant-files'),
+                    ->view('filament.infolists.entries.application-files'),
             ]);
     }
 

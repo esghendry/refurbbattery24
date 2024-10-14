@@ -15,40 +15,14 @@ namespace App\Models{
 /**
  * 
  *
- * @property int $id
- * @property int|null $vacancy_id
- * @property string|null $first_name
- * @property string|null $last_name
- * @property string|null $email
- * @property string|null $phone
- * @property string|null $location
- * @property string|null $languages
- * @property string|null $link
- * @property string|null $how_did_you_find_us
- * @property string|null $source
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read int|null $media_count
  * @property-read \App\Models\Vacancy|null $vacancy
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant query()
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereFirstName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereHowDidYouFindUs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereLanguages($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereLastName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereLink($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereLocation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereSource($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Applicant whereVacancyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Application newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Application query()
  */
-	class Applicant extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
+	class Application extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
 
 namespace App\Models{
@@ -167,7 +141,7 @@ namespace App\Models{
  * @property string|null $title
  * @property array|null $socials
  * @property \Illuminate\Support\Carbon|null $email_verified_at
- * @property mixed $password
+ * @property mixed|null $password
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at

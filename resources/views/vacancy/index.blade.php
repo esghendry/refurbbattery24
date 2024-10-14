@@ -67,7 +67,7 @@
                     >
                         Nu solliciteren, snel en eenvoudig
                     </h1>
-                    <livewire:applicant-form :source="'werken-bij'" />
+                    <livewire:application-form :source="'werken-bij'" />
                 </div>
             </div>
         </div>

@@ -2,13 +2,13 @@
 
 namespace App\Livewire;
 
-use App\Models\Applicant;
+use App\Models\Application;
 use App\Models\Vacancy;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class ApplicantForm extends Component
+class ApplicationForm extends Component
 {
     use WithFileUploads;
 
@@ -47,7 +47,7 @@ class ApplicantForm extends Component
     {
         $vacancy = Vacancy::where('slug', $this->slug)->first();
 
-        $applicant = Applicant::create([
+        $application = Application::create([
             'vacancy_id' => $vacancy?->id ?? null,
             'first_name' => $this->firstName,
             'last_name' => $this->lastName,
@@ -79,11 +79,11 @@ class ApplicantForm extends Component
                         break;
                 }
 
-                $applicant->addMedia($cvDocument)->toMediaCollection($collection);
+                $application->addMedia($cvDocument)->toMediaCollection($collection);
             }
         }
 
-        if ($applicant->wasRecentlyCreated) {
+        if ($application->wasRecentlyCreated) {
             $this->isSent = true;
         }
 
@@ -91,6 +91,6 @@ class ApplicantForm extends Component
 
     public function render()
     {
-        return view('livewire.applicant-form');
+        return view('livewire.application-form');
     }
 }

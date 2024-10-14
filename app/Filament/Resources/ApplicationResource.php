@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ApplicantResource\Pages;
-use App\Models\Applicant;
+use App\Filament\Resources\ApplicationResource\Pages;
+use App\Models\Application;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-class ApplicantResource extends Resource
+class ApplicationResource extends Resource
 {
-    protected static ?string $model = Applicant::class;
+    protected static ?string $model = Application::class;
 
     protected static ?string $navigationGroup = 'Vacancy';
 
@@ -107,10 +107,10 @@ class ApplicantResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListApplicants::route('/'),
-            // 'create' => Pages\CreateApplicant::route('/create'),
-            'view' => Pages\ViewApplicant::route('/{record}'),
-            // 'edit' => Pages\EditApplicant::route('/{record}/edit'),
+            'index' => Pages\ListApplications::route('/'),
+            // 'create' => Pages\CreateApplication::route('/create'),
+            'view' => Pages\ViewApplication::route('/{record}'),
+            // 'edit' => Pages\EditApplication::route('/{record}/edit'),
         ];
     }
 }
