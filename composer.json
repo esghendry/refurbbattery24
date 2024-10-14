@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "amidesfahani/filament-tinyeditor": "^2.0",
+        "bezhansalleh/filament-shield": "^3.2",
         "dutchcodingcompany/filament-socialite": "^2.2",
         "filament/filament": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
