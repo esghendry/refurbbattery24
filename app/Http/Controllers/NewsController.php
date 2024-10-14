@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ArticleStatus;
 use App\Models\Article;
 
 class NewsController extends Controller
@@ -21,6 +22,10 @@ class NewsController extends Controller
 
     public function show(Article $article)
     {
+        if (! in_array($article->status, [ArticleStatus::PUBLISHED, ArticleStatus::PREVIEW])) {
+            return redirect()->route('news.index');
+        }
+
         return view('article.show', [
             'article' => $article,
         ]);

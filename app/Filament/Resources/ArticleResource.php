@@ -205,7 +205,8 @@ class ArticleResource extends Resource
                     ->url(fn (Article $record) => route('news.show', $record->slug))
                     ->icon('heroicon-o-arrow-top-right-on-square')
                     ->color('gray')
-                    ->openUrlInNewTab(),
+                    ->openUrlInNewTab()
+                    ->hidden(fn (Article $record) => ! in_array($record->status, [ArticleStatus::PUBLISHED, ArticleStatus::PREVIEW])),
                 Tables\Actions\EditAction::make(),
             ], position: ActionsPosition::BeforeCells)
             ->bulkActions([

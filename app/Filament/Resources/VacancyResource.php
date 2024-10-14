@@ -180,7 +180,8 @@ class VacancyResource extends Resource
                     ->url(fn (Vacancy $record) => route('vacancy.show', $record->slug))
                     ->icon('heroicon-o-arrow-top-right-on-square')
                     ->color('gray')
-                    ->openUrlInNewTab(),
+                    ->openUrlInNewTab()
+                    ->hidden(fn (Vacancy $record) => ! in_array($record->status, [ArticleStatus::PUBLISHED, ArticleStatus::PREVIEW])),
                 Tables\Actions\EditAction::make(),
             ], position: ActionsPosition::BeforeCells)
             ->bulkActions([

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ArticleStatus;
 use App\Models\Vacancy;
 
 class VacancyController extends Controller
@@ -21,6 +22,10 @@ class VacancyController extends Controller
 
     public function show(Vacancy $vacancy)
     {
+        if (! in_array($vacancy->status, [ArticleStatus::PUBLISHED, ArticleStatus::PREVIEW])) {
+            return redirect()->route('vacancy.index');
+        }
+
         return view('vacancy.show', [
             'vacancy' => $vacancy,
         ]);
