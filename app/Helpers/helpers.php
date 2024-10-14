@@ -41,13 +41,12 @@ if (! function_exists('saveConvertUploadedImage')) {
         $extension = $file->getClientOriginalExtension();
 
         // create a unique filename, if file already exists with the same name/path
-        $count = 0;
         $uniqueFilename = $filename;
 
         if (! $overWriteFile) {
             while (Storage::disk($disk)->exists("{$dir}/{$uniqueFilename}.{$format}")) {
-                $count++;
-                $uniqueFilename = $filename.'_'.$count;
+                // create a unique filename with a random string
+                $uniqueFilename = $filename.'_'.Str::random(4);
             }
         }
 

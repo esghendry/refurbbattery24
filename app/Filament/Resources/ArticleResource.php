@@ -25,12 +25,8 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
-use Spatie\Image\Enums\Fit;
-use Spatie\Image\Enums\ImageDriver;
-use Spatie\Image\Image;
 
 class ArticleResource extends Resource
 {
@@ -69,25 +65,12 @@ class ArticleResource extends Resource
                             ->helperText('This will be the image used at the top of the article and the thumbnail of the article.')
                             ->columnSpanFull()
                             ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                                $extension = $file->getClientOriginalExtension();
-
-                                if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
-                                    return $file->store('articles/'.$record->id, 'do');
-                                }
-
-                                $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getFilename())['filename'].'.webp';
-                                // $imagePath = 'articles/'.$record->id.'/'.pathinfo($file->getClientOriginalName())['filename'].'.webp';
-
-                                // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
-                                $image = Image::useImageDriver(ImageDriver::Gd)
-                                    ->loadFile($file->getRealPath())
-                                    ->optimize()
-                                    ->base64('webp', false);
-
-                                // save the image to the cloud disk
-                                Storage::disk('do')->put($imagePath, base64_decode($image));
-
-                                return $imagePath;
+                                return saveConvertUploadedImage(
+                                    file: $file,
+                                    dir: 'articles/'.$record->id,
+                                    preserveFilename: true,
+                                    overWriteFile: true
+                                );
                             }),
 
                         TinyEditor::make('body')
@@ -97,27 +80,13 @@ class ArticleResource extends Resource
                                 return 'articles/'.$record->id;
                             })
                             ->saveUploadedFileAttachmentsUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                                $extension = $file->getClientOriginalExtension();
-
-                                // if image
-                                if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
-                                    return $file->store('articles/'.$record->id, 'do');
-                                }
-
-                                $imagePath = 'articles/'.$record->id.'/'.$file->getFilename().'.webp';
-
-                                // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
-                                $image = Image::useImageDriver(ImageDriver::Gd)
-                                    ->loadFile($file->getRealPath())
-                                    ->optimize()
-                                    ->fit(Fit::Max, 1000, 600)
-                                    // set $prefixWithFormat to false to not prefix the image with the format
-                                    ->base64('webp', false);
-
-                                // store the image in in 'do' storage disk
-                                Storage::disk('do')->put($imagePath, base64_decode($image));
-
-                                return $imagePath;
+                                return saveConvertUploadedImage(
+                                    file: $file,
+                                    dir: 'articles/'.$record->id,
+                                    preserveFilename: true,
+                                    desiredWidth: 1000,
+                                    desiredHeight: 600
+                                );
                             }),
 
                     ]),
