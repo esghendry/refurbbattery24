@@ -80,6 +80,12 @@ class UserResource extends Resource
                             ]),
                         TextInput::make('url'),
                     ]),
+
+                Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable(),
             ]);
     }
 
