@@ -53,12 +53,14 @@ if (! function_exists('saveConvertUploadedImage')) {
         bool $overwriteFile = false,
     ) {
         // convert the image to webp
-        $imageContent = convertImage(
+        if (! $imageContent = convertImage(
             file: $file,
             desiredWidth: $desiredWidth,
             desiredHeight: $desiredHeight,
             format: $format
-        );
+        )) {
+            return false;
+        }
 
         // save the image
         $imagePath = saveImage(
@@ -84,6 +86,18 @@ if (! function_exists('saveConvertUploadedImage')) {
             ?int $desiredHeight = null,
             string $format = 'webp',
         ): string {
+
+            // get the extension
+            $extension = $file instanceof TemporaryUploadedFile
+            ? $file->getClientOriginalExtension()
+            : pathinfo($file->getFilename(), PATHINFO_EXTENSION);
+
+            // if not an image, return false
+            if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                // return $file->store($dir, $disk);
+                return false;
+            }
+
             // convert the image to webp, get the base64 encoded image. Because Image is not able to save the image to the cloud disk for some reason
             $image = Image::useImageDriver(ImageDriver::Gd)
                 ->loadFile($file->getRealPath())
@@ -117,11 +131,6 @@ if (! function_exists('saveConvertUploadedImage')) {
                 : $file->getFilename(), PATHINFO_FILENAME
             );
 
-            // get the extension
-            $extension = $file instanceof TemporaryUploadedFile
-                ? $file->getClientOriginalExtension()
-                : pathinfo($file->getFilename(), PATHINFO_EXTENSION);
-
             $uniqueFilename = $filename;
 
             if (! $overwriteFile) {
@@ -131,12 +140,6 @@ if (! function_exists('saveConvertUploadedImage')) {
                 }
             }
 
-            // if not an image, return false
-            if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
-                // return $file->store($dir, $disk);
-                return false;
-            }
-
             $imagePath = "{$dir}/{$uniqueFilename}.{$format}";
 
             // store the image in $disk ('do') storage disk
@@ -144,7 +147,7 @@ if (! function_exists('saveConvertUploadedImage')) {
 
             // add image to storageObjects
             if ($record) {
-                $record->storageObjects()->create([
+                $record->images()->create([
                     'path' => $imagePath,
                     'filename' => $uniqueFilename,
                     'disk' => $disk,
