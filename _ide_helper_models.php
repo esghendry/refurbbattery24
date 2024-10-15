@@ -28,6 +28,8 @@ namespace App\Models{
  * @property string|null $source
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StorageObject> $storageObjects
+ * @property-read int|null $storage_objects_count
  * @property-read \App\Models\Vacancy|null $vacancy
  * @method static \Illuminate\Database\Eloquent\Builder|Application newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Application newQuery()

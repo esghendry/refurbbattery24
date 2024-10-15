@@ -62,24 +62,10 @@ class ApplicationForm extends Component
 
         if (is_array($this->cvDocuments)) {
             foreach ($this->cvDocuments as $cvDocument) {
-                $extension = $cvDocument->getClientOriginalExtension();
-
-                switch ($extension) {
-                    case 'jpg':
-                    case 'jpeg':
-                    case 'png':
-                    case 'webp':
-                        $collection = 'application_images';
-                        break;
-                    case 'pdf':
-                        $collection = 'application_pdf';
-                        break;
-                    default:
-                        $collection = 'application_files';
-                        break;
-                }
-
-                $application->addMedia($cvDocument)->toMediaCollection($collection);
+                $application->saveTemporaryFile(
+                    file: $cvDocument,
+                    preserveFilename: true
+                );
             }
         }
 

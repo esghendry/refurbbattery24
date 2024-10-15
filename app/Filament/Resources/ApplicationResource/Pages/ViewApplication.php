@@ -9,7 +9,6 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists;
-use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ViewEntry;
 use Filament\Infolists\Infolist;
@@ -59,13 +58,9 @@ class ViewApplication extends ViewRecord
                         TextEntry::make('how_did_you_find_us')
                             ->default('-'),
                     ]),
-                SpatieMediaLibraryImageEntry::make('application_images')
-                    ->collection('application_images')
-                    ->visibility('private')
-                    ->hidden(fn ($state) => count($state) < 1)
-                    ->columnSpanFull(),
                 ViewEntry::make('files')
-                    ->view('filament.infolists.entries.application-files'),
+                    ->view('filament.infolists.entries.application-files')
+                    ->columnSpanFull(),
             ]);
     }
 
