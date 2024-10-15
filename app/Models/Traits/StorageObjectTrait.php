@@ -20,7 +20,8 @@ trait StorageObjectTrait
         ?string $dir = null,
         bool $preserveFilename = false,
         string $disk = 'do',
-        bool $overwriteFile = false
+        bool $overwriteFile = false,
+        string $visibility = 'private'
     ) {
         if (! $dir) {
             $id = $this->getKey() ?? '';
@@ -64,7 +65,7 @@ trait StorageObjectTrait
         $hash = md5($file->getContent());
 
         // save file to disk
-        $file = $file->storeAs($dir, $fileName, $disk);
+        $file = $file->storeAs($dir, $fileName, ['disk' => $disk, 'visibility' => $visibility]);
 
         // add file to storage objects
         $this->storageObjects()->create([
