@@ -51,7 +51,7 @@
                     <div class="flex justify-center h-full p-6 bg-gray-300">
                         <span
                             class="grid items-center self-center w-full grid-cols-3 gap-6 text-4xl text-gray-800 transition duration-700 justify-items-center dark:text-white">
-                            <img src="{{ asset('assets/logos/esg-tech.webp') }}" alt="esg-tech"
+                            <img src="{{ asset('assets/logos/esg-tech.svg') }}" alt="esg-tech"
                                 class="max-h-[250px] w-full" />
                             <img src="{{ asset('assets/logos/hyvolt.svg') }}" alt="hyvolt"
                                 class="max-h-[250px] w-full" />
