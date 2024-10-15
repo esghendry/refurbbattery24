@@ -15,14 +15,38 @@ namespace App\Models{
 /**
  * 
  *
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
- * @property-read int|null $media_count
+ * @property int $id
+ * @property int|null $vacancy_id
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property string|null $email
+ * @property string|null $phone
+ * @property string|null $location
+ * @property string|null $languages
+ * @property string|null $link
+ * @property string|null $how_did_you_find_us
+ * @property string|null $source
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Vacancy|null $vacancy
  * @method static \Illuminate\Database\Eloquent\Builder|Application newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Application newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Application query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereHowDidYouFindUs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereLanguages($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereLocation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereSource($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereVacancyId($value)
  */
-	class Application extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
+	class Application extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -41,8 +65,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
- * @property-read int|null $media_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StorageObject> $images
+ * @property-read int|null $images_count
  * @method static \Illuminate\Database\Eloquent\Builder|Article newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Article newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Article query()
@@ -59,7 +83,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedAt($value)
  */
-	class Article extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
+	class Article extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -108,6 +132,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StorageObject> $images
+ * @property-read int|null $images_count
  * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location query()
@@ -135,6 +161,41 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $model_type
+ * @property int $model_id
+ * @property string $path
+ * @property string $filename
+ * @property string $disk
+ * @property int|null $size
+ * @property string|null $type
+ * @property string|null $hash
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $model
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $storageObjectable
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject query()
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereDisk($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereFilename($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereHash($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject wherePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|StorageObject whereUpdatedAt($value)
+ */
+	class StorageObject extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property string|null $image
@@ -145,6 +206,8 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StorageObject> $images
+ * @property-read int|null $images_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Permission> $permissions
@@ -193,9 +256,9 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StorageObject> $images
+ * @property-read int|null $images_count
  * @property-read \App\Models\Location|null $location
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
- * @property-read int|null $media_count
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy newQuery()
@@ -216,6 +279,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy whereUserId($value)
  */
-	class Vacancy extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
+	class Vacancy extends \Eloquent {}
 }
 

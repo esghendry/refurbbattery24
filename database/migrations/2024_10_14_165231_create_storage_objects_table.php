@@ -16,8 +16,8 @@ return new class extends Migration
 
             $table->morphs('model');
 
-            $table->text('path');
-            $table->text('file_name');
+            $table->string('path', 512);
+            $table->text('filename');
             $table->string('disk');
 
             $table->unsignedBigInteger('size')->nullable();

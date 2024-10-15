@@ -59,11 +59,10 @@ class UserResource extends Resource
                     ->imageCropAspectRatio('1:1')
                     ->preserveFilenames()
                     ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?User $record) {
-                        return saveConvertUploadedImage(
+                        return $record->saveConvertUploadedImage(
                             file: $file,
-                            dir: "users/{$record->id}",
                             preserveFilename: true,
-                            overWriteFile: true
+                            overwriteFile: true
                         );
                     }),
 

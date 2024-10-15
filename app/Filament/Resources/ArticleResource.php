@@ -65,11 +65,10 @@ class ArticleResource extends Resource
                             ->helperText('This will be the image used at the top of the article and the thumbnail of the article.')
                             ->columnSpanFull()
                             ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                                return saveConvertUploadedImage(
+                                return $record->saveConvertUploadedImage(
                                     file: $file,
-                                    dir: 'articles/'.$record->id,
                                     preserveFilename: true,
-                                    overWriteFile: true
+                                    overwriteFile: true
                                 );
                             }),
 
@@ -80,12 +79,11 @@ class ArticleResource extends Resource
                                 return 'articles/'.$record->id;
                             })
                             ->saveUploadedFileAttachmentsUsing(function (TemporaryUploadedFile $file, ?Article $record) {
-                                return saveConvertUploadedImage(
+                                return $record->saveConvertUploadedImage(
                                     file: $file,
-                                    dir: 'articles/'.$record->id,
                                     preserveFilename: true,
                                     desiredWidth: 1000,
-                                    desiredHeight: 600
+                                    desiredHeight: 600,
                                 );
                             }),
 

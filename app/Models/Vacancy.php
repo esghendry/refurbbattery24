@@ -3,16 +3,15 @@
 namespace App\Models;
 
 use App\Enums\ArticleStatus;
+use App\Models\Traits\ImageTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Vacancy extends Model implements HasMedia
+class Vacancy extends Model
 {
     use HasFactory;
-    use InteractsWithMedia;
+    use ImageTrait;
 
     protected $guarded = [];
 

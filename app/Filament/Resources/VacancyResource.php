@@ -62,11 +62,10 @@ class VacancyResource extends Resource
                                 ->columnSpanFull()
                                 ->preserveFilenames()
                                 ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Vacancy $record) {
-                                    return saveConvertUploadedImage(
+                                    return $record->saveConvertUploadedImage(
                                         file: $file,
-                                        dir: "vacancies/{$record->id}",
                                         preserveFilename: true,
-                                        overWriteFile: true
+                                        overwriteFile: true
                                     );
                                 }),
 
@@ -88,7 +87,15 @@ class VacancyResource extends Resource
                                     TextInput::make('title')
                                         ->lazy(),
                                     TinyEditor::make('content')
-                                        ->fileAttachmentsDisk('do'),
+                                        ->fileAttachmentsDisk('do')
+                                        ->saveUploadedFileAttachmentsUsing(function (TemporaryUploadedFile $file, ?Vacancy $record) {
+                                            return $record->saveConvertUploadedImage(
+                                                file: $file,
+                                                preserveFilename: true,
+                                                desiredWidth: 1000,
+                                                desiredHeight: 600,
+                                            );
+                                        }),
                                 ]),
 
                         ]),

@@ -41,11 +41,10 @@ class LocationResource extends Resource
                     ->columnSpanFull()
                     ->preserveFilenames()
                     ->saveUploadedFileUsing(function (TemporaryUploadedFile $file, ?Location $record) {
-                        return saveConvertUploadedImage(
-                            $file,
-                            "locations/{$record->id}",
+                        return $record->saveConvertUploadedImage(
+                            file: $file,
                             preserveFilename: true,
-                            overWriteFile: true
+                            overwriteFile: true
                         );
                     }),
 
