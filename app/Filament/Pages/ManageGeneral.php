@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Settings\GeneralSettings;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
@@ -12,9 +13,13 @@ use Filament\Pages\SettingsPage;
 
 class ManageGeneral extends SettingsPage
 {
+    use HasPageShield;
+
     protected static string $settings = GeneralSettings::class;
 
     protected static ?string $navigationGroup = 'Settings';
+
+    protected static ?string $title = 'General';
 
     protected static ?int $navigationSort = 1;
 

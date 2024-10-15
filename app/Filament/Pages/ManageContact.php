@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Models\Location;
 use App\Models\User;
 use App\Settings\ContactSettings;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -14,9 +15,13 @@ use Filament\Pages\SettingsPage;
 
 class ManageContact extends SettingsPage
 {
+    use HasPageShield;
+
     protected static string $settings = ContactSettings::class;
 
     protected static ?string $navigationGroup = 'Settings';
+
+    protected static ?string $title = 'Contact';
 
     protected static ?int $navigationSort = 2;
 
