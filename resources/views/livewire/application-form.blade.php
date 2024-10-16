@@ -189,9 +189,9 @@
                     >
                         Upload je CV document(en) hier
                     </label>
-                    @error("cvDocuments")
+                    {{-- @error("cvDocuments")
                         <span class="text-red-500">{{ $message }}</span>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 <div class="col-span-2">
