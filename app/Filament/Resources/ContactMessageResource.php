@@ -16,6 +16,20 @@ class ContactMessageResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $modelLabel = 'Message';
+
+    protected static ?string $navigationBadgeTooltip = 'Unread messages';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('read_at', null)->count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'danger';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -39,6 +53,12 @@ class ContactMessageResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\IconColumn::make('read_at')
+                    ->label('')
+                    ->trueIcon('')
+                    ->false('heroicon-m-exclamation-circle')
+                    ->getStateUsing(fn ($record): bool => $record->read_at !== null),
+
                 Tables\Columns\TextColumn::make('first_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('last_name')
@@ -56,6 +76,7 @@ class ContactMessageResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
@@ -66,6 +87,11 @@ class ContactMessageResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\BulkAction::make('mark_as_read')
+                        ->action(fn ($records) => $records->each->update(['read_at' => now()]))
+                        ->label('Mark as read')
+                        ->color('warning')
+                        ->icon('heroicon-o-check-circle'),
                 ]),
             ]);
     }

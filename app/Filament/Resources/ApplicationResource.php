@@ -21,6 +21,18 @@ class ApplicationResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
+    protected static ?string $navigationBadgeTooltip = 'Unread applications';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('read_at', null)->count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'danger';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -53,6 +65,12 @@ class ApplicationResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\IconColumn::make('read_at')
+                    ->label('')
+                    ->trueIcon('')
+                    ->false('heroicon-m-exclamation-circle')
+                    ->getStateUsing(fn ($record): bool => $record->read_at !== null),
+
                 Tables\Columns\TextColumn::make('vacancy.title')
                     ->default('Werken-bij index pagina')
                     ->limit(32)
@@ -93,6 +111,11 @@ class ApplicationResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\BulkAction::make('mark_as_read')
+                        ->action(fn ($records) => $records->each->update(['read_at' => now()]))
+                        ->label('Mark as read')
+                        ->color('warning')
+                        ->icon('heroicon-o-check-circle'),
                 ]),
             ]);
     }

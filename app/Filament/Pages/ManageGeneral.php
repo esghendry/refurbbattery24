@@ -17,7 +17,7 @@ class ManageGeneral extends SettingsPage
 
     protected static string $settings = GeneralSettings::class;
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'Admin';
 
     protected static ?string $title = 'General';
 

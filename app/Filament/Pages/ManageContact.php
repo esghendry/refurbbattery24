@@ -19,7 +19,7 @@ class ManageContact extends SettingsPage
 
     protected static string $settings = ContactSettings::class;
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'Admin';
 
     protected static ?string $title = 'Contact';
 

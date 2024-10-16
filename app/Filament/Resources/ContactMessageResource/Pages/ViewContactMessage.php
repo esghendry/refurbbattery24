@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ContactMessageResource\Pages;
 
 use App\Filament\Resources\ContactMessageResource;
 use Filament\Actions;
+use Filament\Actions\Action;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\Split;
 use Filament\Infolists\Components\TextEntry;
@@ -18,6 +19,11 @@ class ViewContactMessage extends ViewRecord
     {
         return [
             // Actions\EditAction::make(),
+            Action::make('mark_as_read')
+                ->label('Mark as read')
+                ->action('markAsRead')
+                ->color('warning')
+                ->hidden(fn ($record): bool => $record->read_at !== null),
         ];
     }
 
@@ -41,5 +47,10 @@ class ViewContactMessage extends ViewRecord
                 ])->grow(false),
             ])->columnSpanFull(),
         ]);
+    }
+
+    public function markAsRead(): void
+    {
+        $this->record->update(['read_at' => now()]);
     }
 }

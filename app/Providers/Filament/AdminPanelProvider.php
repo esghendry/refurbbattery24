@@ -50,7 +50,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 'Vacancy',
                 NavigationGroup::make()
-                    ->label('Settings')
+                    ->label('Admin')
                     ->icon('heroicon-o-cog-6-tooth'),
             ])
             ->maxContentWidth(MaxWidth::ScreenTwoExtraLarge)
