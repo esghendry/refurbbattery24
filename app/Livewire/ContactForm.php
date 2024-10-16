@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\ContactMessage;
+use App\Notifications\ContactConfirmation;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -32,6 +33,8 @@ class ContactForm extends Component
         if ($contact->wasRecentlyCreated) {
             $this->isSent = true;
         }
+
+        $contact->notify((new ContactConfirmation));
     }
 
     public function render()

@@ -28,6 +28,8 @@ namespace App\Models{
  * @property string|null $source
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StorageObject> $storageObjects
  * @property-read int|null $storage_objects_count
  * @property-read \App\Models\Vacancy|null $vacancy
@@ -100,6 +102,8 @@ namespace App\Models{
  * @property string|null $message
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
  * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage query()
