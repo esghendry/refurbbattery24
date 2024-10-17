@@ -36,7 +36,6 @@ class ContactConfirmation extends Notification implements ShouldQueue
         $cc = contactSettings()->cc;
 
         return (new MailMessage)
-            ->from('no-reply@refurbbattery.nl', 'Refurb Battery')
             ->bcc($bcc)
             ->cc($cc)
             ->subject('Bevestiging contactformulier')

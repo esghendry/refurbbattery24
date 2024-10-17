@@ -35,7 +35,6 @@ class ApplicationConfirmation extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         $mailMessage = (new MailMessage)
-            ->from('no-reply@refurbbattery.nl', 'Refurb Battery')
             ->bcc(contactSettings()->bcc)
             ->cc(contactSettings()->cc)
             ->subject('Bevestiging sollicitatieformulier')
