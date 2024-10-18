@@ -29,7 +29,7 @@ class ManageContact extends SettingsPage
     {
         return $form
             ->schema([
-                Repeater::make('bcc')
+                Repeater::make('notification_recipients')
                     ->label('Notification recipients')
                     ->helperText('Send form notifications to these email addresses.')
                     ->columnSpanFull()

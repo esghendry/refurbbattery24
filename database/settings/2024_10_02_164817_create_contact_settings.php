@@ -6,6 +6,7 @@ return new class extends SettingsMigration
 {
     public function up(): void
     {
+        $this->migrator->add('contact.notification_recipients', []);
         $this->migrator->add('contact.bcc', []);
         $this->migrator->add('contact.cc', []);
         $this->migrator->add('contact.email', 'hello@refurbbattery.eu');
@@ -19,6 +20,7 @@ return new class extends SettingsMigration
 
     public function down(): void
     {
+        $this->migrator->delete('contact.notification_recipients');
         $this->migrator->delete('contact.bcc');
         $this->migrator->delete('contact.cc');
         $this->migrator->delete('contact.email');

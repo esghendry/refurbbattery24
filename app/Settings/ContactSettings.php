@@ -8,6 +8,8 @@ use Spatie\LaravelSettings\Settings;
 
 class ContactSettings extends Settings
 {
+    public array $notification_recipients;
+
     public array $bcc;
 
     public array $cc;
