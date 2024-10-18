@@ -3,18 +3,28 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ContactConfirmation extends Notification implements ShouldQueue
+class FormNotification extends Notification
 {
     use Queueable;
+
+    public string $type;
+
+    public string $url;
+
+    public string $urlText;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct() {}
+    public function __construct(string $type, string $url, string $urlText = 'Bekijk')
+    {
+        $this->type = $type;
+        $this->url = $url;
+        $this->urlText = $urlText;
+    }
 
     /**
      * Get the notification's delivery channels.
@@ -31,15 +41,14 @@ class ContactConfirmation extends Notification implements ShouldQueue
      */
     public function toMail(object $notifiable): MailMessage
     {
+        // no $notifiable, email is sent to a list of email addresses (notification recipients)
+
+        $siteName = generalSettings()->site_name;
+
         return (new MailMessage)
-            ->subject('Bevestiging contactformulier')
-            ->greeting("Beste {$notifiable->first_name} {$notifiable->last_name},")
-            ->line('Bedankt voor het invullen van het contactformulier. We hebben uw bericht ontvangen.')
-            ->line('Hieronder de informatie die u heeft ingediend. Met deze informatie proberen wij contact op te nemen als dat van toepassing is.')
-            ->line('Naam: '.$notifiable->first_name.' '.$notifiable->last_name)
-            ->line('E-mail: '.$notifiable->email)
-            ->line('Telefoonnummer: '.$notifiable->phone)
-            ->line('Bericht: '.$notifiable->message);
+            ->subject("Nieuw {$this->type} ontvangen - {$siteName}")
+            ->line("We wilden u informeren dat er een nieuw {$this->type} is ingediend via {$siteName}.")
+            ->action("Bekijk {$this->type}", $this->url);
     }
 
     /**

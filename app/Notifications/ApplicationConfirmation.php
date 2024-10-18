@@ -35,8 +35,6 @@ class ApplicationConfirmation extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         $mailMessage = (new MailMessage)
-            ->bcc(contactSettings()->bcc)
-            ->cc(contactSettings()->cc)
             ->subject('Bevestiging sollicitatieformulier')
             ->greeting("Beste {$notifiable->first_name} {$notifiable->last_name},")
             ->line('Bedankt voor het invullen van het sollicitatieformulier. We hebben uw sollicitatie ontvangen.')
