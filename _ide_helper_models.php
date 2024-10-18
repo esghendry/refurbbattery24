@@ -26,6 +26,7 @@ namespace App\Models{
  * @property string|null $link
  * @property string|null $how_did_you_find_us
  * @property string|null $source
+ * @property string|null $read_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
@@ -46,6 +47,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Application whereLink($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Application whereLocation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Application wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Application whereReadAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Application whereSource($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Application whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Application whereVacancyId($value)
@@ -100,6 +102,7 @@ namespace App\Models{
  * @property string|null $email
  * @property string|null $phone
  * @property string|null $message
+ * @property string|null $read_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
@@ -114,6 +117,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage whereLastName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage whereMessage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage whereReadAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ContactMessage whereUpdatedAt($value)
  */
 	class ContactMessage extends \Eloquent {}
@@ -240,7 +244,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
  */
-	class User extends \Eloquent {}
+	class User extends \Eloquent implements \Filament\Models\Contracts\FilamentUser {}
 }
 
 namespace App\Models{
