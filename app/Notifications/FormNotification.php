@@ -47,6 +47,7 @@ class FormNotification extends Notification
 
         return (new MailMessage)
             ->subject("Nieuw {$this->type} ontvangen - {$siteName}")
+            ->greeting('Hallo!')
             ->line("We wilden u informeren dat er een nieuw {$this->type} is ingediend via {$siteName}.")
             ->action("Bekijk {$this->type}", $this->url);
     }
