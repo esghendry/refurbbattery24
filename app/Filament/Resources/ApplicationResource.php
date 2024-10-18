@@ -74,6 +74,7 @@ class ApplicationResource extends Resource
                 Tables\Columns\TextColumn::make('vacancy.title')
                     ->default('Werken-bij index pagina')
                     ->limit(32)
+                    ->tooltip(fn ($state) => $state)
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('first_name')
@@ -83,6 +84,9 @@ class ApplicationResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('location')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')

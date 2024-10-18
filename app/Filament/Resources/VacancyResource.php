@@ -87,6 +87,8 @@ class VacancyResource extends Resource
                                     TextInput::make('title')
                                         ->lazy(),
                                     TinyEditor::make('content')
+                                        ->toolbarSticky(false)
+                                        ->toolbarMode('sliding')
                                         ->fileAttachmentsDisk('do')
                                         ->saveUploadedFileAttachmentsUsing(function (TemporaryUploadedFile $file, ?Vacancy $record) {
                                             return $record->saveConvertUploadedImage(

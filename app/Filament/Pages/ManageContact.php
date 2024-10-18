@@ -30,18 +30,21 @@ class ManageContact extends SettingsPage
         return $form
             ->schema([
                 Repeater::make('bcc')
+                    ->label('Notification recipients')
+                    ->helperText('Send form notifications to these email addresses.')
+                    ->columnSpanFull()
                     ->simple(
                         TextInput::make('email')
                             ->type('email')
                             ->required()
                     ),
 
-                Repeater::make('cc')
-                    ->simple(
-                        TextInput::make('email')
-                            ->type('email')
-                            ->required()
-                    ),
+                // Repeater::make('cc')
+                //     ->simple(
+                //         TextInput::make('email')
+                //             ->type('email')
+                //             ->required()
+                //     ),
 
                 TextInput::make('email'),
                 Section::make([

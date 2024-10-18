@@ -73,6 +73,7 @@ class ArticleResource extends Resource
                             }),
 
                         TinyEditor::make('body')
+                            ->toolbarMode('sliding')
                             ->columnSpanFull()
                             ->fileAttachmentsDisk('do')
                             ->fileAttachmentsDirectory(function ($record) {
