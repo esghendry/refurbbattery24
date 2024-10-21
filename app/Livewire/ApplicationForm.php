@@ -76,7 +76,7 @@ class ApplicationForm extends Component
             $this->isSent = true;
             $application->notify((new ApplicationConfirmation));
 
-            Notification::route('mail', contactSettings()->bcc)
+            Notification::route('mail', contactSettings()->notification_recipients)
                 ->notify((new FormNotification(
                     type: 'sollicitatie',
                     url: route('filament.admin.resources.applications.view', $application->id),
