@@ -24,7 +24,8 @@ class CreateUser extends CreateRecord
                 TextInput::make('email')
                     ->email()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->unique(ignoreRecord: true),
                 TextInput::make('title')
                     ->maxLength(255),
                 TextInput::make('password')
