@@ -16,9 +16,7 @@ class ContactSettings extends Settings
 
     public string $email;
 
-    public string $phone;
-
-    public string $phone_display;
+    public ?string $phone;
 
     public int $location_id;
 

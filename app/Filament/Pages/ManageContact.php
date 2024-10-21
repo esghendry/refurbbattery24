@@ -7,11 +7,11 @@ use App\Models\User;
 use App\Settings\ContactSettings;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
+use Ysfkaya\FilamentPhoneInput\Forms\PhoneInput;
 
 class ManageContact extends SettingsPage
 {
@@ -39,19 +39,12 @@ class ManageContact extends SettingsPage
                             ->required()
                     ),
 
-                // Repeater::make('cc')
-                //     ->simple(
-                //         TextInput::make('email')
-                //             ->type('email')
-                //             ->required()
-                //     ),
-
                 TextInput::make('email'),
-                Section::make([
-                    TextInput::make('phone')
-                        ->prefix('tel:'),
-                    TextInput::make('phone_display'),
-                ]),
+
+                PhoneInput::make('phone')
+                    ->defaultCountry('NL')
+                    ->countryOrder(['NL', 'BE'])
+                    ->locale('nl'),
 
                 Select::make('vacancy_user_id')
                     ->label('Recruiter (contact person)')
