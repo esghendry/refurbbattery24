@@ -51,4 +51,28 @@ class CreateVacancy extends CreateRecord
     {
         return $this->getResource()::getUrl('edit', ['record' => $this->record->id]);
     }
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['blocks'] = [
+            0 => [
+                'title' => 'Watt levert het mij op?',
+                'content' => '<ul><li>List item 1</li><li>List item 2</li></ul>',
+            ],
+            1 => [
+                'title' => 'Watt is mijn missie?',
+                'content' => '<ul><li>List item 1</li><li>List item 2</li></ul>',
+            ],
+            2 => [
+                'title' => 'Watt ga ik doen?',
+                'content' => '<ul><li>List item 1</li><li>List item 2</li></ul>',
+            ],
+            3 => [
+                'title' => 'Onze energie komt overeen wanneer…',
+                'content' => '<ul><li>List item 1</li><li>List item 2</li></ul>',
+            ],
+        ];
+
+        return $data;
+    }
 }
