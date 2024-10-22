@@ -60,8 +60,8 @@ namespace App\Models{
  * 
  *
  * @property int $id
- * @property string $slug
  * @property string $title
+ * @property string $slug
  * @property string|null $body
  * @property string|null $image
  * @property string|null $author
@@ -164,6 +164,64 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedAt($value)
  */
 	class Location extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $title
+ * @property string|null $slug
+ * @property string|null $data
+ * @property string $status
+ * @property string|null $published_at
+ * @property string|null $published_until
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Section> $sections
+ * @property-read int|null $sections_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Page newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Page newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Page query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page wherePublishedUntil($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page whereUpdatedAt($value)
+ */
+	class Page extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $title
+ * @property string|null $type
+ * @property string|null $data
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Page> $pages
+ * @property-read int|null $pages_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Section newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Section newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Section query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Section whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Section whereData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Section whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Section whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Section whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Section whereUpdatedAt($value)
+ */
+	class Section extends \Eloquent {}
 }
 
 namespace App\Models{
