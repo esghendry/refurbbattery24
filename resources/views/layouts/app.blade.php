@@ -195,6 +195,7 @@
     </footer>
 
     <!-- Scripts -->
+    @livewireScripts()
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
