@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\VacancyResource\Pages;
 
+use App\Enums\ArticleStatus;
 use App\Filament\Resources\VacancyResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
