@@ -13,7 +13,13 @@ class EditVacancy extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            // Actions\ViewAction::make(),
+            Actions\Action::make('view')
+                ->label('View')
+                ->url(fn() => route('vacancy.show', $this->record->slug))
+                ->icon('heroicon-o-arrow-top-right-on-square')
+                ->color('gray')
+                ->openUrlInNewTab()
+                ->hidden(fn() => !in_array($this->record->status, [ArticleStatus::PUBLISHED, ArticleStatus::PREVIEW])),
             Actions\DeleteAction::make(),
         ];
     }
