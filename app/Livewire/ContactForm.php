@@ -4,8 +4,6 @@ namespace App\Livewire;
 
 use App\Models\ContactMessage;
 use App\Notifications\ContactConfirmation;
-use App\Notifications\FormNotification;
-use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -38,11 +36,7 @@ class ContactForm extends Component
 
         $contact->notify((new ContactConfirmation));
 
-        Notification::route('mail', contactSettings()->notification_recipients)
-            ->notify((new FormNotification(
-                type: 'contact bericht',
-                url: route('filament.admin.resources.contact-messages.view', $contact->id),
-            )));
+        notifyDashboardUsers($contact, ContactMessage::class);
     }
 
     public function render()
