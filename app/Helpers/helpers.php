@@ -3,7 +3,7 @@
 // namespace App\Helpers;
 
 use App\Filament\Resources\ApplicationResource;
-use App\Models\ContactMessage;
+use App\Filament\Resources\ContactMessageResource;
 use App\Models\User;
 use App\Notifications\FormNotification;
 use App\Settings\ContactSettings;
@@ -168,11 +168,12 @@ if (! function_exists('saveConvertUploadedImage')) {
 
     if (! function_exists('notifyDashboardUsers')) {
 
-        function notifyDashboardUsers(Model $record, $resource): void
+        function notifyDashboardUsers(Model $record, string $resource): void
         {
-            // set $type and $url based on the record model
+            // set $type and $url based on the (filament) resource
+            // because Shield bases the permissions on the resource
             switch ($resource) {
-                case ContactMessage::class:
+                case ContactMessageResource::class:
                     $type = 'contact bericht';
                     $url = route('filament.admin.resources.contact-messages.view', $record->id);
                     break;

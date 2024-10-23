@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Filament\Resources\ContactMessageResource;
 use App\Models\ContactMessage;
 use App\Notifications\ContactConfirmation;
 use Livewire\Component;
@@ -36,7 +37,7 @@ class ContactForm extends Component
 
         $contact->notify((new ContactConfirmation));
 
-        notifyDashboardUsers($contact, ContactMessage::class);
+        notifyDashboardUsers($contact, ContactMessageResource::class);
     }
 
     public function render()
