@@ -14,6 +14,6 @@ class Page extends Model
 
     public function sections(): MorphToMany
     {
-        return $this->morphToMany(Section::class, 'sectionable');
+        return $this->morphToMany(Section::class, 'sectionable')->withPivot(['order'])->withTimestamps();
     }
 }
