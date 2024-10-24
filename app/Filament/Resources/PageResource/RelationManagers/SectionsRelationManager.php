@@ -2,11 +2,13 @@
 
 namespace App\Filament\Resources\PageResource\RelationManagers;
 
+use App\Filament\Resources\SectionResource;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class SectionsRelationManager extends RelationManager
 {
@@ -32,13 +34,15 @@ class SectionsRelationManager extends RelationManager
             ->filters([
                 //
             ])
-            ->reorderable('sectionables.order')
+            ->reorderable('order')
             ->headerActions([
-                // Tables\Actions\CreateAction::make(),
                 Tables\Actions\AttachAction::make(),
+                Tables\Actions\CreateAction::make()
+                    ->url(fn ($livewire) => SectionResource::getUrl('create', ['pageRecord' => $livewire->ownerRecord->getKey()])),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->url(fn (Model $record, $livewire) => SectionResource::getUrl('edit', ['record' => $record, 'pageRecord' => $livewire->ownerRecord->getKey()])),
                 Tables\Actions\DetachAction::make(),
                 // Tables\Actions\DeleteAction::make(),
             ])

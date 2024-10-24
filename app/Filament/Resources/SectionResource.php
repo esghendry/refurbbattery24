@@ -3,15 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SectionResource\Pages;
-use App\Filament\Resources\SectionResource\RelationManagers;
 use App\Models\Section;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SectionResource extends Resource
 {
@@ -57,7 +55,22 @@ class SectionResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->action(function ($records) {
+                            foreach ($records as $record) {
+                                if ($record->pages()->exists()) {
+                                    Notification::make()
+                                        ->warning()
+                                        ->title(__('Failed to delete!').' - '.$record->title)
+                                        ->body(__('This section is used in :count page(s).', ['count' => $record->pages()->count()]))
+                                        ->send();
+
+                                    continue;
+                                }
+
+                                $record->delete();
+                            }
+                        }),
                 ]),
             ]);
     }
