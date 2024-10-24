@@ -2,11 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Filament\Resources\ApplicationResource;
 use App\Models\Application;
 use App\Models\Vacancy;
 use App\Notifications\ApplicationConfirmation;
-use App\Notifications\FormNotification;
-use Illuminate\Support\Facades\Notification;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
@@ -76,11 +75,7 @@ class ApplicationForm extends Component
             $this->isSent = true;
             $application->notify((new ApplicationConfirmation));
 
-            Notification::route('mail', contactSettings()->notification_recipients)
-                ->notify((new FormNotification(
-                    type: 'sollicitatie',
-                    url: route('filament.admin.resources.applications.view', $application->id),
-                )));
+            notifyDashboardUsers($application, ApplicationResource::class);
         }
 
     }

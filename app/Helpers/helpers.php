@@ -2,10 +2,15 @@
 
 // namespace App\Helpers;
 
+use App\Filament\Resources\ApplicationResource;
+use App\Filament\Resources\ContactMessageResource;
+use App\Models\User;
+use App\Notifications\FormNotification;
 use App\Settings\ContactSettings;
 use App\Settings\GeneralSettings;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Spatie\Image\Enums\Fit;
 use Spatie\Image\Enums\ImageDriver;
@@ -159,5 +164,64 @@ if (! function_exists('saveConvertUploadedImage')) {
 
             return $imagePath;
         }
+    }
+
+    if (! function_exists('notifyDashboardUsers')) {
+
+        function notifyDashboardUsers(Model $record, string $resource): void
+        {
+            // set $type and $url based on the (filament) resource
+            // because Shield bases the permissions on the resource
+            switch ($resource) {
+                case ContactMessageResource::class:
+                    $type = 'contact bericht';
+                    $url = route('filament.admin.resources.contact-messages.view', $record->id);
+                    break;
+
+                case ApplicationResource::class:
+                    $type = 'sollicitatie';
+                    $url = route('filament.admin.resources.applications.view', $record->id);
+                    break;
+
+                default:
+                    // log error
+                    Log::error('Unknown resource type: '.$resource);
+
+                    return;
+            }
+
+            $resourceName = Str::of($resource)
+                ->afterLast('Resources\\')
+                ->before('Resource')
+                ->replace('\\', '')
+                ->snake()
+                ->replace('_', '::');
+
+            // get all users with permission to view this record
+            $users = User::whereHas('roles', function ($query) use ($resourceName) {
+                // ignore super admin
+                $query->whereNot('name', 'super_admin')
+                    ->whereHas('permissions', function ($query) use ($resourceName) {
+                        $query->where('name', "view_{$resourceName}");
+                    });
+            })->get();
+
+            // pluck emails from users and merge with contactSettings()->notification_recipients
+            $emails = array_unique(array_merge(
+                $users->pluck('email')->toArray(),
+                contactSettings()->notification_recipients
+            ), SORT_REGULAR);
+
+            // log who will be notified
+            Log::info('Notifying: '.implode(', ', $emails));
+
+            Notification::route('mail', $emails)
+                ->notify((new FormNotification(
+                    $type,
+                    $url
+                )));
+
+        }
+
     }
 }
