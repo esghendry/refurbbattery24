@@ -207,10 +207,10 @@ if (! function_exists('saveConvertUploadedImage')) {
             })->get();
 
             // pluck emails from users and merge with contactSettings()->notification_recipients
-            $emails = array_merge(
+            $emails = array_unique(array_merge(
                 $users->pluck('email')->toArray(),
                 contactSettings()->notification_recipients
-            );
+            ), SORT_REGULAR);
 
             // log who will be notified
             Log::info('Notifying: '.implode(', ', $emails));
